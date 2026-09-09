@@ -60,7 +60,7 @@
 
   // ---------- Scroll reveals ----------
   if (hasGSAP) {
-    gsap.utils.toArray('.reveal, .service-block, .process-step, .timeline-item').forEach(function (el, i) {
+    gsap.utils.toArray('.reveal, .service-block, .process-step').forEach(function (el, i) {
       gsap.fromTo(el, { y: 30, opacity: 0 }, {
         y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 88%' }
@@ -78,7 +78,7 @@
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
   } else {
-    document.querySelectorAll('.reveal, .service-block, .process-step, .timeline-item, .hero-fade').forEach(function (el) {
+    document.querySelectorAll('.reveal, .service-block, .process-step, .hero-fade').forEach(function (el) {
       el.style.opacity = 1;
     });
   }
@@ -125,6 +125,48 @@
     trackWrap.style.overflow = 'visible';
     track.style.overflowX = 'auto';
     track.style.paddingBottom = '20px';
+  }
+
+  // ---------- Timeline: horizontal scroll-build (Il Percorso) ----------
+  var thSection = document.querySelector('.timeline-h');
+  var thStops = thSection ? Array.prototype.slice.call(thSection.querySelectorAll('[data-th-stop]')) : [];
+  var thDots = thSection ? Array.prototype.slice.call(thSection.querySelectorAll('[data-th-dot]')) : [];
+  var thLineFill = document.getElementById('thLineFill');
+
+  if (hasGSAP && thSection && thStops.length) {
+    var mmTh = gsap.matchMedia();
+
+    mmTh.add('(min-width: 981px)', function () {
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: thSection,
+          start: 'top top',
+          end: '+=' + (thStops.length * 500),
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+      thStops.forEach(function (stop, i) {
+        var pos = i;
+        tl.to(thLineFill, { scaleX: (i + 1) / thStops.length, duration: 1, ease: 'none' }, pos)
+          .to(stop, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, pos)
+          .to(thDots[i], { backgroundColor: '#ff8a5b', borderColor: '#ff8a5b', scale: 1.25, duration: 0.5, ease: 'power2.out' }, pos);
+      });
+      return function () {
+        gsap.set(thLineFill, { scaleX: 0 });
+        gsap.set(thStops, { opacity: 0, y: 26 });
+        gsap.set(thDots, { backgroundColor: '#0e100f', borderColor: '#42433d', scale: 1 });
+      };
+    });
+
+    mmTh.add('(max-width: 980px)', function () {
+      gsap.set(thLineFill, { scaleX: 1 });
+      gsap.set(thStops, { opacity: 1, y: 0 });
+    });
+  } else if (thStops.length) {
+    thStops.forEach(function (s) { s.style.opacity = 1; s.style.transform = 'none'; });
   }
 
   // ---------- Testimonial carousel ----------

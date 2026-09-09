@@ -85,7 +85,7 @@ p { color: var(--cream); margin: 0; }
 .section-head h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); letter-spacing: -0.02em; }
 .section-head p.desc { color: var(--muted); font-size: 19px; margin-top: 18px; line-height: 1.5; }
 
-.reveal, .service-block, .process-step, .timeline-item, .hero-fade { opacity: 0; }
+.reveal, .service-block, .process-step, .hero-fade { opacity: 0; }
 
 /* ---------- Buttons: outlined ghost pills ---------- */
 .btn {
@@ -218,12 +218,22 @@ p { color: var(--cream); margin: 0; }
 .about-copy p.body-p { color: var(--muted); font-size: 19px; line-height: 1.55; margin: 20px 0; }
 .about-copy em { color: var(--cream); font-style: normal; }
 
-.timeline { margin-top: 50px; }
-.timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--hairline); }
-.timeline-item:last-child { border-bottom: 1px solid var(--hairline); }
-.timeline-item b { font-size: 19px; color: var(--muted); }
-.timeline-item h4 { font-size: 21px; margin-bottom: 6px; }
-.timeline-item p { color: var(--muted); font-size: 17px; }
+/* ---------- Timeline — horizontal scroll-build ---------- */
+.timeline-h { padding: 60px 0 140px; overflow: hidden; }
+.th-head { max-width: 640px; margin-bottom: 90px; }
+.th-head h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); letter-spacing: -0.02em; }
+
+.th-track-wrap { position: relative; }
+.th-track { position: relative; display: flex; justify-content: space-between; gap: 32px; padding-top: 34px; }
+
+.th-line { position: absolute; top: 6px; left: 0; right: 0; height: 2px; background: var(--hairline); }
+.th-line-fill { height: 100%; width: 100%; background: var(--grad-signature); transform-origin: left center; transform: scaleX(0); }
+
+.th-stop { position: relative; width: 23%; display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); }
+.th-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--black); border: 2px solid var(--hairline); position: absolute; top: -34px; left: 0; }
+.th-year { font-size: 19px; color: var(--muted); }
+.th-stop h4 { font-size: 21px; }
+.th-stop p { color: var(--muted); font-size: 16px; line-height: 1.5; }
 
 /* ---------- Services : Tool Feature Block pattern ---------- */
 .services { padding: 100px 0 60px; }
@@ -393,6 +403,10 @@ p { color: var(--cream); margin: 0; }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
   .footer-top { flex-direction: column; }
   .hero-visual { width: 60vw; opacity: 0.5; }
+  .th-track { flex-direction: column; gap: 44px; padding-top: 0; }
+  .th-line { display: none; }
+  .th-stop { width: 100%; opacity: 1; transform: none; padding-left: 26px; border-left: 2px solid var(--hairline); }
+  .th-dot { top: 4px; left: -8px; background: var(--c-signature); border-color: var(--c-signature); }
 }
 
 @media (max-width: 760px) {
