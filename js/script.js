@@ -137,7 +137,18 @@
 
     mmTh.add('(min-width: 981px)', function () {
       var unitPx = 420;
-      var totalUnits = thFrames.length * 2 + (thFrames.length - 1);
+      var n = thFrames.length;
+      var totalUnits = n * 2 + (n - 1);
+      // Frames are laid out right-to-left (row-reverse): the first frame
+      // sits at xPercent 0, and each later frame sits further in the
+      // negative-local direction. Animating the track to a positive
+      // xPercent brings the next frame into view from the left while the
+      // current one exits toward the right — motion moves right as you
+      // scroll down, per request.
+      var xFor = function (frameIndex) { return frameIndex * 100; };
+
+      gsap.set(thTrack, { xPercent: xFor(0) });
+
       var tlh = gsap.timeline({
         scrollTrigger: {
           trigger: thPin,
@@ -155,8 +166,8 @@
         var desc = frame.querySelector('.th-frame-desc');
         tlh.fromTo(head, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
         tlh.fromTo(desc, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
-        if (i < thFrames.length - 1) {
-          tlh.to(thTrack, { xPercent: -100 * (i + 1), duration: 1, ease: 'power2.inOut' });
+        if (i < n - 1) {
+          tlh.to(thTrack, { xPercent: xFor(i + 1), duration: 1, ease: 'power2.inOut' });
         }
       });
 
