@@ -218,22 +218,25 @@ p { color: var(--cream); margin: 0; }
 .about-copy p.body-p { color: var(--muted); font-size: 19px; line-height: 1.55; margin: 20px 0; }
 .about-copy em { color: var(--cream); font-style: normal; }
 
-/* ---------- Timeline — horizontal scroll-build ---------- */
-.timeline-h { padding: 60px 0 140px; overflow: hidden; }
-.th-head { max-width: 640px; margin-bottom: 90px; }
+/* ---------- Timeline — horizontal scroll-driven slideshow ---------- */
+.timeline-h { padding: 140px 0 0; }
+.th-head { max-width: 640px; margin-bottom: 70px; }
 .th-head h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); letter-spacing: -0.02em; }
+.th-head p.desc { margin-top: 16px; }
 
-.th-track-wrap { position: relative; }
-.th-track { position: relative; display: flex; justify-content: space-between; gap: 32px; padding-top: 34px; }
+.th-pin { height: 100vh; }
+.th-track-wrap { height: 100%; overflow: hidden; }
+.th-track { display: flex; height: 100%; }
 
-.th-line { position: absolute; top: 6px; left: 0; right: 0; height: 2px; background: var(--hairline); }
-.th-line-fill { height: 100%; width: 100%; background: var(--grad-signature); transform-origin: left center; transform: scaleX(0); }
+.th-frame { flex: 0 0 100%; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.th-frame-inner { max-width: 720px; }
 
-.th-stop { position: relative; width: 23%; display: flex; flex-direction: column; gap: 14px; opacity: 0; transform: translateY(26px); }
-.th-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--black); border: 2px solid var(--hairline); position: absolute; top: -34px; left: 0; }
-.th-year { font-size: 19px; color: var(--muted); }
-.th-stop h4 { font-size: 21px; }
-.th-stop p { color: var(--muted); font-size: 16px; line-height: 1.5; }
+.th-frame-head { opacity: 0; transform: translateY(40px); }
+.th-frame-count { display: block; font-size: 15px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 22px; }
+.th-frame-year { display: block; font-size: clamp(3.2rem, 9vw, 7rem); line-height: 0.95; letter-spacing: -0.02em; background: var(--grad-signature); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 18px; }
+.th-frame-head h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.02em; }
+
+.th-frame-desc { opacity: 0; transform: translateY(30px); color: var(--muted); font-size: 21px; line-height: 1.55; max-width: 560px; margin-top: 28px; }
 
 /* ---------- Services : Tool Feature Block pattern ---------- */
 .services { padding: 100px 0 60px; }
@@ -403,10 +406,13 @@ p { color: var(--cream); margin: 0; }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
   .footer-top { flex-direction: column; }
   .hero-visual { width: 60vw; opacity: 0.5; }
-  .th-track { flex-direction: column; gap: 44px; padding-top: 0; }
-  .th-line { display: none; }
-  .th-stop { width: 100%; opacity: 1; transform: none; padding-left: 26px; border-left: 2px solid var(--hairline); }
-  .th-dot { top: 4px; left: -8px; background: var(--c-signature); border-color: var(--c-signature); }
+  .timeline-h { padding: 100px 0 40px; }
+  .th-pin { height: auto; }
+  .th-track-wrap { overflow: visible; }
+  .th-track { flex-direction: column; height: auto; gap: 64px; }
+  .th-frame { height: auto; flex: 0 0 auto; padding-bottom: 44px; border-bottom: 1px solid var(--hairline); }
+  .th-frame:last-child { border-bottom: none; }
+  .th-frame-head, .th-frame-desc { opacity: 1; transform: none; }
 }
 
 @media (max-width: 760px) {

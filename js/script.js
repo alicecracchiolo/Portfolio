@@ -127,46 +127,62 @@
     track.style.paddingBottom = '20px';
   }
 
-  // ---------- Timeline: horizontal scroll-build (Il Percorso) ----------
-  var thSection = document.querySelector('.timeline-h');
-  var thStops = thSection ? Array.prototype.slice.call(thSection.querySelectorAll('[data-th-stop]')) : [];
-  var thDots = thSection ? Array.prototype.slice.call(thSection.querySelectorAll('[data-th-dot]')) : [];
-  var thLineFill = document.getElementById('thLineFill');
+  // ---------- Timeline: horizontal scroll-driven slideshow (Il Percorso) ----------
+  var thPin = document.getElementById('thPin');
+  var thTrack = document.getElementById('thTrack');
+  var thFrames = thPin ? Array.prototype.slice.call(thPin.querySelectorAll('[data-th-frame]')) : [];
 
-  if (hasGSAP && thSection && thStops.length) {
+  if (hasGSAP && thPin && thFrames.length) {
     var mmTh = gsap.matchMedia();
 
     mmTh.add('(min-width: 981px)', function () {
-      var tl = gsap.timeline({
+      var unitPx = 420;
+      var totalUnits = thFrames.length * 2 + (thFrames.length - 1);
+      var tlh = gsap.timeline({
         scrollTrigger: {
-          trigger: thSection,
+          trigger: thPin,
           start: 'top top',
-          end: '+=' + (thStops.length * 500),
+          end: '+=' + (totalUnits * unitPx),
           scrub: 0.6,
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true
         }
       });
-      thStops.forEach(function (stop, i) {
-        var pos = i;
-        tl.to(thLineFill, { scaleX: (i + 1) / thStops.length, duration: 1, ease: 'none' }, pos)
-          .to(stop, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, pos)
-          .to(thDots[i], { backgroundColor: '#ff8a5b', borderColor: '#ff8a5b', scale: 1.25, duration: 0.5, ease: 'power2.out' }, pos);
+
+      thFrames.forEach(function (frame, i) {
+        var head = frame.querySelector('.th-frame-head');
+        var desc = frame.querySelector('.th-frame-desc');
+        tlh.fromTo(head, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+        tlh.fromTo(desc, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+        if (i < thFrames.length - 1) {
+          tlh.to(thTrack, { xPercent: -100 * (i + 1), duration: 1, ease: 'power2.inOut' });
+        }
       });
+
       return function () {
-        gsap.set(thLineFill, { scaleX: 0 });
-        gsap.set(thStops, { opacity: 0, y: 26 });
-        gsap.set(thDots, { backgroundColor: '#0e100f', borderColor: '#42433d', scale: 1 });
+        gsap.set(thTrack, { xPercent: 0 });
+        thFrames.forEach(function (frame) {
+          gsap.set(frame.querySelector('.th-frame-head'), { opacity: 0, y: 40 });
+          gsap.set(frame.querySelector('.th-frame-desc'), { opacity: 0, y: 30 });
+        });
       };
     });
 
     mmTh.add('(max-width: 980px)', function () {
-      gsap.set(thLineFill, { scaleX: 1 });
-      gsap.set(thStops, { opacity: 1, y: 0 });
+      gsap.set(thTrack, { xPercent: 0 });
+      thFrames.forEach(function (frame) {
+        gsap.set(frame.querySelector('.th-frame-head'), { opacity: 1, y: 0 });
+        gsap.set(frame.querySelector('.th-frame-desc'), { opacity: 1, y: 0 });
+      });
     });
-  } else if (thStops.length) {
-    thStops.forEach(function (s) { s.style.opacity = 1; s.style.transform = 'none'; });
+  } else if (thFrames.length) {
+    thFrames.forEach(function (frame) {
+      frame.querySelector('.th-frame-head').style.opacity = 1;
+      frame.querySelector('.th-frame-head').style.transform = 'none';
+      frame.querySelector('.th-frame-desc').style.opacity = 1;
+      frame.querySelector('.th-frame-desc').style.transform = 'none';
+    });
   }
 
   // ---------- Testimonial carousel ----------
