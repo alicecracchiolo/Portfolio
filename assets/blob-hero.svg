@@ -1,11 +1,11 @@
 <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
   <defs>
     <linearGradient id="ghero" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="10%" stop-color="#ff6b4a"/>
-      <stop offset="90%" stop-color="#ffd166"/>
+      <stop offset="10%" stop-color="#ff3d81"/>
+      <stop offset="90%" stop-color="#cbb8ff"/>
     </linearGradient>
     <radialGradient id="hhero" cx="32%" cy="28%" r="55%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
   </defs>
