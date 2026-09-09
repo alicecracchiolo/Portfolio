@@ -1,0 +1,14 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="gcopy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="10%" stop-color="#9d95ff"/>
+      <stop offset="90%" stop-color="#fec5fb"/>
+    </linearGradient>
+    <radialGradient id="hcopy" cx="32%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M300,70 C430,55 535,150 552,270 C570,395 495,495 365,522 C238,548 95,505 62,378 C30,255 95,130 185,100 C222,87 262,80 300,70 Z" fill="url(#gcopy)"/>
+  <path d="M300,70 C430,55 535,150 552,270 C570,395 495,495 365,522 C238,548 95,505 62,378 C30,255 95,130 185,100 C222,87 262,80 300,70 Z" fill="url(#hcopy)" style="mix-blend-mode:screen"/>
+</svg>
