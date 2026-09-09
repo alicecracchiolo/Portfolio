@@ -138,7 +138,9 @@
     mmTh.add('(min-width: 981px)', function () {
       var unitPx = 420;
       var n = thFrames.length;
-      var totalUnits = n * 2 + (n - 1);
+      var revealDuration = 1;
+      var slideDuration = 0.35; // faster: the horizontal slide has no text, just the black background moving
+      var totalUnits = n * 2 * revealDuration + (n - 1) * slideDuration;
       // Frames are laid out right-to-left (row-reverse): the first frame
       // sits at xPercent 0, and each later frame sits further in the
       // negative-local direction. Animating the track to a positive
@@ -164,10 +166,10 @@
       thFrames.forEach(function (frame, i) {
         var head = frame.querySelector('.th-frame-head');
         var desc = frame.querySelector('.th-frame-desc');
-        tlh.fromTo(head, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
-        tlh.fromTo(desc, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+        tlh.fromTo(head, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: revealDuration, ease: 'power2.out' });
+        tlh.fromTo(desc, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: revealDuration, ease: 'power2.out' });
         if (i < n - 1) {
-          tlh.to(thTrack, { xPercent: xFor(i + 1), duration: 1, ease: 'power2.inOut' });
+          tlh.to(thTrack, { xPercent: xFor(i + 1), duration: slideDuration, ease: 'power2.inOut' });
         }
       });
 
