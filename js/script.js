@@ -78,7 +78,7 @@
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
   } else {
-    document.querySelectorAll('.reveal, .process-step, .hero-fade').forEach(function (el) {
+    document.querySelectorAll('.reveal, .process-step, .hero-fade, .philosophy-card').forEach(function (el) {
       el.style.opacity = 1;
     });
   }
@@ -157,6 +157,27 @@
       frame.querySelector('.th-frame-desc').style.opacity = 1;
       frame.querySelector('.th-frame-desc').style.transform = 'none';
     });
+  }
+
+  // ---------- Philosophy card: scroll-scrubbed entrance + mouse-follow spotlight ----------
+  // Set up after Il Percorso (above it in the DOM) and before Lavori (below
+  // it), for the same creation-order reason noted above.
+  var philosophyCard = document.querySelector('.philosophy-card');
+  if (philosophyCard) {
+    if (hasGSAP) {
+      gsap.fromTo(philosophyCard, { scale: 0.92, opacity: 0, y: 60 }, {
+        scale: 1, opacity: 1, y: 0, ease: 'none',
+        scrollTrigger: { trigger: philosophyCard, start: 'top 95%', end: 'top 45%', scrub: true, invalidateOnRefresh: true }
+      });
+    }
+
+    philosophyCard.addEventListener('pointermove', function (e) {
+      var r = philosophyCard.getBoundingClientRect();
+      philosophyCard.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+      philosophyCard.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+    });
+    philosophyCard.addEventListener('pointerenter', function () { philosophyCard.classList.add('spotlight-active'); });
+    philosophyCard.addEventListener('pointerleave', function () { philosophyCard.classList.remove('spotlight-active'); });
   }
 
   // ---------- Horizontal scroll-hijack (Lavori) ----------
