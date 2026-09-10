@@ -78,7 +78,7 @@
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
   } else {
-    document.querySelectorAll('.reveal, .process-step, .hero-fade, .philosophy-card').forEach(function (el) {
+    document.querySelectorAll('.reveal, .process-step, .hero-fade').forEach(function (el) {
       el.style.opacity = 1;
     });
   }
@@ -159,25 +159,51 @@
     });
   }
 
-  // ---------- Philosophy card: scroll-scrubbed entrance + mouse-follow spotlight ----------
+  // ---------- Philosophy: pinned frame, horizontal jump-in from Il Percorso ----------
   // Set up after Il Percorso (above it in the DOM) and before Lavori (below
-  // it), for the same creation-order reason noted above.
-  var philosophyCard = document.querySelector('.philosophy-card');
-  if (philosophyCard) {
-    if (hasGSAP) {
-      gsap.fromTo(philosophyCard, { scale: 0.92, opacity: 0, y: 60 }, {
-        scale: 1, opacity: 1, y: 0, ease: 'none',
-        scrollTrigger: { trigger: philosophyCard, start: 'top 95%', end: 'top 45%', scrub: true, invalidateOnRefresh: true }
-      });
-    }
+  // it), for the same creation-order reason noted above. Mirrors the same
+  // pin/slide mechanic as the Percorso frames: pin the viewport, slide the
+  // content in horizontally like a quick jump, then reveal the text while
+  // still pinned, before releasing back into normal vertical scroll.
+  var philoPin = document.getElementById('philoPin');
+  var philoFrame = document.getElementById('philoFrame');
+  var philoInner = document.querySelector('.philosophy-inner');
 
-    philosophyCard.addEventListener('pointermove', function (e) {
-      var r = philosophyCard.getBoundingClientRect();
-      philosophyCard.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
-      philosophyCard.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+  if (hasGSAP && philoPin && philoFrame) {
+    var mmPhilo = gsap.matchMedia();
+
+    mmPhilo.add('(min-width: 981px)', function () {
+      // Slide the centered content block itself (not the full-width frame)
+      // so the jump-in distance is short and snappy, then hold in place
+      // for most of the pinned scroll range, giving time to read before
+      // the pin releases.
+      gsap.set(philoInner, { xPercent: 45, opacity: 0 });
+
+      var philoTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: philoPin,
+          start: 'top top',
+          end: '+=1600',
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+      philoTl
+        .to(philoInner, { xPercent: 0, opacity: 1, duration: 0.2, ease: 'power2.out' })
+        .to({}, { duration: 1 });
+
+      return function () {
+        gsap.set(philoInner, { xPercent: 0, opacity: 1 });
+      };
     });
-    philosophyCard.addEventListener('pointerenter', function () { philosophyCard.classList.add('spotlight-active'); });
-    philosophyCard.addEventListener('pointerleave', function () { philosophyCard.classList.remove('spotlight-active'); });
+
+    mmPhilo.add('(max-width: 980px)', function () {
+      gsap.set(philoInner, { xPercent: 0, opacity: 1 });
+    });
+  } else if (philoInner) {
+    philoInner.style.opacity = 1;
   }
 
   // ---------- Horizontal scroll-hijack (Lavori) ----------
