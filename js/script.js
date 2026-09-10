@@ -60,7 +60,7 @@
 
   // ---------- Scroll reveals ----------
   if (hasGSAP) {
-    gsap.utils.toArray('.reveal, .service-block, .process-step').forEach(function (el, i) {
+    gsap.utils.toArray('.reveal, .process-step').forEach(function (el, i) {
       gsap.fromTo(el, { y: 30, opacity: 0 }, {
         y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 88%' }
@@ -78,7 +78,7 @@
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
   } else {
-    document.querySelectorAll('.reveal, .service-block, .process-step, .hero-fade').forEach(function (el) {
+    document.querySelectorAll('.reveal, .process-step, .hero-fade').forEach(function (el) {
       el.style.opacity = 1;
     });
   }
