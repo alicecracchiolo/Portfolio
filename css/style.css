@@ -180,7 +180,6 @@ p { color: var(--ink); margin: 0; }
   color: transparent;
 }
 .hero-lead { font-size: 23px; line-height: 1.38; letter-spacing: -0.23px; color: var(--muted); max-width: 540px; margin-top: 34px; }
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 44px; }
 
 .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; margin-top: 76px; padding-top: 32px; border-top: 1px solid var(--hairline); }
 .hero-stats .stat b { display: block; font-size: 44px; letter-spacing: -0.44px; font-weight: 600; }
@@ -351,7 +350,6 @@ p { color: var(--ink); margin: 0; }
   .nav-links.mobile-open a { padding: 12px 6px; width: 100%; opacity: 1; }
   .logo { font-size: 16px; }
   .hero { padding: 140px 0 80px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-stats { gap: 30px; }
   .hero-stats .stat b { font-size: 34px; }
   .process-grid { grid-template-columns: 1fr; }
