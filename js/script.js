@@ -83,6 +83,136 @@
     });
   }
 
+  // ---------- Timeline: horizontal scroll-driven slideshow (Il Percorso) ----------
+  // Set up before the Lavori pin below: Il Percorso sits earlier in the
+  // document, and ScrollTrigger resolves pinned sections' scroll positions
+  // in creation order — creating a later section's pin first would measure
+  // Lavori's position before Il Percorso's own pin-spacer exists, leaving
+  // it permanently stale (activating far too early, over Servizi).
+  var thPin = document.getElementById('thPin');
+  var thTrack = document.getElementById('thTrack');
+  var thFrames = thPin ? Array.prototype.slice.call(thPin.querySelectorAll('[data-th-frame]')) : [];
+
+  if (hasGSAP && thPin && thFrames.length) {
+    var mmTh = gsap.matchMedia();
+
+    mmTh.add('(min-width: 981px)', function () {
+      var unitPx = 420;
+      var n = thFrames.length;
+      var revealDuration = 1;
+      var slideDuration = 0.35; // faster: the horizontal slide has no text, just the black background moving
+      var totalUnits = n * 2 * revealDuration + (n - 1) * slideDuration;
+      // Frames are laid out right-to-left (row-reverse): the first frame
+      // sits at xPercent 0, and each later frame sits further in the
+      // negative-local direction. Animating the track to a positive
+      // xPercent brings the next frame into view from the left while the
+      // current one exits toward the right — motion moves right as you
+      // scroll down, per request.
+      var xFor = function (frameIndex) { return frameIndex * 100; };
+
+      gsap.set(thTrack, { xPercent: xFor(0) });
+
+      var tlh = gsap.timeline({
+        scrollTrigger: {
+          trigger: thPin,
+          start: 'top top',
+          end: '+=' + (totalUnits * unitPx),
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+
+      thFrames.forEach(function (frame, i) {
+        var head = frame.querySelector('.th-frame-head');
+        var desc = frame.querySelector('.th-frame-desc');
+        tlh.fromTo(head, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: revealDuration, ease: 'power2.out' });
+        tlh.fromTo(desc, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: revealDuration, ease: 'power2.out' });
+        if (i < n - 1) {
+          tlh.to(thTrack, { xPercent: xFor(i + 1), duration: slideDuration, ease: 'power2.inOut' });
+        }
+      });
+
+      return function () {
+        gsap.set(thTrack, { xPercent: 0 });
+        thFrames.forEach(function (frame) {
+          gsap.set(frame.querySelector('.th-frame-head'), { opacity: 0, y: 40 });
+          gsap.set(frame.querySelector('.th-frame-desc'), { opacity: 0, y: 30 });
+        });
+      };
+    });
+
+    mmTh.add('(max-width: 980px)', function () {
+      gsap.set(thTrack, { xPercent: 0 });
+      thFrames.forEach(function (frame) {
+        gsap.set(frame.querySelector('.th-frame-head'), { opacity: 1, y: 0 });
+        gsap.set(frame.querySelector('.th-frame-desc'), { opacity: 1, y: 0 });
+      });
+    });
+  } else if (thFrames.length) {
+    thFrames.forEach(function (frame) {
+      frame.querySelector('.th-frame-head').style.opacity = 1;
+      frame.querySelector('.th-frame-head').style.transform = 'none';
+      frame.querySelector('.th-frame-desc').style.opacity = 1;
+      frame.querySelector('.th-frame-desc').style.transform = 'none';
+    });
+  }
+
+  // ---------- Horizontal scroll-hijack (Lavori) ----------
+  var track = document.getElementById('hTrack');
+  var horizontalSection = document.querySelector('.horizontal-section');
+  var trackWrap = document.querySelector('.h-track-wrap');
+
+  if (hasGSAP && track && horizontalSection) {
+    var mm = gsap.matchMedia();
+
+    mm.add('(min-width: 900px)', function () {
+      trackWrap.style.overflow = 'hidden';
+      var scrollAmount = function () {
+        return Math.max(0, track.scrollWidth - horizontalSection.offsetWidth);
+      };
+      var tween = gsap.to(track, {
+        x: function () { return -scrollAmount(); },
+        ease: 'none',
+        scrollTrigger: {
+          trigger: horizontalSection,
+          start: 'top top',
+          end: function () { return '+=' + scrollAmount(); },
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+      return function () {
+        gsap.set(track, { x: 0 });
+      };
+    });
+
+    mm.add('(max-width: 899px)', function () {
+      trackWrap.style.overflow = 'visible';
+      gsap.set(track, { x: 0 });
+    });
+  } else if (track && trackWrap) {
+    // Fallback: native horizontal scroll if GSAP failed to load
+    trackWrap.style.overflow = 'visible';
+    track.style.overflowX = 'auto';
+    track.style.paddingBottom = '20px';
+  }
+
+  // With multiple large pinned sections on the page, a late layout shift
+  // (web fonts swapping in, images/SVGs finishing load) can leave
+  // ScrollTrigger start/end positions stale. Force a clean recalculation
+  // once everything has settled, as a safety net alongside the creation
+  // order above.
+  if (hasGSAP) {
+    window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+    }
+  }
+
   // ---------- Testimonial carousel ----------
   var slidesWrap = document.getElementById('testiSlides');
   var dotsWrap = document.getElementById('testiDots');
