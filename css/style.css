@@ -226,10 +226,16 @@ p { color: var(--ink); margin: 0; }
 
 .th-frame-head { opacity: 0; transform: translateY(40px); }
 .th-frame-count { display: block; font-size: 15px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 22px; }
-.th-frame-year { display: block; font-size: clamp(3.2rem, 9vw, 7rem); line-height: 0.95; letter-spacing: -0.02em; background: var(--grad-signature); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 18px; }
+.th-frame-year { display: block; font-size: clamp(3.2rem, min(9vw, 13vh), 7rem); line-height: 1.1; letter-spacing: -0.02em; background: var(--grad-signature); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 14px; }
 .th-frame-head h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.02em; }
 
 .th-frame-desc { opacity: 0; transform: translateY(30px); color: var(--muted); font-size: 21px; line-height: 1.55; max-width: 560px; margin-top: 28px; }
+
+@media (max-height: 700px) and (min-width: 981px) {
+  .th-frame-count { margin-bottom: 12px; }
+  .th-frame-year { margin-bottom: 8px; }
+  .th-frame-desc { margin-top: 16px; font-size: 18px; }
+}
 
 /* ---------- Services : Tool Feature Block pattern ---------- */
 .services { padding: 100px 0 60px; }
