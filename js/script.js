@@ -137,6 +137,7 @@
           scrub: 0.6,
           pin: true,
           anticipatePin: 1,
+          fastScrollEnd: true,
           invalidateOnRefresh: true
         }
       });
@@ -210,6 +211,7 @@
           scrub: 0.6,
           pin: true,
           anticipatePin: 1,
+          fastScrollEnd: true,
           invalidateOnRefresh: true
         }
       });
@@ -256,6 +258,7 @@
           scrub: 0.6,
           pin: true,
           anticipatePin: 1,
+          fastScrollEnd: true,
           invalidateOnRefresh: true
         }
       });
