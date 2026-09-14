@@ -102,7 +102,7 @@
       var revealDuration = 1;
       var holdDuration = 1.5; // dwell time to actually read the text before it slides away
       var slideDuration = 0.35; // faster: the horizontal slide has no text, just the black background moving
-      var totalUnits = n * (2 * revealDuration + holdDuration) + (n - 1) * slideDuration;
+      var totalUnits = n * 2 * revealDuration + (n - 1) * (holdDuration + slideDuration);
       // Frames are laid out right-to-left (row-reverse): the first frame
       // sits at xPercent 0, and each later frame sits further in the
       // negative-local direction. Animating the track to a positive
@@ -130,8 +130,12 @@
         var desc = frame.querySelector('.th-frame-desc');
         tlh.fromTo(head, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: revealDuration, ease: 'power2.out' });
         tlh.fromTo(desc, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: revealDuration, ease: 'power2.out' });
-        tlh.to({}, { duration: holdDuration });
+        // Skip the explicit hold on the last frame: once the pin releases,
+        // the frame keeps sitting in normal flow for its own viewport
+        // height before Filosofia begins, which already gives it a natural
+        // reading pause — adding another one on top made 2026 feel stuck.
         if (i < n - 1) {
+          tlh.to({}, { duration: holdDuration });
           tlh.to(thTrack, { xPercent: xFor(i + 1), duration: slideDuration, ease: 'power2.inOut' });
         }
       });
