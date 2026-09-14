@@ -32,10 +32,22 @@
     var prefix = el.dataset.prefix || '';
     var suffix = el.dataset.suffix || '';
     var isInt = Number.isInteger(parseFloat(el.dataset.value));
-    var shown = isInt ? Math.round(val) : val.toFixed(1);
+    var shown;
+    if (isInt) {
+      var rounded = Math.round(val);
+      shown = Math.abs(rounded) >= 1000 ? rounded.toLocaleString('it-IT') : String(rounded);
+    } else {
+      shown = val.toFixed(1).replace('.', ',');
+    }
     return prefix + shown + suffix;
   }
-  var numEls = document.querySelectorAll('.num-value');
+  // Elements inside the case-study overlay get their count-up wired up
+  // separately (see "Case study overlay" below), scoped to its own
+  // scroll container instead of the page — the overlay sits at
+  // position:fixed so the default window scroller can't place them.
+  var numEls = Array.prototype.filter.call(document.querySelectorAll('.num-value'), function (el) {
+    return !el.closest('.case-study');
+  });
   if (hasGSAP) {
     numEls.forEach(function (el) {
       var end = parseFloat(el.dataset.value);
@@ -60,7 +72,10 @@
 
   // ---------- Scroll reveals ----------
   if (hasGSAP) {
-    gsap.utils.toArray('.reveal, .process-step').forEach(function (el, i) {
+    var mainReveals = Array.prototype.filter.call(document.querySelectorAll('.reveal, .process-step'), function (el) {
+      return !el.closest('.case-study');
+    });
+    mainReveals.forEach(function (el, i) {
       gsap.fromTo(el, { y: 30, opacity: 0 }, {
         y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 88%' }
@@ -258,6 +273,120 @@
     trackWrap.style.overflow = 'visible';
     track.style.overflowX = 'auto';
     track.style.paddingBottom = '20px';
+  }
+
+  // ---------- Case study overlay (BuddyJob) ----------
+  // The card is the only entry point: clicking (or Enter/Space) opens a
+  // full-screen in-page overlay with its own internal scroll container.
+  // The overlay is position:fixed, so its content can't use the page's
+  // default ScrollTrigger scroller — reveals and count-ups inside it are
+  // wired up lazily, scoped to its own scroll element, the first time it
+  // opens (avoiding bogus positions from measuring a hidden fixed element
+  // at page load).
+  function initCaseStudyContent(overlay, scrollEl) {
+    var localNumEls = overlay.querySelectorAll('.num-value');
+    var localReveals = overlay.querySelectorAll('.reveal');
+
+    if (hasGSAP) {
+      localReveals.forEach(function (el) {
+        gsap.fromTo(el, { y: 30, opacity: 0 }, {
+          y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', scroller: scrollEl }
+        });
+      });
+      localNumEls.forEach(function (el) {
+        var end = parseFloat(el.dataset.value);
+        var obj = { val: 0 };
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 90%',
+          once: true,
+          scroller: scrollEl,
+          onEnter: function () {
+            gsap.to(obj, {
+              val: end,
+              duration: 1.6,
+              ease: 'power2.out',
+              onUpdate: function () { el.textContent = formatNum(obj.val, el); }
+            });
+          }
+        });
+      });
+      requestAnimationFrame(function () { ScrollTrigger.refresh(); });
+    } else {
+      localReveals.forEach(function (el) { el.style.opacity = 1; });
+      localNumEls.forEach(function (el) { el.textContent = formatNum(parseFloat(el.dataset.value), el); });
+    }
+  }
+
+  var caseStudyOverlays = document.querySelectorAll('.case-study');
+  if (caseStudyOverlays.length) {
+    var openCaseStudy = function (key, trigger) {
+      var overlay = document.querySelector('.case-study[data-case-study="' + key + '"]');
+      if (!overlay) return;
+      var scrollEl = overlay.querySelector('.case-study-scroll');
+      scrollEl.scrollTop = 0;
+      overlay.dataset.opener = '';
+      if (trigger && trigger.id) overlay.dataset.opener = trigger.id;
+      document.documentElement.classList.add('cs-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      overlay.style.visibility = 'visible';
+      if (hasGSAP) {
+        gsap.to(overlay, { opacity: 1, duration: 0.5, ease: 'power2.out' });
+      } else {
+        overlay.style.opacity = 1;
+      }
+      if (!overlay.dataset.csInit) {
+        overlay.dataset.csInit = '1';
+        initCaseStudyContent(overlay, scrollEl);
+      } else if (hasGSAP) {
+        ScrollTrigger.refresh();
+      }
+      var closeBtn = overlay.querySelector('.cs-close');
+      if (closeBtn) closeBtn.focus();
+    };
+
+    var closeCaseStudy = function (overlay) {
+      document.documentElement.classList.remove('cs-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      if (hasGSAP) {
+        gsap.to(overlay, {
+          opacity: 0,
+          duration: 0.35,
+          ease: 'power2.in',
+          onComplete: function () { overlay.style.visibility = 'hidden'; }
+        });
+      } else {
+        overlay.style.opacity = 0;
+        overlay.style.visibility = 'hidden';
+      }
+      var opener = overlay.dataset.opener && document.getElementById(overlay.dataset.opener);
+      if (opener) opener.focus();
+    };
+
+    document.querySelectorAll('[data-case-open]').forEach(function (trigger) {
+      trigger.addEventListener('click', function () { openCaseStudy(trigger.dataset.caseOpen, trigger); });
+      trigger.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openCaseStudy(trigger.dataset.caseOpen, trigger);
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-case-close]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var overlay = btn.closest('.case-study');
+        if (overlay) closeCaseStudy(overlay);
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      caseStudyOverlays.forEach(function (overlay) {
+        if (overlay.getAttribute('aria-hidden') === 'false') closeCaseStudy(overlay);
+      });
+    });
   }
 
   // With multiple large pinned sections on the page, a late layout shift
