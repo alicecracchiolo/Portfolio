@@ -248,13 +248,18 @@
       // changing how far they actually travel), so the horizontal slide
       // reads at a comfortable, readable pace instead of rushing by.
       var scrollStretch = 2.8;
-      var tween = gsap.to(track, {
-        x: function () { return -scrollAmount(); },
-        ease: 'none',
+      // A fast scroll gesture landing right as the section pins can carry
+      // the scroll position past the very start of the range before the
+      // next tick, making the first card appear to be skipped instantly.
+      // Reserve a leading chunk of the scroll range as a dead zone (track
+      // held at x:0) to absorb that momentum before any horizontal motion
+      // starts, so the first card always gets its full dwell time.
+      var leadIn = 350;
+      var tween = gsap.timeline({
         scrollTrigger: {
           trigger: horizontalSection,
           start: 'top top',
-          end: function () { return '+=' + (scrollAmount() * scrollStretch); },
+          end: function () { return '+=' + (scrollAmount() * scrollStretch + leadIn); },
           scrub: 0.6,
           pin: true,
           anticipatePin: 1,
@@ -262,6 +267,8 @@
           invalidateOnRefresh: true
         }
       });
+      tween.to(track, { x: 0, duration: leadIn });
+      tween.to(track, { x: function () { return -scrollAmount(); }, ease: 'none', duration: function () { return scrollAmount() * scrollStretch; } });
       return function () {
         gsap.set(track, { x: 0 });
       };
