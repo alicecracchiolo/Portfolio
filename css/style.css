@@ -282,6 +282,10 @@ p { color: var(--ink); margin: 0; }
 }
 .h-panel-preview-logo { background: var(--panel); }
 .h-panel-logo-img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 62%; max-height: 46%; object-fit: contain; }
+.h-panel-preview-placeholder { background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
+.h-panel-placeholder-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.h-panel-play-icon { width: 32px; height: 32px; color: var(--muted); opacity: 0.6; }
+.h-panel-placeholder-label { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: center; }
 .h-panel-body { padding: 20px 4px 0; }
 .h-panel-body span.h-cat {
   font-size: 13px; font-weight: 600; margin-bottom: 12px;
@@ -290,6 +294,7 @@ p { color: var(--ink); margin: 0; }
 }
 .h-panel-body h3 { font-size: 24px; margin-bottom: 10px; letter-spacing: -0.02em; }
 .h-panel-body p { color: var(--muted); font-size: 16px; line-height: 1.5; margin-bottom: 14px; }
+.h-panel-secondary { display: block; font-size: 13px; color: var(--muted); opacity: 0.75; margin: -8px 0 14px; }
 .h-panel-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--muted); padding-top: 14px; width: 100%; border-top: 1px solid var(--hairline); transition: opacity .25s ease; }
 .h-panel-link svg { width: 14px; height: 14px; }
 .h-panel-case { cursor: pointer; }
@@ -400,11 +405,15 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 }
 
 .cs-touchpoints { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.cs-touchpoints-2 { grid-template-columns: repeat(2, 1fr); }
+.cs-touchpoints-4 { grid-template-columns: repeat(4, 1fr); }
 .cs-touchpoint { padding-top: 18px; border-top: 2px solid var(--c-junebud); }
 .cs-touchpoint:nth-child(2) { border-top-color: var(--c-coral); }
 .cs-touchpoint:nth-child(3) { border-top-color: var(--c-maize); }
+.cs-touchpoint:nth-child(4) { border-top-color: var(--c-junebud); }
 .cs-touchpoint b { display: block; font-size: 19px; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 8px; }
 .cs-touchpoint p { color: var(--muted); font-size: 15px; margin: 0; }
+.cs-step-num { display: block; font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 10px; }
 
 .cs-strategy-ref { display: block; font-size: 13px; color: var(--muted); font-style: italic; margin: -12px 0 22px; }
 
@@ -472,6 +481,16 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-gallery-item-story { aspect-ratio: 9/16; }
 .cs-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
 .cs-placeholder span { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.4; }
+.cs-gallery-item-video { aspect-ratio: 16/9; }
+.cs-video-placeholder { flex-direction: column; gap: 12px; }
+.cs-video-placeholder svg { width: 34px; height: 34px; color: var(--muted); opacity: 0.7; }
+
+.cs-video-featured { margin-bottom: 60px; }
+.cs-video-box { aspect-ratio: 16/9; border-radius: var(--radius-card); overflow: hidden; position: relative; background: var(--ink); margin-bottom: 22px; }
+.cs-video-meta { display: flex; flex-wrap: wrap; gap: 32px; padding-top: 18px; border-top: 1px solid var(--hairline); }
+.cs-video-meta-item { display: flex; flex-direction: column; gap: 4px; min-width: 140px; }
+.cs-video-meta-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.cs-video-meta-value { font-size: 16px; color: var(--ink); font-weight: 600; }
 
 .cs-closing-section { padding: 100px 0 130px; text-align: center; }
 .cs-closing-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 38px; }
@@ -486,7 +505,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-gallery-grid, .cs-gallery-grid-3, .cs-gallery-grid-4 { grid-template-columns: repeat(3, 1fr); }
   .cs-gallery-grid-6-story { grid-template-columns: repeat(3, 1fr); max-width: 360px; }
   .cs-strategy-grid { grid-template-columns: 1fr; }
-  .cs-touchpoints { grid-template-columns: 1fr; gap: 26px; }
+  .cs-touchpoints, .cs-touchpoints-2, .cs-touchpoints-4 { grid-template-columns: 1fr; gap: 26px; }
 }
 
 @media (max-width: 760px) {
