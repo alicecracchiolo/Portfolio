@@ -366,6 +366,33 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-tag { display: inline-block; padding: 10px 18px; border: 1px solid var(--hairline); border-radius: var(--radius-pill); font-size: 15px; font-weight: 600; color: var(--ink); }
 .cs-role-text { max-width: 620px; }
 
+.cs-strategy { padding: 70px 0; }
+.cs-strategy .cs-case-copy { margin-bottom: 30px; }
+.cs-strategy .cs-case-highlight { margin-bottom: 60px; }
+
+.cs-strategy-block { margin-top: 56px; }
+.cs-strategy-kicker { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; }
+
+.cs-strategy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 48px; }
+.cs-strategy-item { border-left: 3px solid var(--c-maize); padding-left: 20px; }
+.cs-strategy-item:nth-child(2) { border-left-color: var(--c-coral); }
+.cs-strategy-item:nth-child(3) { border-left-color: var(--c-junebud); }
+.cs-strategy-item:nth-child(4) { border-left-color: var(--c-papaya); }
+.cs-strategy-item:nth-child(5) { border-left-color: var(--c-maize); }
+.cs-strategy-item b { display: block; font-size: 20px; letter-spacing: -0.01em; margin-bottom: 6px; }
+.cs-strategy-item p { color: var(--muted); font-size: 16px; margin: 0; max-width: 380px; }
+.cs-strategy-item-wide { grid-column: 1 / -1; }
+.cs-strategy-item-wide p { max-width: 480px; }
+
+.cs-touchpoints { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.cs-touchpoint { padding-top: 18px; border-top: 2px solid var(--c-junebud); }
+.cs-touchpoint:nth-child(2) { border-top-color: var(--c-coral); }
+.cs-touchpoint:nth-child(3) { border-top-color: var(--c-maize); }
+.cs-touchpoint b { display: block; font-size: 19px; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 8px; }
+.cs-touchpoint p { color: var(--muted); font-size: 15px; margin: 0; }
+
+.cs-strategy-ref { display: block; font-size: 13px; color: var(--muted); font-style: italic; margin: -12px 0 22px; }
+
 .cs-results { padding: 70px 0 90px; }
 .cs-stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin: 54px 0 30px; }
 .cs-stat { display: flex; flex-direction: column; gap: 8px; }
@@ -433,12 +460,14 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-editorial-c { grid-column: 2 / 3; grid-row: 3 / 4; }
   .cs-editorial-d { grid-column: 1 / 2; grid-row: 4 / 5; }
   .cs-editorial-e { grid-column: 2 / 3; grid-row: 4 / 5; }
+  .cs-strategy-grid { grid-template-columns: 1fr; }
+  .cs-touchpoints { grid-template-columns: 1fr; gap: 26px; }
 }
 
 @media (max-width: 760px) {
   .cs-topbar { padding: 14px 20px; }
   .cs-hero { padding: 70px 0 50px; }
-  .cs-role, .cs-results { padding: 60px 0; }
+  .cs-role, .cs-results, .cs-strategy { padding: 60px 0; }
   .cs-case { padding: 64px 0; }
   .cs-closing-section { padding: 70px 0 90px; }
 }
