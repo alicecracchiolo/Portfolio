@@ -396,15 +396,32 @@
 
   var lightbox = document.getElementById('csLightbox');
   var lightboxImg = document.getElementById('csLightboxImg');
+  var lightboxVideo = document.getElementById('csLightboxVideo');
   if (lightbox && lightboxImg) {
-    var closeLightbox = function () { lightbox.setAttribute('aria-hidden', 'true'); };
+    var closeLightbox = function () {
+      lightbox.setAttribute('aria-hidden', 'true');
+      if (lightboxVideo) lightboxVideo.pause();
+    };
     document.querySelectorAll('.cs-zoomable').forEach(function (img) {
       img.addEventListener('click', function () {
         lightboxImg.src = img.currentSrc || img.src;
         lightboxImg.alt = img.alt;
+        lightboxImg.hidden = false;
+        if (lightboxVideo) { lightboxVideo.pause(); lightboxVideo.hidden = true; }
         lightbox.setAttribute('aria-hidden', 'false');
       });
     });
+    if (lightboxVideo) {
+      document.querySelectorAll('.cs-zoomable-video').forEach(function (video) {
+        video.addEventListener('click', function () {
+          lightboxVideo.src = video.currentSrc || video.src;
+          lightboxImg.hidden = true;
+          lightboxVideo.hidden = false;
+          lightbox.setAttribute('aria-hidden', 'false');
+          lightboxVideo.play().catch(function () {});
+        });
+      });
+    }
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) closeLightbox();
     });
