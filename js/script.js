@@ -327,6 +327,23 @@
       localReveals.forEach(function (el) { el.style.opacity = 1; });
       localNumEls.forEach(function (el) { el.textContent = formatNum(parseFloat(el.dataset.value), el); });
     }
+
+    // Play each project video only while it's actually visible inside the
+    // overlay's own scroll container, pausing it once it scrolls out —
+    // keeps 8 autoplaying videos from all competing for bandwidth/CPU at once.
+    var localVideos = overlay.querySelectorAll('.cs-video-box video, .cs-gallery-item-video video');
+    if (localVideos.length && 'IntersectionObserver' in window) {
+      var videoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.play().catch(function () {});
+          } else {
+            entry.target.pause();
+          }
+        });
+      }, { root: scrollEl, threshold: 0.5 });
+      localVideos.forEach(function (video) { videoObserver.observe(video); });
+    }
   }
 
   var caseStudyOverlays = document.querySelectorAll('.case-study');

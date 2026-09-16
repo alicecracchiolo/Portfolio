@@ -481,14 +481,16 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-gallery-item-story { aspect-ratio: 9/16; }
 .cs-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
 .cs-placeholder span { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.4; }
-.cs-gallery-item-video { aspect-ratio: 16/9; }
+.cs-gallery-item-video { aspect-ratio: 9/16; }
 .cs-video-placeholder { flex-direction: column; gap: 12px; }
 .cs-video-placeholder svg { width: 34px; height: 34px; color: var(--muted); opacity: 0.7; }
+.cs-gallery-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-.cs-video-featured { margin-bottom: 60px; }
-.cs-video-box { aspect-ratio: 16/9; border-radius: var(--radius-card); overflow: hidden; position: relative; background: var(--ink); margin-bottom: 22px; }
-.cs-video-meta { display: flex; flex-wrap: wrap; gap: 32px; padding-top: 18px; border-top: 1px solid var(--hairline); }
-.cs-video-meta-item { display: flex; flex-direction: column; gap: 4px; min-width: 140px; }
+.cs-video-featured { display: grid; grid-template-columns: minmax(240px, 420px) 1fr; gap: 48px; align-items: center; margin-bottom: 70px; }
+.cs-video-box { aspect-ratio: 9/16; border-radius: var(--radius-card); overflow: hidden; position: relative; background: var(--ink); }
+.cs-video-box video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cs-video-meta { display: flex; flex-direction: column; gap: 26px; }
+.cs-video-meta-item { display: flex; flex-direction: column; gap: 6px; }
 .cs-video-meta-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .cs-video-meta-value { font-size: 16px; color: var(--ink); font-weight: 600; }
 
@@ -503,6 +505,8 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-slides-split { grid-template-columns: 1fr; }
   .cs-slide-row-full { grid-template-columns: repeat(3, 1fr); }
   .cs-gallery-grid, .cs-gallery-grid-3, .cs-gallery-grid-4 { grid-template-columns: repeat(3, 1fr); }
+  .cs-video-featured { grid-template-columns: 1fr; gap: 22px; }
+  .cs-video-box { max-width: 420px; margin: 0 auto; width: 100%; }
   .cs-gallery-grid-6-story { grid-template-columns: repeat(3, 1fr); max-width: 360px; }
   .cs-strategy-grid { grid-template-columns: 1fr; }
   .cs-touchpoints, .cs-touchpoints-2, .cs-touchpoints-4 { grid-template-columns: 1fr; gap: 26px; }
