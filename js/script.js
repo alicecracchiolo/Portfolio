@@ -394,6 +394,27 @@
     });
   }
 
+  var lightbox = document.getElementById('csLightbox');
+  var lightboxImg = document.getElementById('csLightboxImg');
+  if (lightbox && lightboxImg) {
+    var closeLightbox = function () { lightbox.setAttribute('aria-hidden', 'true'); };
+    document.querySelectorAll('.cs-zoomable').forEach(function (img) {
+      img.addEventListener('click', function () {
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    var lightboxCloseBtn = lightbox.querySelector('[data-lightbox-close]');
+    if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') closeLightbox();
+    });
+  }
+
   // With multiple large pinned sections on the page, a late layout shift
   // (web fonts swapping in, images/SVGs finishing load) can leave
   // ScrollTrigger start/end positions stale. Force a clean recalculation
