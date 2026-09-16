@@ -399,10 +399,6 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-process-arrow { display: block; transform: rotate(90deg); }
 }
 
-.cs-beats-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px; margin: 22px 0 46px; list-style: none; padding: 0; }
-.cs-beats-list li { padding-left: 20px; position: relative; color: var(--muted); font-size: 16px; line-height: 1.5; }
-.cs-beats-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--c-maize); }
-
 .cs-touchpoints { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .cs-touchpoint { padding-top: 18px; border-top: 2px solid var(--c-junebud); }
 .cs-touchpoint:nth-child(2) { border-top-color: var(--c-coral); }
@@ -472,6 +468,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-gallery-item { border-radius: var(--radius-card); overflow: hidden; position: relative; aspect-ratio: 4/5; background: var(--ink); }
 .cs-gallery-grid-3 { grid-template-columns: repeat(3, 1fr); }
 .cs-gallery-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.cs-gallery-grid-6-story { grid-template-columns: repeat(6, 1fr); max-width: 720px; }
 .cs-gallery-item-story { aspect-ratio: 9/16; }
 .cs-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
 .cs-placeholder span { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.4; }
@@ -479,7 +476,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-closing-section { padding: 100px 0 130px; text-align: center; }
 .cs-closing-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 38px; }
 .cs-closing-title { font-size: clamp(1.8rem, 4vw, 2.8rem); max-width: 800px; margin: 0 auto 24px; letter-spacing: -0.02em; }
-.cs-closing-text { max-width: 600px; margin: 0 auto 40px; text-align: center; }
+.case-study p.cs-closing-text { max-width: 600px; margin: 0 auto 40px; text-align: center; }
 .cs-back-btn { margin: 0 auto; }
 
 @media (max-width: 900px) {
@@ -487,7 +484,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-slides-split { grid-template-columns: 1fr; }
   .cs-slide-row-full { grid-template-columns: repeat(3, 1fr); }
   .cs-gallery-grid, .cs-gallery-grid-3, .cs-gallery-grid-4 { grid-template-columns: repeat(3, 1fr); }
-  .cs-beats-list { grid-template-columns: 1fr; }
+  .cs-gallery-grid-6-story { grid-template-columns: repeat(3, 1fr); max-width: 360px; }
   .cs-strategy-grid { grid-template-columns: 1fr; }
   .cs-touchpoints { grid-template-columns: 1fr; gap: 26px; }
 }
