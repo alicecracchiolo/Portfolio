@@ -391,10 +391,10 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-slide-text-light { color: var(--bg); }
 .cs-slide-eyebrow { position: absolute; top: 18px; left: 18px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(47, 48, 40, 0.55); }
 
-.cs-slides-split { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; margin-bottom: 46px; }
+.cs-slides-split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; margin-bottom: 46px; align-items: start; }
 .cs-slide-lg { aspect-ratio: 4/5; }
-.cs-slide-stack { display: flex; flex-direction: column; gap: 16px; }
-.cs-slide-sm { flex: 1; padding: 20px; }
+.cs-slide-stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.cs-slide-sm { aspect-ratio: 4/5; padding: 16px; }
 
 .cs-slides-row { display: flex; gap: 24px; margin-bottom: 46px; flex-wrap: wrap; }
 .cs-slide-md { flex: 1 1 220px; aspect-ratio: 4/5; padding: 24px; }
@@ -427,9 +427,6 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 @media (max-width: 900px) {
   .cs-stat-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
   .cs-slides-split { grid-template-columns: 1fr; }
-  .cs-slide-stack { flex-direction: row; }
-  .cs-slide-lg { aspect-ratio: 16/10; }
-  .cs-slide-sm { aspect-ratio: 1/1; }
   .cs-editorial-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
   .cs-editorial-a { grid-column: 1 / 3; grid-row: 1 / 3; }
   .cs-editorial-b { grid-column: 1 / 2; grid-row: 3 / 4; }
@@ -444,8 +441,6 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-role, .cs-results { padding: 60px 0; }
   .cs-case { padding: 64px 0; }
   .cs-closing-section { padding: 70px 0 90px; }
-  .cs-slide-stack { flex-direction: column; }
-  .cs-slide-sm { aspect-ratio: 16/9; }
 }
 
 /* ---------- Process ---------- */
