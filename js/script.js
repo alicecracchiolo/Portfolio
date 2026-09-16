@@ -328,18 +328,33 @@
       localNumEls.forEach(function (el) { el.textContent = formatNum(parseFloat(el.dataset.value), el); });
     }
 
-    // Play each project video only while it's actually visible inside the
-    // overlay's own scroll container, pausing it once it scrolls out —
-    // keeps 8 autoplaying videos from all competing for bandwidth/CPU at once.
+    // Each project video starts paused with a play button overlay; it only
+    // plays once the visitor clicks it, and auto-pauses if scrolled out of
+    // view (so it never resumes on its own once out of sight again).
     var localVideos = overlay.querySelectorAll('.cs-video-box video, .cs-gallery-item-video video');
+    localVideos.forEach(function (video) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cs-video-play';
+      btn.setAttribute('aria-label', 'Riproduci video');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+      video.insertAdjacentElement('afterend', btn);
+
+      function togglePlay() {
+        if (video.paused) { video.play().catch(function () {}); }
+        else { video.pause(); }
+      }
+      btn.addEventListener('click', function (e) { e.stopPropagation(); togglePlay(); });
+      video.addEventListener('click', togglePlay);
+      video.addEventListener('play', function () { btn.classList.add('is-hidden'); });
+      video.addEventListener('pause', function () { btn.classList.remove('is-hidden'); });
+      video.addEventListener('ended', function () { btn.classList.remove('is-hidden'); });
+    });
+
     if (localVideos.length && 'IntersectionObserver' in window) {
       var videoObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.play().catch(function () {});
-          } else {
-            entry.target.pause();
-          }
+          if (!entry.isIntersecting) { entry.target.pause(); }
         });
       }, { root: scrollEl, threshold: 0.5 });
       localVideos.forEach(function (video) { videoObserver.observe(video); });
@@ -371,7 +386,7 @@
       }
       var closeBtn = overlay.querySelector('.cs-close');
       if (closeBtn) closeBtn.focus();
-      overlay.querySelectorAll('video').forEach(function (v) { v.play().catch(function () {}); });
+      overlay.querySelectorAll('video.cs-zoomable-video').forEach(function (v) { v.play().catch(function () {}); });
     };
 
     var closeCaseStudy = function (overlay) {
