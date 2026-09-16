@@ -247,7 +247,7 @@
       // Stretch the scroll distance needed to cross the cards (without
       // changing how far they actually travel), so the horizontal slide
       // reads at a comfortable, readable pace instead of rushing by.
-      var scrollStretch = 1.8;
+      var scrollStretch = 2.8;
       var tween = gsap.to(track, {
         x: function () { return -scrollAmount(); },
         ease: 'none',
