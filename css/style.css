@@ -280,6 +280,8 @@ p { color: var(--ink); margin: 0; }
   font-size: 13px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
   color: rgba(47,48,40,0.7);
 }
+.h-panel-preview-placeholder { background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
+.h-panel-placeholder-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: center; }
 .h-panel-body { padding: 20px 4px 0; }
 .h-panel-body span.h-cat {
   font-size: 13px; font-weight: 600; margin-bottom: 12px;
@@ -383,6 +385,23 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-strategy-item p { color: var(--muted); font-size: 16px; margin: 0; max-width: 380px; }
 .cs-strategy-item-wide { grid-column: 1 / -1; }
 .cs-strategy-item-wide p { max-width: 480px; }
+.cs-strategy-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.cs-process { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin: 44px 0 6px; }
+.cs-process-step { font-size: clamp(1.05rem, 2.2vw, 1.6rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; color: var(--ink); padding-bottom: 6px; border-bottom: 4px solid var(--c-maize); }
+.cs-process-step-2 { border-bottom-color: var(--c-coral); }
+.cs-process-step-3 { border-bottom-color: var(--c-junebud); }
+.cs-process-step-4 { border-bottom-color: var(--c-papaya); }
+.cs-process-step-5 { border-bottom-color: var(--ink); }
+.cs-process-arrow { color: var(--muted); font-size: 1.2rem; }
+@media (max-width: 640px) {
+  .cs-process { flex-direction: column; align-items: flex-start; }
+  .cs-process-arrow { display: block; transform: rotate(90deg); }
+}
+
+.cs-beats-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px; margin: 22px 0 46px; list-style: none; padding: 0; }
+.cs-beats-list li { padding-left: 20px; position: relative; color: var(--muted); font-size: 16px; line-height: 1.5; }
+.cs-beats-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--c-maize); }
 
 .cs-touchpoints { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .cs-touchpoint { padding-top: 18px; border-top: 2px solid var(--c-junebud); }
@@ -406,6 +425,10 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-case-label-seo { background: var(--c-coral); }
 .cs-case-label-social { background: var(--c-junebud); }
 .cs-case-label-strategy { background: var(--c-maize); }
+.cs-case-label-relevance { background: var(--c-coral); }
+.cs-case-label-community { background: var(--c-junebud); }
+.cs-case-label-trust { background: var(--c-maize); }
+.cs-case-label-perception { background: var(--c-papaya); }
 .cs-case h2 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); max-width: 760px; margin-bottom: 28px; }
 .cs-case-copy { display: flex; flex-direction: column; gap: 16px; max-width: 620px; margin-bottom: 46px; }
 .cs-case-highlight { font-size: 21px; font-weight: 600; color: var(--ink); }
@@ -447,6 +470,11 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 
 .cs-gallery-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 10px; }
 .cs-gallery-item { border-radius: var(--radius-card); overflow: hidden; position: relative; aspect-ratio: 4/5; background: var(--ink); }
+.cs-gallery-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.cs-gallery-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.cs-gallery-item-story { aspect-ratio: 9/16; }
+.cs-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
+.cs-placeholder span { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.4; }
 
 .cs-closing-section { padding: 100px 0 130px; text-align: center; }
 .cs-closing-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 38px; }
@@ -458,7 +486,8 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-stat-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
   .cs-slides-split { grid-template-columns: 1fr; }
   .cs-slide-row-full { grid-template-columns: repeat(3, 1fr); }
-  .cs-gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .cs-gallery-grid, .cs-gallery-grid-3, .cs-gallery-grid-4 { grid-template-columns: repeat(3, 1fr); }
+  .cs-beats-list { grid-template-columns: 1fr; }
   .cs-strategy-grid { grid-template-columns: 1fr; }
   .cs-touchpoints { grid-template-columns: 1fr; gap: 26px; }
 }
