@@ -444,7 +444,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-result-item span { font-size: 13px; color: var(--muted); }
 .cs-result-item.is-featured b { color: var(--c-signature); font-size: 36px; }
 
-.cs-editorial-flow { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; margin-bottom: 10px; }
+.cs-editorial-flow { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin: 0 auto 10px; max-width: 780px; }
 .cs-editorial-item { border-radius: var(--radius-card); overflow: hidden; position: relative; aspect-ratio: 4/5; background: var(--ink); }
 .cs-editorial-a { grid-column: 1 / 6; align-self: start; }
 .cs-editorial-b { grid-column: 6 / 9; align-self: end; }
@@ -467,7 +467,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-stat-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
   .cs-slides-split { grid-template-columns: 1fr; }
   .cs-slide-row-full { grid-template-columns: repeat(3, 1fr); }
-  .cs-editorial-flow { grid-template-columns: repeat(2, 1fr); }
+  .cs-editorial-flow { grid-template-columns: repeat(2, 1fr); max-width: none; }
   .cs-editorial-a { grid-column: 1 / 3; align-self: start; }
   .cs-editorial-b { grid-column: 1 / 2; align-self: start; }
   .cs-editorial-c { grid-column: 2 / 3; align-self: start; }
