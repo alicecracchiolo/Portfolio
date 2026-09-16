@@ -347,11 +347,13 @@
       }
       var closeBtn = overlay.querySelector('.cs-close');
       if (closeBtn) closeBtn.focus();
+      overlay.querySelectorAll('video').forEach(function (v) { v.play().catch(function () {}); });
     };
 
     var closeCaseStudy = function (overlay) {
       document.documentElement.classList.remove('cs-open');
       overlay.setAttribute('aria-hidden', 'true');
+      overlay.querySelectorAll('video').forEach(function (v) { v.pause(); });
       if (hasGSAP) {
         gsap.to(overlay, {
           opacity: 0,
