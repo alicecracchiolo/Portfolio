@@ -280,8 +280,8 @@ p { color: var(--ink); margin: 0; }
   font-size: 13px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
   color: rgba(47,48,40,0.7);
 }
-.h-panel-preview-placeholder { background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
-.h-panel-placeholder-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: center; }
+.h-panel-preview-logo { background: var(--panel); }
+.h-panel-logo-img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 62%; max-height: 46%; object-fit: contain; }
 .h-panel-body { padding: 20px 4px 0; }
 .h-panel-body span.h-cat {
   font-size: 13px; font-weight: 600; margin-bottom: 12px;
