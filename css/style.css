@@ -284,7 +284,7 @@ p { color: var(--ink); margin: 0; }
 .h-panel-logo-img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 62%; max-height: 46%; object-fit: contain; }
 .h-panel-preview-placeholder { background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
 .h-panel-placeholder-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.h-panel-play-icon { width: 32px; height: 32px; color: var(--muted); opacity: 0.6; }
+.h-panel-play-icon, .h-panel-preview-icon { width: 32px; height: 32px; color: var(--muted); opacity: 0.6; }
 .h-panel-placeholder-label { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: center; }
 .h-panel-body { padding: 20px 4px 0; }
 .h-panel-body span.h-cat {
@@ -413,7 +413,27 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-touchpoint:nth-child(4) { border-top-color: var(--c-junebud); }
 .cs-touchpoint b { display: block; font-size: 19px; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 8px; }
 .cs-touchpoint p { color: var(--muted); font-size: 15px; margin: 0; }
+.cs-touchpoint:nth-child(5) { border-top-color: var(--c-coral); }
 .cs-step-num { display: block; font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 10px; }
+
+.cs-role-badge { display: inline-block; margin-top: 14px; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: var(--panel); color: var(--muted); }
+.cs-role-badge-solo { background: var(--c-signature); color: var(--ink); }
+
+.cs-insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.cs-insight-item { display: flex; flex-direction: column; gap: 16px; }
+.cs-insight-label { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.cs-insight-item p { color: var(--muted); font-size: 15px; margin: 0; }
+.cs-insight-shot { position: relative; aspect-ratio: 4/3; border-radius: var(--radius-card); overflow: hidden; margin-top: auto; }
+
+.cs-rubrica-extra { margin-top: 28px; font-size: 15px; color: var(--muted); }
+.cs-rubrica-extra b { color: var(--ink); font-weight: 600; }
+
+.cs-gallery-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
+
+.cs-video-hero { position: relative; aspect-ratio: 16/9; border-radius: var(--radius-card); overflow: hidden; background: var(--ink); margin: 46px 0 10px; }
+.cs-video-hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cs-video-placeholder-lg svg { width: 54px; height: 54px; }
+.cs-video-placeholder-lg span { font-size: 14px; }
 
 .cs-strategy-ref { display: block; font-size: 13px; color: var(--muted); font-style: italic; margin: -12px 0 22px; }
 
@@ -517,6 +537,8 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-gallery-grid-6-story { grid-template-columns: repeat(3, 1fr); max-width: 360px; }
   .cs-strategy-grid { grid-template-columns: 1fr; }
   .cs-touchpoints, .cs-touchpoints-2, .cs-touchpoints-4 { grid-template-columns: 1fr; gap: 26px; }
+  .cs-insight-grid { grid-template-columns: 1fr; gap: 30px; }
+  .cs-gallery-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 320px; margin: 0 auto; }
 }
 
 @media (max-width: 760px) {
