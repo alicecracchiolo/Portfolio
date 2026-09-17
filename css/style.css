@@ -423,7 +423,8 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-insight-item { display: flex; flex-direction: column; gap: 16px; }
 .cs-insight-label { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .cs-insight-item p { color: var(--muted); font-size: 15px; margin: 0; }
-.cs-insight-shot { position: relative; aspect-ratio: 4/3; border-radius: var(--radius-card); overflow: hidden; margin-top: auto; }
+.cs-insight-shot { position: relative; aspect-ratio: 16/9; border-radius: var(--radius-card); overflow: hidden; margin-top: auto; }
+.cs-insight-shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 .cs-rubrica-extra { margin-top: 28px; font-size: 15px; color: var(--muted); }
 .cs-rubrica-extra b { color: var(--ink); font-weight: 600; }
