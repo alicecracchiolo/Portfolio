@@ -72,7 +72,7 @@
 
   // ---------- Scroll reveals ----------
   if (hasGSAP) {
-    var mainReveals = Array.prototype.filter.call(document.querySelectorAll('.reveal, .process-step'), function (el) {
+    var mainReveals = Array.prototype.filter.call(document.querySelectorAll('.reveal'), function (el) {
       return !el.closest('.case-study');
     });
     mainReveals.forEach(function (el, i) {
@@ -93,7 +93,7 @@
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
   } else {
-    document.querySelectorAll('.reveal, .process-step, .hero-fade').forEach(function (el) {
+    document.querySelectorAll('.reveal, .hero-fade').forEach(function (el) {
       el.style.opacity = 1;
     });
   }
@@ -481,56 +481,6 @@
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
     }
-  }
-
-  // ---------- Testimonial carousel ----------
-  var slidesWrap = document.getElementById('testiSlides');
-  var dotsWrap = document.getElementById('testiDots');
-  var prevBtn = document.getElementById('testiPrev');
-  var nextBtn = document.getElementById('testiNext');
-  if (slidesWrap) {
-    var slides = slidesWrap.children.length;
-    var current = 0;
-    var autoTimer;
-
-    for (var i = 0; i < slides; i++) {
-      var dot = document.createElement('button');
-      if (i === 0) dot.classList.add('active');
-      dot.setAttribute('aria-label', 'Vai alla testimonianza ' + (i + 1));
-      (function (idx) { dot.addEventListener('click', function () { goTo(idx); resetAuto(); }); })(i);
-      dotsWrap.appendChild(dot);
-    }
-
-    function goTo(idx) {
-      current = (idx + slides) % slides;
-      if (hasGSAP) {
-        gsap.to(slidesWrap, { xPercent: -100 * current, duration: 0.6, ease: 'power3.inOut' });
-      } else {
-        slidesWrap.style.transform = 'translateX(-' + (current * 100) + '%)';
-      }
-      Array.prototype.forEach.call(dotsWrap.children, function (d, i) { d.classList.toggle('active', i === current); });
-    }
-
-    function resetAuto() {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(function () { goTo(current + 1); }, 6500);
-    }
-
-    prevBtn.addEventListener('click', function () { goTo(current - 1); resetAuto(); });
-    nextBtn.addEventListener('click', function () { goTo(current + 1); resetAuto(); });
-    resetAuto();
-  }
-
-  // ---------- Contact form (front-end only demo) ----------
-  var form = document.getElementById('contactForm');
-  var success = document.getElementById('formSuccess');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      success.classList.add('visible');
-      form.reset();
-      success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
   }
 
   // ---------- Back to top ----------

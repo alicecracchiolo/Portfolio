@@ -102,7 +102,7 @@ p { color: var(--ink); margin: 0; }
 .section-head h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); letter-spacing: -0.02em; }
 .section-head p.desc { color: var(--muted); font-size: 19px; margin-top: 18px; line-height: 1.5; }
 
-.reveal, .process-step, .hero-fade { opacity: 0; }
+.reveal, .hero-fade { opacity: 0; }
 
 /* ---------- Buttons: outlined ghost pills ---------- */
 .btn {
@@ -550,19 +550,6 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-closing-section { padding: 70px 0 90px; }
 }
 
-/* ---------- Process ---------- */
-.process { padding: 100px 0 60px; }
-.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-.process-step { padding: 34px 26px 34px 0; border-top: 1px solid var(--hairline); position: relative; }
-.process-grid .process-step:last-child { border-bottom: 1px solid var(--hairline); }
-.process-step .step-num { font-size: 66px; letter-spacing: -0.66px; color: var(--hairline); display: block; margin-bottom: 26px; }
-.process-grid .process-step:nth-child(1) .step-num { color: var(--c-maize); }
-.process-grid .process-step:nth-child(2) .step-num { color: var(--c-coral); }
-.process-grid .process-step:nth-child(3) .step-num { color: var(--c-junebud); }
-.process-grid .process-step:nth-child(4) .step-num { color: var(--c-papaya); }
-.process-step h3 { font-size: 24px; margin-bottom: 12px; }
-.process-step p { color: var(--muted); font-size: 17px; line-height: 1.5; }
-
 /* ---------- Numbers ---------- */
 .numbers { padding: 100px 0; border-top: 1px solid var(--hairline); background: rgba(200, 211, 95, .12); }
 .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -570,29 +557,6 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .numbers-grid b.num-value { display: block; font-size: clamp(2.4rem, 5vw, 4.2rem); letter-spacing: -0.02em; font-weight: 600; }
 .numbers-grid span { font-size: 15px; color: var(--muted); }
 
-/* ---------- Testimonials ---------- */
-.testimonials { padding: 100px 0 140px; }
-.testi-track-wrap { position: relative; max-width: 860px; margin: 0 auto; }
-.testi-track { overflow: hidden; }
-.testi-slides { display: flex; }
-.testi-slide { min-width: 100%; padding: 0 8px; }
-.testi-card { background: var(--panel); border-radius: var(--radius-card); padding: 60px; text-align: center; }
-.testi-card .stars { font-size: 18px; margin-bottom: 26px; letter-spacing: 4px; color: var(--c-coral); }
-.testi-card p.quote { font-size: 28px; line-height: 1.35; letter-spacing: -0.01em; margin: 0 0 32px; font-weight: 500; }
-.testi-person { display: flex; align-items: center; justify-content: center; gap: 14px; }
-.testi-avatar { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--ink); font-size: 15px; }
-.testi-person div { text-align: left; }
-.testi-person b { display: block; font-size: 16px; }
-.testi-person span { font-size: 14px; color: var(--muted); }
-
-.testi-nav { display: flex; justify-content: center; gap: 14px; margin-top: 36px; }
-.testi-nav button { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--hairline); display: flex; align-items: center; justify-content: center; transition: border-color .3s ease, opacity .3s ease; }
-.testi-nav button:hover { border-color: var(--ink); }
-.testi-nav button svg { width: 16px; height: 16px; }
-
-.testi-dots { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
-.testi-dots button { width: 7px; height: 7px; border-radius: 50%; background: var(--hairline); padding: 0; }
-.testi-dots button.active { background: var(--ink); width: 20px; border-radius: 6px; transition: width .3s ease, background .3s ease; }
 
 /* ---------- CTA ---------- */
 .cta { padding: 0 0 140px; }
@@ -602,37 +566,19 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 
 /* ---------- Contact ---------- */
 .contact { padding: 0 0 140px; }
-.contact .container { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 70px; }
+.contact .container { display: flex; justify-content: center; }
+.contact-info { max-width: 480px; text-align: center; }
 .contact-info h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 22px; letter-spacing: -0.02em; }
-.contact-info p.desc { color: var(--muted); margin-bottom: 36px; max-width: 420px; font-size: 19px; }
-.contact-detail { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--hairline); }
+.contact-info p.desc { color: var(--muted); margin: 0 auto 36px; max-width: 420px; font-size: 19px; }
+.contact-detail { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--hairline); text-align: left; }
 .contact-detail .icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .contact-detail .icon svg { width: 22px; height: 22px; stroke: var(--c-papaya); }
 .contact-detail b { display: block; font-size: 16px; }
 .contact-detail span, .contact-detail a { font-size: 15px; color: var(--muted); }
-.social-row { display: flex; gap: 12px; margin-top: 30px; }
+.social-row { display: flex; justify-content: center; gap: 12px; margin-top: 30px; }
 .social-row a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--hairline); display: flex; align-items: center; justify-content: center; transition: border-color .3s ease; }
 .social-row a:hover { border-color: var(--ink); }
 .social-row svg { width: 18px; height: 18px; }
-
-.contact-form { background: var(--panel); border: 1px solid var(--hairline); border-radius: var(--radius-card); padding: 44px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.field { margin-bottom: 22px; }
-.field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--muted); }
-.field input, .field select, .field textarea {
-  width: 100%; padding: 14px 16px; border-radius: 10px;
-  border: 1px solid var(--hairline); background: transparent;
-  font-family: inherit; font-size: 16px; color: var(--ink);
-  transition: border-color .3s ease;
-}
-.field select option { background: var(--panel); color: var(--ink); }
-.field input::placeholder, .field textarea::placeholder { color: var(--muted); }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--c-copy); }
-.field textarea { resize: vertical; min-height: 120px; }
-.contact-form .btn { width: 100%; justify-content: center; padding: 16px; }
-.form-note { font-size: 14px; color: var(--muted); margin-top: 16px; text-align: center; }
-.form-success { display: none; align-items: center; gap: 12px; background: var(--c-success); color: var(--ink); border: none; padding: 16px 18px; border-radius: 10px; font-size: 15px; margin-top: 18px; }
-.form-success.visible { display: flex; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--ink); padding: 70px 0 30px; border-top: none; }
@@ -650,9 +596,8 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
-  .about .container, .contact .container { grid-template-columns: 1fr; }
+  .about .container { grid-template-columns: 1fr; }
   .about-visual { max-width: 340px; }
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
   .footer-top { flex-direction: column; }
   .hero-visual { width: 60vw; opacity: 0.5; }
@@ -686,12 +631,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .h-track { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; -webkit-overflow-scrolling: touch; }
   .h-panel, .h-panel-cta { scroll-snap-align: start; width: 82vw; }
   .h-track-wrap { padding-bottom: 60px; }
-  .process-grid { grid-template-columns: 1fr; }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); }
   .cta-box { padding: 60px 26px; }
-  .form-row { grid-template-columns: 1fr; }
-  .contact-form { padding: 26px; }
   .hero-visual { display: none; }
-  .testi-card { padding: 36px 26px; }
-  .testi-card p.quote { font-size: 21px; }
 }
