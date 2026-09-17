@@ -189,9 +189,9 @@ p { color: var(--ink); margin: 0; }
 }
 .hero-lead { font-size: 23px; line-height: 1.38; letter-spacing: -0.23px; color: var(--muted); max-width: 540px; margin-top: 34px; }
 
-.hero-stats { display: flex; gap: 48px; flex-wrap: wrap; margin-top: 76px; padding-top: 32px; border-top: 1px solid var(--hairline); }
-.hero-stats .stat b { display: block; font-size: 44px; letter-spacing: -0.44px; font-weight: 600; }
-.hero-stats .stat span { font-size: 14px; color: var(--muted); }
+.hero-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 40px; font-size: 18px; font-weight: 600; color: var(--ink); }
+.hero-cta svg { width: 20px; height: 20px; transition: transform .25s ease; }
+.hero-cta:hover svg { transform: translateX(4px); }
 
 .hero-visual {
   position: absolute;
@@ -623,8 +623,6 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .nav-links.mobile-open a { padding: 12px 6px; width: 100%; opacity: 1; }
   .logo { font-size: 16px; }
   .hero { padding: 140px 0 80px; }
-  .hero-stats { gap: 30px; }
-  .hero-stats .stat b { font-size: 34px; }
   .philosophy-pin { padding: 70px 0; }
   .philosophy-inner h2 { margin-bottom: 30px; }
   .h-sticky-head { padding: 90px 0 30px; }
