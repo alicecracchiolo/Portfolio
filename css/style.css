@@ -550,6 +550,9 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-brand-block-dark { background: var(--fresko-dark); color: var(--fresko-cream); }
 .cs-brand-block-lime { background: var(--fresko-lime); color: var(--fresko-dark); }
 .cs-brand-block svg { width: 54px; height: 54px; opacity: 0.85; }
+.cs-brand-block img { max-width: 100%; height: auto; }
+.cs-brand-block-wordmark img { max-width: 440px; }
+.cs-brand-block-mascot img { max-width: 320px; }
 .cs-brand-block-label { font-size: 13px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; opacity: 0.75; }
 .cs-brand-block-lg { padding: 110px 40px; }
 .cs-brand-block-lg svg { width: 72px; height: 72px; }
@@ -559,8 +562,8 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-mv-block-dark { background: var(--fresko-dark); color: var(--fresko-cream); }
 .cs-mv-block-lime { background: var(--fresko-lime); color: var(--fresko-dark); }
 .cs-mv-kicker { display: block; font-size: 13px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; opacity: 0.7; margin-bottom: 16px; }
-.cs-mv-headline { font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 16px; }
-.cs-mv-text { font-size: 15px; line-height: 1.55; opacity: 0.85; margin: 0; }
+.cs-mv-headline { font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; margin: 0 0 16px; color: inherit; }
+.cs-mv-text { font-size: 15px; line-height: 1.55; opacity: 0.85; margin: 0; color: inherit; }
 
 .cs-palette-row { display: flex; flex-wrap: wrap; gap: 16px; }
 .cs-palette-chip { flex: 1 1 150px; border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--hairline); }
