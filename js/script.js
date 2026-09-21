@@ -275,7 +275,7 @@
     });
 
     mm.add('(max-width: 899px)', function () {
-      trackWrap.style.overflow = 'visible';
+      trackWrap.style.overflow = 'hidden';
       gsap.set(track, { x: 0 });
     });
   } else if (track && trackWrap) {

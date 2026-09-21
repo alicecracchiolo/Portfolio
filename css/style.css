@@ -59,7 +59,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--bg); }
+html { scroll-behavior: smooth; background: var(--bg); overflow-x: hidden; }
 
 body {
   margin: 0;
@@ -712,6 +712,22 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .th-frame-head, .th-frame-desc { opacity: 1; transform: none; }
 }
 
+@media (max-width: 899px) {
+  /* Below the desktop horizontal-pin breakpoint the JS disables the GSAP
+     pin/translate and lets the track scroll natively; it must also stay
+     width-constrained here (overriding the pinned layout's width:
+     max-content) so it scrolls inside its own box instead of forcing the
+     whole page to scroll horizontally. */
+  .h-track-wrap { overflow: hidden; }
+  .h-track {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .h-panel, .h-panel-cta { scroll-snap-align: start; width: 82vw; }
+}
+
 @media (max-width: 760px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
@@ -728,8 +744,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .philosophy-pin { padding: 70px 0; }
   .philosophy-inner h2 { margin-bottom: 30px; }
   .h-sticky-head { padding: 90px 0 30px; }
-  .h-track { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px; -webkit-overflow-scrolling: touch; }
-  .h-panel, .h-panel-cta { scroll-snap-align: start; width: 82vw; }
+  .h-track { padding-bottom: 20px; }
   .h-track-wrap { padding-bottom: 60px; }
   .cta-box { padding: 60px 26px; }
   .hero-visual { display: none; }
