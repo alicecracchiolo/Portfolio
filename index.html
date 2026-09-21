@@ -19,19 +19,49 @@
       <div class="container">
         <a href="#top" class="logo">Alice Cracchiolo</a>
         <nav class="nav-links" id="navLinks">
-          <a href="#storia">Storia</a>
-          <a href="#servizi">Filosofia</a>
-          <a href="#lavori">Lavori</a>
-          <a href="#contatti">Contatti</a>
+          <a href="#storia" data-i18n="nav.storia">Storia</a>
+          <a href="#servizi" data-i18n="nav.filosofia">Filosofia</a>
+          <a href="#lavori" data-i18n="nav.lavori">Lavori</a>
+          <a href="#contatti" data-i18n="nav.contatti">Contatti</a>
+          <div class="lang-switch lang-switch-mobile" role="group" aria-label="Language / Lingua">
+            <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
         </nav>
         <div class="nav-right">
+          <div class="lang-switch" role="group" aria-label="Language / Lingua">
+            <button
+              type="button"
+              class="lang-btn"
+              data-lang="it"
+              aria-pressed="false"
+            >
+              IT
+            </button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button
+              type="button"
+              class="lang-btn"
+              data-lang="en"
+              aria-pressed="false"
+            >
+              EN
+            </button>
+          </div>
           <a
             href="#contatti"
             class="btn"
             style="padding: 11px 22px; font-size: 16px"
+            data-i18n="nav.parliamone"
             >Parliamone</a
           >
-          <button class="nav-toggle" id="navToggle" aria-label="Apri menu">
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Apri menu"
+            data-i18n-attr-aria-label="nav.menuAria"
+          >
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -50,20 +80,22 @@
         <div class="container">
           <h1 class="hero-title">
             <span class="line"
-              ><span class="line-inner"
+              ><span class="line-inner" data-i18n-html="hero.title1"
                 >Le idee <span class="accent">migliori</span></span
               ></span
             >
             <span class="line"
-              ><span class="line-inner">non stanno ferme.</span></span
+              ><span class="line-inner" data-i18n="hero.title2"
+                >non stanno ferme.</span
+              ></span
             >
           </h1>
-          <p class="hero-lead hero-fade">
+          <p class="hero-lead hero-fade" data-i18n="hero.lead">
             Trasformo quello che un brand ha da dire in qualcosa che valga la
             pena ascoltare.
           </p>
           <a href="#lavori" class="hero-cta hero-fade">
-            Guarda i progetti
+            <span data-i18n="hero.cta">Guarda i progetti</span>
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -84,25 +116,32 @@
               src="assets/alice-storia.png"
               alt="Illustrazione di Alice seduta, pensierosa"
             />
-            <p class="quote-tag">
-              "<b>Ogni contenuto deve avere un motivo per esistere.</b>" — la
-              mia regola numero uno
+            <p class="quote-tag" data-i18n-html="about.quote">
+              "<b>Tutto è scalabile e reinventabile.</b>"
             </p>
           </div>
           <div class="about-copy reveal">
-            <span class="bracket">La Mia Storia</span>
-            <p class="lead-p">Ciao, sono Alice.</p>
-            <p class="body-p">
-              Lavoro nel content marketing e ho una naturale ossessione per
-              tutto ciò che può diventare un'idea.
+            <span class="bracket" data-i18n="about.bracket">La Mia Storia</span>
+            <p class="lead-p" data-i18n="about.hello">Ciao, sono Alice.</p>
+            <p class="body-p" data-i18n="about.p1">
+              Sono una persona che ha bisogno di fare. Stare all'aria aperta,
+              camminare, disegnare, costruire qualcosa con le mani, cambiare
+              idea a metà e ricominciare.
             </p>
-            <p class="body-p">
-              Leggo molto, cammino possibilmente in salita e difficilmente
-              riesco a stare troppo tempo senza creare qualcosa, che sia un
-              disegno, un progetto in DAS o una parete che improvvisamente
-              decido abbia bisogno di un altro colore.
+            <p class="body-p" data-i18n="about.p2">
+              La creatività per me non comincia con un brief e non finisce
+              quando chiudo il computer. È più un modo di guardare le cose:
+              capire come potrebbero diventare qualcos'altro, provare una
+              strada diversa, dare forma a qualcosa che prima non c'era.
             </p>
-            <p class="body-p">In pratica, mi piace dare forma alle cose.</p>
+            <p class="body-p" data-i18n="about.p3">
+              Nel lavoro questo si traduce in contenuti, strategie, video e
+              identità. Nel resto della mia vita cambia semplicemente il
+              materiale.
+            </p>
+            <p class="body-p about-emphasis" data-i18n="about.p4">
+              Difficilmente lascio le cose esattamente come le ho trovate.
+            </p>
           </div>
         </div>
       </section>
@@ -110,8 +149,10 @@
       <!-- ================= PERCORSO — slideshow orizzontale a fasi ================= -->
       <section class="timeline-h" id="percorso-storia">
         <div class="container th-head">
-          <h2>Cinque anni di content marketing, passo dopo passo.</h2>
-          <p class="desc">
+          <h2 data-i18n="timeline.title">
+            Cinque anni di content marketing, passo dopo passo.
+          </h2>
+          <p class="desc" data-i18n="timeline.desc">
             Scorri per aprire ogni tappa: prima l'anno, poi la storia dietro.
           </p>
         </div>
@@ -124,9 +165,11 @@
                   <div class="th-frame-head">
                     <span class="th-frame-count">01 — 04</span>
                     <b class="th-frame-year">2021</b>
-                    <h3>Inizio a mettere le mani nella comunicazione</h3>
+                    <h3 data-i18n="timeline.f1.title">
+                      Inizio a mettere le mani nella comunicazione
+                    </h3>
                   </div>
-                  <p class="th-frame-desc">
+                  <p class="th-frame-desc" data-i18n="timeline.f1.desc">
                     Tra contenuti, materiali aziendali e comunicazione
                     quotidiana, inizio a capire che trasformare informazioni in
                     qualcosa di chiaro e interessante mi viene piuttosto
@@ -140,9 +183,11 @@
                   <div class="th-frame-head">
                     <span class="th-frame-count">02 — 04</span>
                     <b class="th-frame-year">2022</b>
-                    <h3>Entro in un'agenzia di comunicazione</h3>
+                    <h3 data-i18n="timeline.f2.title">
+                      Entro in un'agenzia di comunicazione
+                    </h3>
                   </div>
-                  <p class="th-frame-desc">
+                  <p class="th-frame-desc" data-i18n="timeline.f2.desc">
                     Tra copy, progetti e clienti, capisco che la parte che mi
                     interessa di più è trovare l'idea giusta e capire come
                     trasformarla in qualcosa che funzioni davvero.
@@ -155,9 +200,9 @@
                   <div class="th-frame-head">
                     <span class="th-frame-count">03 — 04</span>
                     <b class="th-frame-year">2025</b>
-                    <h3>Aggiungo il movimento</h3>
+                    <h3 data-i18n="timeline.f3.title">Aggiungo il movimento</h3>
                   </div>
-                  <p class="th-frame-desc">
+                  <p class="th-frame-desc" data-i18n-html="timeline.f3.desc">
                     Scelgo di approfondire Video &amp; Digital Strategies. Alla
                     scrittura si aggiungono riprese, montaggio e linguaggi
                     social: le idee iniziano a prendere forma in molti più modi.
@@ -170,9 +215,11 @@
                   <div class="th-frame-head">
                     <span class="th-frame-count">04 — 04</span>
                     <b class="th-frame-year">2026</b>
-                    <h3>Dall'idea alla pubblicazione</h3>
+                    <h3 data-i18n="timeline.f4.title">
+                      Dall'idea alla pubblicazione
+                    </h3>
                   </div>
-                  <p class="th-frame-desc">
+                  <p class="th-frame-desc" data-i18n="timeline.f4.desc">
                     Prima Social Media Manager, poi Content Marketing in
                     BuddyJob. Oggi seguo i contenuti lungo tutto il percorso:
                     concept, format, grafica, video, copy, pubblicazione e
@@ -190,19 +237,19 @@
         <div class="philosophy-pin" id="philoPin">
           <div class="philosophy-frame" id="philoFrame">
             <div class="container philosophy-inner">
-              <h2>La mia filosofia</h2>
+              <h2 data-i18n="philosophy.title">La mia filosofia</h2>
               <div class="philosophy-copy">
-                <p class="lead-p">
+                <p class="lead-p" data-i18n="philosophy.lead">
                   Non sapere fare una cosa non significa che sia impossibile,
                   significa solo che non hai ancora imparato come farla.
                 </p>
-                <p class="body-p">
+                <p class="body-p" data-i18n="philosophy.p1">
                   Quello che conta, per me, è non fermarsi davanti a ciò che
                   ancora non si sa fare: lasciarsi incuriosire, sperimentare,
                   cambiare direzione e trovare il proprio modo, senza sentirsi
                   troppo vincolati da come "si dovrebbe fare".
                 </p>
-                <p class="body-p">
+                <p class="body-p" data-i18n="philosophy.p2">
                   Non credo esista sempre un giusto o uno sbagliato: conta che
                   una cosa abbia senso, funzioni e convinca davvero. E anche
                   quando il risultato soddisfa, non è detto che sia un punto
@@ -227,7 +274,7 @@
                 max-width: 700px;
               "
             >
-              Alcuni progetti di cui vado fiera.
+              <span data-i18n="lavori.title">Alcuni progetti di cui vado fiera.</span>
             </h2>
             <p
               class="desc"
@@ -237,12 +284,15 @@
                 margin-top: 18px;
                 max-width: 600px;
               "
+              data-i18n="lavori.desc"
             >
               Una selezione dei lavori più recenti, con i risultati concreti
               ottenuti per ogni cliente.
             </p>
             <span class="h-scroll-hint">
-              Continua a scorrere per esplorare i progetti
+              <span data-i18n="lavori.scrollHint"
+                >Continua a scorrere per esplorare i progetti</span
+              >
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -283,14 +333,18 @@
                 <span class="h-cat" style="background: var(--c-bj-social)"
                   >BuddyJob</span
                 >
-                <h3>Leggere il lavoro. Poi raccontarlo.</h3>
-                <p>
+                <h3 data-i18n="lavori.buddyjob.title">
+                  Leggere il lavoro. Poi raccontarlo.
+                </h3>
+                <p data-i18n="lavori.buddyjob.desc">
                   Per BuddyJob trasformo conversazioni, trend e situazioni
                   quotidiane in contenuti capaci di informare, creare
                   riconoscimento e far partecipare la community.
                 </p>
                 <span class="h-panel-link"
-                  >Dentro il progetto
+                  ><span data-i18n="common.dentroIlProgetto"
+                    >Dentro il progetto</span
+                  >
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -326,13 +380,17 @@
                 <span class="h-cat" style="background: var(--c-copy)"
                   >EPICODE</span
                 >
-                <h3>Rendere il tech più vicino, senza banalizzarlo.</h3>
-                <p>
+                <h3 data-i18n="lavori.epicode.title">
+                  Rendere il tech più vicino, senza banalizzarlo.
+                </h3>
+                <p data-i18n="lavori.epicode.desc">
                   Ricerca, contenuti e community management per costruire una
                   voce tech competente, accessibile e riconoscibile.
                 </p>
                 <span class="h-panel-link"
-                  >Dentro il progetto
+                  ><span data-i18n="common.dentroIlProgetto"
+                    >Dentro il progetto</span
+                  >
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -370,16 +428,20 @@
                 <span class="h-cat" style="background: var(--c-strategy)"
                   >Video</span
                 >
-                <h3>Ogni video ha il suo ritmo.</h3>
-                <p>
+                <h3 data-i18n="lavori.sinapss.title">
+                  Ogni video ha il suo ritmo.
+                </h3>
+                <p data-i18n="lavori.sinapss.desc">
                   Shooting, montaggio e motion per contenuti social sviluppati
                   per brand e linguaggi diversi.
                 </p>
-                <span class="h-panel-secondary"
+                <span class="h-panel-secondary" data-i18n="lavori.sinapss.secondary"
                   >Esperienza in agenzia · Sinapss</span
                 >
                 <span class="h-panel-link"
-                  >Dentro il progetto
+                  ><span data-i18n="common.dentroIlProgetto"
+                    >Dentro il progetto</span
+                  >
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -412,20 +474,24 @@
                 </div>
               </div>
               <div class="h-panel-body">
-                <span class="h-cat" style="background: var(--c-seo)"
+                <span class="h-cat" style="background: var(--c-seo)" data-i18n="lavori.leonardis.cat"
                   >Strategia</span
                 >
-                <h3>Prima capire. Poi raccontare.</h3>
-                <p>
+                <h3 data-i18n="lavori.leonardis.title">
+                  Prima capire. Poi raccontare.
+                </h3>
+                <p data-i18n="lavori.leonardis.desc">
                   Dall'analisi del posizionamento alla strategia social, fino
                   alla produzione di un video corporate multicamera.
                 </p>
-                <span class="h-panel-secondary"
+                <span class="h-panel-secondary" data-i18n="lavori.leonardis.secondary"
                   >Progetto sviluppato in team per Enrica Leonardis · Architetto
                   Interior Designer</span
                 >
                 <span class="h-panel-link"
-                  >Dentro il progetto
+                  ><span data-i18n="common.dentroIlProgetto"
+                    >Dentro il progetto</span
+                  >
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -467,17 +533,21 @@
                   "
                   >Fresko</span
                 >
-                <h3>Rendere l'anti-spreco appetibile.</h3>
-                <p>
+                <h3 data-i18n="lavori.fresko.title">
+                  Rendere l'anti-spreco appetibile.
+                </h3>
+                <p data-i18n="lavori.fresko.desc">
                   Naming e identità visiva per una web app che aiuta a ricordare
                   cosa c'è in frigo, monitorare le scadenze e utilizzare gli
                   alimenti prima che vengano sprecati.
                 </p>
-                <span class="h-panel-secondary"
+                <span class="h-panel-secondary" data-i18n="lavori.fresko.secondary"
                   >Fresko · Web app anti-spreco</span
                 >
                 <span class="h-panel-link"
-                  >Dentro il progetto
+                  ><span data-i18n="common.dentroIlProgetto"
+                    >Dentro il progetto</span
+                  >
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -490,9 +560,11 @@
             </article>
 
             <div class="h-panel-cta">
-              <h3>Vuoi risultati simili per il tuo brand?</h3>
+              <h3 data-i18n="lavori.ctaTitle">
+                Vuoi risultati simili per il tuo brand?
+              </h3>
               <a href="#contatti" class="btn btn-signature">
-                Parliamone
+                <span data-i18n="nav.parliamone">Parliamone</span>
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -538,8 +610,8 @@
       <section class="contact" id="contatti">
         <div class="container">
           <div class="contact-info reveal">
-            <h2>Raccontami del tuo progetto.</h2>
-            <p class="desc">
+            <h2 data-i18n="contact.title">Raccontami del tuo progetto.</h2>
+            <p class="desc" data-i18n="contact.desc">
               Scrivimi direttamente via email o telefono: rispondo sempre entro
               24-48 ore lavorative.
             </p>
@@ -559,7 +631,7 @@
                 </svg>
               </div>
               <div>
-                <b>Email</b
+                <b data-i18n="contact.emailLabel">Email</b
                 ><a href="mailto:alice.cracchiolo@gmail.com"
                   >alice.cracchiolo@gmail.com</a
                 >
@@ -581,7 +653,8 @@
                 </svg>
               </div>
               <div>
-                <b>Telefono</b><a href="tel:+393922990861">+39 392 299 0861</a>
+                <b data-i18n="contact.phoneLabel">Telefono</b
+                ><a href="tel:+393922990861">+39 392 299 0861</a>
               </div>
             </div>
             <div class="contact-detail">
@@ -599,7 +672,10 @@
                 </svg>
               </div>
               <div>
-                <b>Base</b><span>Milano, IT — disponibile da remoto</span>
+                <b data-i18n="contact.baseLabel">Base</b
+                ><span data-i18n="contact.baseValue"
+                  >Milano, IT — disponibile da remoto</span
+                >
               </div>
             </div>
 
@@ -648,33 +724,40 @@
         <div class="footer-top">
           <div>
             <a href="#top" class="logo">Alice Cracchiolo</a>
-            <p>
+            <p data-i18n="footer.tagline">
               Content Marketing Strategist &amp; Copywriter. Aiuto brand e
               founder a trasformare i contenuti in crescita reale.
             </p>
           </div>
           <div class="footer-cols">
             <div class="footer-col">
-              <h4>Naviga</h4>
-              <a href="#storia">Storia</a>
-              <a href="#servizi">Filosofia</a>
-              <a href="#lavori">Lavori</a>
+              <h4 data-i18n="footer.navigate">Naviga</h4>
+              <a href="#storia" data-i18n="nav.storia">Storia</a>
+              <a href="#servizi" data-i18n="nav.filosofia">Filosofia</a>
+              <a href="#lavori" data-i18n="nav.lavori">Lavori</a>
             </div>
             <div class="footer-col">
-              <h4>Contatti</h4>
+              <h4 data-i18n="nav.contatti">Contatti</h4>
               <a href="mailto:alice.cracchiolo@gmail.com"
                 >alice.cracchiolo@gmail.com</a
               >
-              <span>Milano, IT — da remoto</span>
+              <span data-i18n="footer.baseValue">Milano, IT — da remoto</span>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
           <span
-            >&copy; <span id="year"></span> Alice Cracchiolo. Tutti i diritti
-            riservati.</span
+            >&copy; <span id="year"></span>
+            <span data-i18n="footer.rights"
+              >Alice Cracchiolo. Tutti i diritti riservati.</span
+            ></span
           >
-          <button class="back-to-top" id="backToTop" aria-label="Torna su">
+          <button
+            class="back-to-top"
+            id="backToTop"
+            aria-label="Torna su"
+            data-i18n-attr-aria-label="common.backToTop"
+          >
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -709,25 +792,30 @@
             >
               <path d="M15 18l-6-6 6-6" />
             </svg>
-            Torna ai progetti
+            <span data-i18n="common.backToProjects">Torna ai progetti</span>
           </button>
+          <div class="lang-switch" role="group" aria-label="Language / Lingua">
+            <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
         </div>
 
         <section class="cs-hero">
           <div class="container">
-            <h1 id="csTitle" class="cs-hero-title reveal">
+            <h1 id="csTitle" class="cs-hero-title reveal" data-i18n="buddyjob.hero.title">
               Come rendere interessante un argomento di cui parlano già tutti?
             </h1>
             <div class="cs-hero-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.hero.p1">
                 Il lavoro è ovunque sui social: colloqui, burnout, stipendi,
                 carriera, colleghi, dimissioni.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.hero.p2">
                 La sfida non era trovare qualcosa di cui parlare, ma trovare
                 ogni volta un modo diverso di farlo.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.hero.p3">
                 Per BuddyJob lavoro sui contenuti social dalla ricerca all'idea,
                 fino a copy e sviluppo visivo, cercando un equilibrio tra
                 informazione, attualità, riconoscibilità ed engagement.
@@ -739,7 +827,7 @@
         <section class="cs-role">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Il mio ruolo</h2>
+              <h2 data-i18n="buddyjob.role.title">Il mio ruolo</h2>
             </div>
             <div class="cs-tags reveal">
               <span class="cs-tag">Research &amp; Social Listening</span>
@@ -749,7 +837,7 @@
               <span class="cs-tag">Editorial Design</span>
               <span class="cs-tag">Social Media Management</span>
             </div>
-            <p class="body-p cs-role-text reveal">
+            <p class="body-p cs-role-text reveal" data-i18n="buddyjob.role.text">
               Osservo conversazioni, trend e notizie sul mondo del lavoro e
               cerco l'angolo che può diventare BuddyJob. A volte significa
               approfondire. A volte spiegare. A volte basta un meme fatto nel
@@ -761,21 +849,23 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Un profilo non si costruisce post per post.</h2>
+              <h2 data-i18n="buddyjob.strategy.title">
+                Un profilo non si costruisce post per post.
+              </h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.strategy.p1">
                 Per BuddyJob ho lavorato alla costruzione di un sistema
                 editoriale che non riguarda solo cosa pubblicare nel feed, ma
                 anche come accompagnare chi arriva sul profilo.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.strategy.p2">
                 Ho sviluppato un piano editoriale capace di alternare
                 informazione, attualità, format ricorrenti, conversazioni della
                 community e contenuti più leggeri, lasciando allo stesso tempo
                 spazio a trend e temi che emergono nel momento.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.strategy.p3">
                 Anche le Stories e le raccolte in evidenza fanno parte di questo
                 lavoro: sono pensate per orientare chi scopre BuddyJob, spiegare
                 servizi e strumenti e rendere il profilo più facile da
@@ -783,56 +873,56 @@
               </p>
             </div>
 
-            <p class="body-p cs-case-highlight reveal">
+            <p class="body-p cs-case-highlight reveal" data-i18n-html="buddyjob.strategy.highlight">
               Ogni contenuto ha un ruolo.
               <em>Anche quando non finisce nel feed.</em>
             </p>
 
             <div class="cs-strategy-block">
-              <span class="cs-strategy-kicker reveal">Cosa raccontiamo</span>
+              <span class="cs-strategy-kicker reveal" data-i18n="buddyjob.strategy.kicker1">Cosa raccontiamo</span>
               <div class="cs-strategy-grid">
                 <div class="cs-strategy-item reveal">
-                  <b>Informare</b>
-                  <p>Dati, trend e dinamiche del lavoro.</p>
+                  <b data-i18n="buddyjob.strategy.item1.title">Informare</b>
+                  <p data-i18n="buddyjob.strategy.item1.desc">Dati, trend e dinamiche del lavoro.</p>
                 </div>
                 <div class="cs-strategy-item reveal">
-                  <b>Approfondire</b>
-                  <p>Carriera, coaching e situazioni professionali.</p>
+                  <b data-i18n="buddyjob.strategy.item2.title">Approfondire</b>
+                  <p data-i18n="buddyjob.strategy.item2.desc">Carriera, coaching e situazioni professionali.</p>
                 </div>
                 <div class="cs-strategy-item reveal">
-                  <b>Intercettare</b>
-                  <p>News, conversazioni e social listening.</p>
+                  <b data-i18n="buddyjob.strategy.item3.title">Intercettare</b>
+                  <p data-i18n="buddyjob.strategy.item3.desc">News, conversazioni e social listening.</p>
                 </div>
                 <div class="cs-strategy-item reveal">
-                  <b>Creare relazione</b>
-                  <p>Meme, community e contenuti riconoscibili.</p>
+                  <b data-i18n="buddyjob.strategy.item4.title">Creare relazione</b>
+                  <p data-i18n="buddyjob.strategy.item4.desc">Meme, community e contenuti riconoscibili.</p>
                 </div>
                 <div class="cs-strategy-item cs-strategy-item-wide reveal">
-                  <b>Sperimentare</b>
-                  <p>Format e nuovi linguaggi visuali.</p>
+                  <b data-i18n="buddyjob.strategy.item5.title">Sperimentare</b>
+                  <p data-i18n="buddyjob.strategy.item5.desc">Format e nuovi linguaggi visuali.</p>
                 </div>
               </div>
             </div>
 
             <div class="cs-strategy-block">
-              <span class="cs-strategy-kicker reveal"
+              <span class="cs-strategy-kicker reveal" data-i18n="buddyjob.strategy.kicker2"
                 >Come organizziamo il profilo</span
               >
               <div class="cs-touchpoints">
                 <div class="cs-touchpoint reveal">
-                  <b>Feed</b>
-                  <p>Contenuti editoriali, format e contenuti pianificati.</p>
+                  <b data-i18n="buddyjob.touchpoint1.title">Feed</b>
+                  <p data-i18n="buddyjob.touchpoint1.desc">Contenuti editoriali, format e contenuti pianificati.</p>
                 </div>
                 <div class="cs-touchpoint reveal">
-                  <b>Stories</b>
-                  <p>
+                  <b data-i18n="buddyjob.touchpoint2.title">Stories</b>
+                  <p data-i18n="buddyjob.touchpoint2.desc">
                     Attualità, interazione, approfondimento e contenuti di
                     servizio.
                   </p>
                 </div>
                 <div class="cs-touchpoint reveal">
-                  <b>Highlights</b>
-                  <p>
+                  <b data-i18n="buddyjob.touchpoint3.title">Highlights</b>
+                  <p data-i18n="buddyjob.touchpoint3.desc">
                     Contenuti evergreen pensati per orientare chi arriva sul
                     profilo, spiegare BuddyJob, i servizi e gli strumenti
                     disponibili.
@@ -846,29 +936,29 @@
         <section class="cs-results">
           <div class="container">
             <div class="section-head center reveal">
-              <h2>I numeri</h2>
-              <p class="desc">1 giugno — 10 settembre 2026</p>
+              <h2 data-i18n="buddyjob.results.title">I numeri</h2>
+              <p class="desc" data-i18n="buddyjob.results.period">1 giugno — 10 settembre 2026</p>
             </div>
             <div class="cs-stat-grid">
               <div class="cs-stat reveal">
                 <b class="num-value" data-value="3.7" data-suffix="M">0</b>
-                <span class="cs-stat-label">visualizzazioni organiche</span>
+                <span class="cs-stat-label" data-i18n="common.stat.organicViews">visualizzazioni organiche</span>
                 <span class="cs-stat-delta">+127,4%</span>
               </div>
               <div class="cs-stat reveal">
                 <b class="num-value" data-value="2.6" data-suffix="M">0</b>
-                <span class="cs-stat-label">persone raggiunte</span>
+                <span class="cs-stat-label" data-i18n="common.stat.peopleReached">persone raggiunte</span>
                 <span class="cs-stat-delta">+128,2%</span>
               </div>
               <div class="cs-stat reveal">
                 <b class="num-value" data-value="288.8" data-suffix="K">0</b>
-                <span class="cs-stat-label">interazioni con i contenuti</span>
+                <span class="cs-stat-label" data-i18n="common.stat.interactionsContent">interazioni con i contenuti</span>
                 <span class="cs-stat-delta">+176,5%</span>
               </div>
               <div class="cs-stat reveal">
                 <b class="num-value" data-value="10395">0</b>
-                <span class="cs-stat-label">nuovi follow</span>
-                <span class="cs-stat-delta">+255,3% vs periodo precedente</span>
+                <span class="cs-stat-label" data-i18n="common.stat.newFollows">nuovi follow</span>
+                <span class="cs-stat-delta" data-i18n="buddyjob.results.delta4">+255,3% vs periodo precedente</span>
               </div>
             </div>
           </div>
@@ -879,25 +969,25 @@
             <span class="cs-case-label cs-case-label-seo reveal"
               >Social Listening</span
             >
-            <span class="cs-strategy-ref reveal"
+            <span class="cs-strategy-ref reveal" data-i18n="buddyjob.case1.ref"
               >Parte del sistema: Intercettare</span
             >
-            <h2 class="reveal">
+            <h2 class="reveal" data-i18n="buddyjob.case1.title">
               Leggere i commenti prima di scrivere il post.
             </h2>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.case1.p1">
                 Una notizia molto discussa aveva acceso online una conversazione
                 sui comportamenti normalizzati sul posto di lavoro.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.case1.p2">
                 Invece di fermarmi alla notizia, sono andata a vedere come ne
                 stavano parlando le persone.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.case1.p3">
                 Nei commenti ricorrevano continuamente le stesse frasi.
               </p>
-              <p class="body-p cs-case-highlight reveal">
+              <p class="body-p cs-case-highlight reveal" data-i18n-html="buddyjob.case1.highlight">
                 Da lì è nato:
                 <em>"10 frasi che in un ambiente di lavoro sono red flags"</em>.
               </p>
@@ -990,26 +1080,26 @@
             <div class="cs-result-grid reveal">
               <div class="cs-result-item">
                 <b class="num-value" data-value="1.5" data-suffix="M">0</b
-                ><span>persone raggiunte</span>
+                ><span data-i18n="common.stat.peopleReached">persone raggiunte</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="113" data-suffix="K">0</b
-                ><span>interazioni</span>
+                ><span data-i18n="common.stat.interactions">interazioni</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="29" data-suffix="K">0</b
-                ><span>condivisioni</span>
+                ><span data-i18n="common.stat.shares">condivisioni</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="19.8" data-suffix="K">0</b
-                ><span>salvataggi</span>
+                ><span data-i18n="common.stat.saves">salvataggi</span>
               </div>
               <div class="cs-result-item is-featured">
                 <b class="num-value" data-value="5068">0</b
-                ><span>follow generati dal contenuto</span>
+                ><span data-i18n="buddyjob.case1.statFollow">follow generati dal contenuto</span>
               </div>
             </div>
-            <p class="cs-case-closing reveal">
+            <p class="cs-case-closing reveal" data-i18n="buddyjob.case1.closing">
               Il contenuto non nasceva dal trend in sé, ma da quello che le
               persone stavano dicendo intorno al trend.
             </p>
@@ -1021,18 +1111,18 @@
             <span class="cs-case-label cs-case-label-social reveal"
               >Community &amp; Engagement</span
             >
-            <span class="cs-strategy-ref reveal"
+            <span class="cs-strategy-ref reveal" data-i18n="buddyjob.case2.ref"
               >Parte del sistema: Creare relazione</span
             >
-            <h2 class="reveal">
+            <h2 class="reveal" data-i18n="buddyjob.case2.title">
               Non tutti i contenuti devono spiegare qualcosa.
             </h2>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.case2.p1">
                 Dopo una settimana di temi più densi, il feed ha anche bisogno
                 di respirare.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.case2.p2">
                 I meme fanno parte del content mix di BuddyJob proprio per
                 questo: intercettano situazioni quotidiane, creano
                 riconoscimento e danno alla community qualcosa da mandare
@@ -1067,30 +1157,30 @@
             <div class="cs-result-grid reveal">
               <div class="cs-result-item">
                 <b class="num-value" data-value="223" data-suffix="K">0</b
-                ><span>persone raggiunte</span>
+                ><span data-i18n="common.stat.peopleReached">persone raggiunte</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="29.6" data-suffix="K">0</b
-                ><span>interazioni</span>
+                ><span data-i18n="common.stat.interactions">interazioni</span>
               </div>
               <div class="cs-result-item is-featured">
                 <b class="num-value" data-value="14.6" data-suffix="K">0</b
-                ><span>condivisioni</span>
+                ><span data-i18n="common.stat.shares">condivisioni</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="13.1" data-suffix="K">0</b
-                ><span>like/reazioni</span>
+                ><span data-i18n="common.stat.likes">like/reazioni</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="1390">0</b
-                ><span>salvataggi</span>
+                ><span data-i18n="common.stat.saves">salvataggi</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="113">0</b
-                ><span>nuovi follow</span>
+                ><span data-i18n="common.stat.newFollows">nuovi follow</span>
               </div>
             </div>
-            <p class="cs-case-closing reveal">
+            <p class="cs-case-closing reveal" data-i18n="buddyjob.case2.closing">
               In questo caso le condivisioni hanno superato i like: il contenuto
               non è stato soltanto apprezzato, è diventato qualcosa da mandare a
               qualcun altro.
@@ -1103,19 +1193,19 @@
             <span class="cs-case-label cs-case-label-strategy reveal"
               >Trend Research · Editorial Design</span
             >
-            <span class="cs-strategy-ref reveal"
+            <span class="cs-strategy-ref reveal" data-i18n="buddyjob.case3.ref"
               >Parte del sistema: Informare + Sperimentare</span
             >
-            <h2 class="reveal">
+            <h2 class="reveal" data-i18n="buddyjob.case3.title">
               Un trend nuovo ha bisogno anche di una forma nuova.
             </h2>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.case3.p1">
                 Quando soft-on day e soft-off day hanno iniziato a entrare nella
                 conversazione online sul lavoro, ho approfondito il fenomeno e
                 costruito un contenuto che ne spiegasse significato e contesto.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="buddyjob.case3.p2">
                 Fotografia, tipografia, collage, riferimenti digitali e
                 movimento cambiano lungo il carosello seguendo il contenuto,
                 invece di costringerlo dentro un unico template.
@@ -1210,13 +1300,13 @@
               <span class="cs-tag">Copy</span>
               <span class="cs-tag">Visual</span>
               <span class="cs-tag">Community</span>
-              <span class="cs-tag">Analisi dei risultati</span>
+              <span class="cs-tag" data-i18n="buddyjob.closing.tag">Analisi dei risultati</span>
             </div>
-            <h2 class="cs-closing-title reveal">
+            <h2 class="cs-closing-title reveal" data-i18n="buddyjob.closing.title">
               Trasformare quello che succede nel mondo del lavoro in contenuti
               che valga la pena fermarsi a leggere.
             </h2>
-            <p class="body-p cs-closing-text reveal">
+            <p class="body-p cs-closing-text reveal" data-i18n="buddyjob.closing.text">
               Per BuddyJob costruisco contenuti partendo da conversazioni,
               trend, dati e situazioni quotidiane. Il formato cambia ogni volta;
               l'obiettivo resta costruire una voce riconoscibile e una community
@@ -1227,7 +1317,7 @@
               class="btn btn-signature cs-back-btn"
               data-case-close
             >
-              Torna ai progetti
+              <span data-i18n="common.backToProjects">Torna ai progetti</span>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -1262,38 +1352,43 @@
             >
               <path d="M15 18l-6-6 6-6" />
             </svg>
-            Torna ai progetti
+            <span data-i18n="common.backToProjects">Torna ai progetti</span>
           </button>
+          <div class="lang-switch" role="group" aria-label="Language / Lingua">
+            <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
         </div>
 
         <section class="cs-hero">
           <div class="container">
             <span class="bracket reveal">EPICODE</span>
-            <h1 id="csTitleEpicode" class="cs-hero-title reveal">
+            <h1 id="csTitleEpicode" class="cs-hero-title reveal" data-i18n="epicode.hero.title">
               Come racconti il tech se non è il tuo settore?
             </h1>
             <div class="cs-hero-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.hero.p1">
                 Quando ho iniziato a lavorare su EPICODE, il tech non era il mio
                 settore.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.hero.p2">
                 La sfida quindi non era fingere di conoscere ciò che non
                 conoscevo, ma trovare un metodo per capire prima di raccontare.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.hero.p3">
                 Ricerca, fonti verticali, newsletter e confronto con il team
                 sono diventati il punto di partenza per trasformare temi spesso
                 tecnici in contenuti comprensibili, attuali e coerenti con la
                 voce del brand.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.hero.p4">
                 La direzione editoriale, sviluppata insieme al team, ruotava
                 intorno a un concetto preciso: lo &quot;zio tech&quot;. Qualcuno
                 che il settore lo conosce, ma te lo racconta senza mettersi in
                 cattedra.
               </p>
-              <p class="body-p cs-case-highlight reveal">
+              <p class="body-p cs-case-highlight reveal" data-i18n-html="epicode.hero.highlight">
                 Non dovevo sapere tutto.
                 <em
                   >Dovevo sapere dove cercare, cosa verificare e come renderlo
@@ -1307,7 +1402,7 @@
         <section class="cs-role">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Cosa faccio</h2>
+              <h2 data-i18n="epicode.role.title">Cosa faccio</h2>
             </div>
             <div class="cs-tags reveal">
               <span class="cs-tag">News Research</span>
@@ -1317,17 +1412,17 @@
               <span class="cs-tag">Publishing</span>
               <span class="cs-tag">Community Management</span>
             </div>
-            <p class="body-p cs-role-text reveal">
+            <p class="body-p cs-role-text reveal" data-i18n="epicode.role.p1">
               Cerco temi e notizie attraverso newsletter e fonti di settore,
               individuo quelli che possono diventare contenuto, sviluppo
               concept, copy e visual e seguo la pubblicazione.
             </p>
-            <p class="body-p cs-role-text reveal">
+            <p class="body-p cs-role-text reveal" data-i18n="epicode.role.p2">
               Mi occupo anche della gestione della community, con particolare
               attenzione ai contenuti ADV, dove commenti, dubbi e obiezioni
               diventano una parte importante del rapporto tra brand e pubblico.
             </p>
-            <p class="cs-case-closing reveal">
+            <p class="cs-case-closing reveal" data-i18n-html="epicode.role.closing">
               Strategia generale e concetto dello &quot;zio tech&quot; sono
               stati sviluppati insieme al team.
             </p>
@@ -1337,15 +1432,15 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Prima capire. Poi tradurre.</h2>
+              <h2 data-i18n="epicode.strategy1.title">Prima capire. Poi tradurre.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.strategy1.p1">
                 Non arrivando dal settore tech, ho costruito una routine di
                 ricerca che mi permettesse di orientarmi tra temi, linguaggi e
                 notizie prima di trasformarli in contenuti.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.strategy1.p2">
                 Newsletter verticali, fonti di settore e approfondimenti
                 diventano il punto di partenza. Il lavoro successivo consiste
                 nel capire quale parte della storia è davvero interessante per
@@ -1354,17 +1449,17 @@
               </p>
             </div>
             <div class="cs-process reveal">
-              <span class="cs-process-step cs-process-step-1">Fonti</span>
+              <span class="cs-process-step cs-process-step-1" data-i18n="epicode.process.step1">Fonti</span>
               <span class="cs-process-arrow">→</span>
-              <span class="cs-process-step cs-process-step-2">Ricerca</span>
+              <span class="cs-process-step cs-process-step-2" data-i18n="epicode.process.step2">Ricerca</span>
               <span class="cs-process-arrow">→</span>
-              <span class="cs-process-step cs-process-step-3">Selezione</span>
+              <span class="cs-process-step cs-process-step-3" data-i18n="epicode.process.step3">Selezione</span>
               <span class="cs-process-arrow">→</span>
-              <span class="cs-process-step cs-process-step-4"
+              <span class="cs-process-step cs-process-step-4" data-i18n="epicode.process.step4"
                 >Angolo editoriale</span
               >
               <span class="cs-process-arrow">→</span>
-              <span class="cs-process-step cs-process-step-5">Contenuto</span>
+              <span class="cs-process-step cs-process-step-5" data-i18n="epicode.process.step5">Contenuto</span>
             </div>
           </div>
         </section>
@@ -1372,14 +1467,14 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Una voce, più modi di farla vivere.</h2>
+              <h2 data-i18n="epicode.strategy2.title">Una voce, più modi di farla vivere.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.strategy2.p1">
                 La strategia editoriale sviluppata con il team teneva insieme
                 obiettivi diversi.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.strategy2.p2">
                 Non tutti i contenuti dovevano fare la stessa cosa: alcuni
                 servivano a mantenere EPICODE dentro le conversazioni sul tech,
                 altri a rafforzare la community, altri ancora a rendere più
@@ -1390,15 +1485,15 @@
               <div class="cs-strategy-grid cs-strategy-grid-3">
                 <div class="cs-strategy-item reveal">
                   <b>Relevance</b>
-                  <p>News e cultura tech.</p>
+                  <p data-i18n="epicode.strategy2.item1">News e cultura tech.</p>
                 </div>
                 <div class="cs-strategy-item reveal">
                   <b>Community</b>
-                  <p>Meme, partecipazione e linguaggio condiviso.</p>
+                  <p data-i18n="epicode.strategy2.item2">Meme, partecipazione e linguaggio condiviso.</p>
                 </div>
                 <div class="cs-strategy-item reveal">
                   <b>Trust</b>
-                  <p>Alumni e storie reali.</p>
+                  <p data-i18n="epicode.strategy2.item3">Alumni e storie reali.</p>
                 </div>
               </div>
             </div>
@@ -1410,25 +1505,25 @@
             <span class="cs-case-label cs-case-label-relevance reveal"
               >Relevance · News Research</span
             >
-            <span class="cs-strategy-ref reveal"
+            <span class="cs-strategy-ref reveal" data-i18n="epicode.case1.ref"
               >Parte del sistema: Relevance</span
             >
-            <h2 class="reveal">
+            <h2 class="reveal" data-i18n="epicode.case1.title">
               Portare l'attualità tech dentro il feed, in modo comprensibile.
             </h2>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case1.p1">
                 Uno degli appuntamenti ricorrenti del piano editoriale era
                 dedicato alle notizie e alle storie più interessanti dal mondo
                 tech.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case1.p2">
                 La ricerca partiva da newsletter e fonti verticali. Il lavoro
                 non consisteva semplicemente nel riportare una notizia, ma nel
                 capire quali temi potessero essere rilevanti per la community e
                 trovare un angolo capace di renderli accessibili e interessanti.
               </p>
-              <p class="body-p cs-case-highlight reveal">
+              <p class="body-p cs-case-highlight reveal" data-i18n-html="epicode.case1.highlight">
                 Esempio: il post dedicato a Joseph Weizenbaum ed ELIZA parte
                 dalla storia del primo chatbot per arrivare a una domanda
                 estremamente contemporanea:
@@ -1480,21 +1575,21 @@
             <div class="cs-result-grid reveal">
               <div class="cs-result-item">
                 <b class="num-value" data-value="1067">0</b
-                ><span>interazioni nette</span>
+                ><span data-i18n="common.stat.netInteractions">interazioni nette</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="289">0</b
-                ><span>salvataggi</span>
+                ><span data-i18n="common.stat.saves">salvataggi</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="137">0</b
-                ><span>condivisioni</span>
+                ><span data-i18n="common.stat.shares">condivisioni</span>
               </div>
               <div class="cs-result-item">
-                <b class="num-value" data-value="31">0</b><span>follow</span>
+                <b class="num-value" data-value="31">0</b><span data-i18n="common.stat.follows">follow</span>
               </div>
             </div>
-            <p class="cs-case-closing reveal">
+            <p class="cs-case-closing reveal" data-i18n="epicode.case1.closing">
               La copertura complessiva del post è stata 42.982 (19.637 organica,
               23.485 da inserzioni): non un successo esclusivamente organico, ma
               interazioni, salvataggi e condivisioni restano il dato più
@@ -1508,30 +1603,30 @@
             <span class="cs-case-label cs-case-label-community reveal"
               >Community · Participation</span
             >
-            <span class="cs-strategy-ref reveal"
+            <span class="cs-strategy-ref reveal" data-i18n="epicode.case2.ref"
               >Parte del sistema: Community</span
             >
-            <h2 class="reveal">
+            <h2 class="reveal" data-i18n="epicode.case2.title">
               Quando il contenuto lo sceglie anche la community.
             </h2>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case2.p1">
                 Ogni sabato il feed lasciava spazio ai meme creati dalla
                 community EPICODE.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case2.p2">
                 L'obiettivo non era semplicemente alleggerire il piano
                 editoriale, ma parlare la lingua di chi il mondo tech lo vive
                 davvero e creare un appuntamento riconoscibile.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case2.p3">
                 Il format è stato poi trasformato in un vero torneo. Ogni
                 martedì alcuni meme venivano messi in sfida nelle Stories: la
                 community votava i preferiti e il risultato della votazione
                 determinava anche l'ordine di pubblicazione. I vincitori
                 potevano ricevere gadget EPICODE.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case2.p4">
                 Nato inizialmente per movimentare la community di studenti ed ex
                 studenti, il format è stato poi esteso a tutta la community
                 EPICODE.
@@ -1576,18 +1671,18 @@
               </div>
             </div>
 
-            <p class="body-p cs-case-highlight reveal">
+            <p class="body-p cs-case-highlight reveal" data-i18n-html="epicode.case2.highlight">
               Community crea.<br />Community vota.<br />Il brand rimette tutto
               in circolo.
             </p>
-            <p class="body-p reveal">
+            <p class="body-p reveal" data-i18n="epicode.case2.p5">
               Far votare i contenuti permetteva anche di capire prima della
               pubblicazione quali meme incontrassero maggiormente il linguaggio
               e gli interessi della community.
             </p>
 
             <div class="cs-strategy-block">
-              <span class="cs-strategy-kicker reveal">Il torneo meme</span>
+              <span class="cs-strategy-kicker reveal" data-i18n="epicode.case2.kicker">Il torneo meme</span>
               <div class="cs-gallery-grid cs-gallery-grid-6-story reveal">
                 <div class="cs-gallery-item cs-gallery-item-story">
                   <img
@@ -1637,22 +1732,22 @@
             <div class="cs-result-grid reveal">
               <div class="cs-result-item">
                 <b class="num-value" data-value="123963">0</b
-                ><span>visualizzazioni</span>
+                ><span data-i18n="common.stat.views">visualizzazioni</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="78.5" data-suffix="K">0</b
-                ><span>persone raggiunte</span>
+                ><span data-i18n="common.stat.peopleReached">persone raggiunte</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="4875">0</b
-                ><span>interazioni</span>
+                ><span data-i18n="common.stat.interactions">interazioni</span>
               </div>
               <div class="cs-result-item is-featured">
                 <b class="num-value" data-value="1580">0</b
-                ><span>condivisioni</span>
+                ><span data-i18n="common.stat.shares">condivisioni</span>
               </div>
               <div class="cs-result-item">
-                <b class="num-value" data-value="87">0</b><span>follow</span>
+                <b class="num-value" data-value="87">0</b><span data-i18n="common.stat.follows">follow</span>
               </div>
             </div>
           </div>
@@ -1663,25 +1758,25 @@
             <span class="cs-case-label cs-case-label-trust reveal"
               >Trust · Social Proof</span
             >
-            <span class="cs-strategy-ref reveal">Parte del sistema: Trust</span>
-            <h2 class="reveal">
+            <span class="cs-strategy-ref reveal" data-i18n="epicode.case3.ref">Parte del sistema: Trust</span>
+            <h2 class="reveal" data-i18n="epicode.case3.title">
               Far parlare il brand attraverso chi l'ha vissuto.
             </h2>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case3.p1">
                 Per costruire fiducia non basta raccontare cosa offre EPICODE.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case3.p2">
                 Le storie degli alumni servono a rendere la promessa del brand
                 più concreta attraverso persone, percorsi e lavori reali.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case3.p3">
                 Il format non si limita alla classica testimonianza: parte dalla
                 persona, racconta cosa fa oggi, traduce il suo ruolo in attività
                 comprensibili e ricostruisce il percorso che l'ha portata fin
                 lì.
               </p>
-              <p class="body-p cs-case-highlight reveal">
+              <p class="body-p cs-case-highlight reveal" data-i18n-html="epicode.case3.highlight">
                 Meno promessa di brand. <em>Più prova concreta.</em>
               </p>
             </div>
@@ -1752,30 +1847,30 @@
             <span class="cs-case-label cs-case-label-perception reveal"
               >Community Management · Brand Perception</span
             >
-            <h2 class="reveal">
+            <h2 class="reveal" data-i18n="epicode.case4.title">
               A volte la risposta a un commento può diventare contenuto.
             </h2>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case4.p1">
                 I video ADV di EPICODE generavano molti commenti: domande,
                 dubbi, critiche e osservazioni non sempre richieste.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case4.p2">
                 Oltre alla gestione quotidiana della community, insieme al team
                 abbiamo deciso di trasformare alcune obiezioni ricorrenti in un
                 set di Stories pensato per rispondere in modo più strutturato.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case4.p3">
                 A metterci la faccia sono direttamente le persone che lavorano
                 in EPICODE. L'obiettivo era evitare una voce impersonale e
                 rendere il brand più umano, familiare e riconoscibile.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="epicode.case4.p4">
                 Non si trattava solo di rispondere al singolo commento: questi
                 contenuti contribuivano a lavorare nel tempo sulla percezione
                 positiva del brand.
               </p>
-              <p class="body-p cs-case-highlight reveal">
+              <p class="body-p cs-case-highlight reveal" data-i18n-html="epicode.case4.highlight">
                 Dietro al logo, <em>persone riconoscibili.</em>
               </p>
             </div>
@@ -1785,46 +1880,46 @@
         <section class="cs-results">
           <div class="container">
             <div class="section-head center reveal">
-              <h2>Risultati generali</h2>
-              <p class="desc">1 giugno — 7 settembre 2026</p>
+              <h2 data-i18n="epicode.results.title">Risultati generali</h2>
+              <p class="desc" data-i18n="epicode.results.period">1 giugno — 7 settembre 2026</p>
             </div>
             <div class="cs-stat-grid">
               <div class="cs-stat reveal">
                 <b class="num-value" data-value="36.3" data-suffix="M">0</b>
-                <span class="cs-stat-label">visualizzazioni</span>
+                <span class="cs-stat-label" data-i18n="common.stat.views">visualizzazioni</span>
                 <span class="cs-stat-delta">+7,4%</span>
               </div>
               <div class="cs-stat reveal">
                 <b class="num-value" data-value="4.9" data-suffix="M">0</b>
-                <span class="cs-stat-label">copertura</span>
+                <span class="cs-stat-label" data-i18n="common.stat.coverage">copertura</span>
                 <span class="cs-stat-delta">+16,8%</span>
               </div>
               <div class="cs-stat reveal">
                 <b class="num-value" data-value="89.9" data-suffix="K">0</b>
-                <span class="cs-stat-label">interazioni con i contenuti</span>
+                <span class="cs-stat-label" data-i18n="common.stat.interactionsContent">interazioni con i contenuti</span>
                 <span class="cs-stat-delta">+54,7%</span>
               </div>
               <div class="cs-stat reveal">
                 <b class="num-value" data-value="7661">0</b>
-                <span class="cs-stat-label">nuovi follow</span>
+                <span class="cs-stat-label" data-i18n="common.stat.newFollows">nuovi follow</span>
                 <span class="cs-stat-delta">+24,6%</span>
               </div>
             </div>
             <div class="cs-result-grid reveal">
               <div class="cs-result-item">
                 <b class="num-value" data-value="148" data-suffix="K">0</b
-                ><span>clic sul link · +15,2%</span>
+                ><span data-i18n="epicode.results.item1">clic sul link · +15,2%</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="67" data-suffix="K">0</b
-                ><span>visite al profilo · +36,3%</span>
+                ><span data-i18n="epicode.results.item2">visite al profilo · +36,3%</span>
               </div>
               <div class="cs-result-item">
                 <b class="num-value" data-value="57900">0</b
-                ><span>follower totali a fine periodo</span>
+                ><span data-i18n="epicode.results.item3">follower totali a fine periodo</span>
               </div>
             </div>
-            <p class="cs-results-note reveal">
+            <p class="cs-results-note reveal" data-i18n="epicode.results.note">
               Alcuni contenuti sono stati supportati da campagne paid con
               l'obiettivo di aumentare la conoscenza del brand: le metriche
               generali comprendono distribuzione organica e a pagamento, non
@@ -1843,11 +1938,11 @@
               <span class="cs-tag">Publishing</span>
               <span class="cs-tag">Community Management</span>
             </div>
-            <h2 class="cs-closing-title reveal">
+            <h2 class="cs-closing-title reveal" data-i18n="epicode.closing.title">
               Non serve appartenere a un settore per imparare a raccontarlo
               bene.
             </h2>
-            <p class="body-p cs-closing-text reveal">
+            <p class="body-p cs-closing-text reveal" data-i18n="epicode.closing.text">
               Su EPICODE ho imparato a costruire credibilità attraverso ricerca,
               ascolto e traduzione. Capire prima di scrivere, trovare fonti
               affidabili, scegliere l'angolo giusto e cambiare formato in base
@@ -1859,7 +1954,7 @@
               class="btn btn-signature cs-back-btn"
               data-case-close
             >
-              Torna ai progetti
+              <span data-i18n="common.backToProjects">Torna ai progetti</span>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -1894,32 +1989,37 @@
             >
               <path d="M15 18l-6-6 6-6" />
             </svg>
-            Torna ai progetti
+            <span data-i18n="common.backToProjects">Torna ai progetti</span>
           </button>
+          <div class="lang-switch" role="group" aria-label="Language / Lingua">
+            <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
         </div>
 
         <section class="cs-hero">
           <div class="container">
             <span class="bracket reveal">VIDEO PRODUCTION · SINAPSS</span>
-            <h1 id="csTitleSinapss" class="cs-hero-title reveal">
+            <h1 id="csTitleSinapss" class="cs-hero-title reveal" data-i18n="sinapss.hero.title">
               Il ritmo si costruisce prima ancora del montaggio.
             </h1>
             <div class="cs-hero-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.hero.p1">
                 In Sinapss ho lavorato alla produzione e allo sviluppo di
                 contenuti social per clienti molto diversi tra loro, con un
                 focus particolare sul video.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.hero.p2">
                 Partivo dagli obiettivi di comunicazione per costruire le
                 shooting list e trasformarli in sequenze visive coerenti con il
                 linguaggio del brand.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.hero.p3">
                 Seguivo poi direttamente riprese, inquadrature e montaggio
                 finale, lavorando su ritmo, chiarezza e flusso narrativo.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.hero.p4">
                 In alcuni progetti sono stata anche davanti alla camera, quando
                 serviva una presenza più diretta e spontanea nel contenuto.
               </p>
@@ -1930,28 +2030,28 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Dal brief al video finito.</h2>
+              <h2 data-i18n="sinapss.strategy1.title">Dal brief al video finito.</h2>
             </div>
             <div class="cs-touchpoints cs-touchpoints-4 reveal">
               <div class="cs-touchpoint">
                 <span class="cs-step-num">01</span>
                 <b>Shooting List</b>
-                <p>Dall'obiettivo alle scene da girare.</p>
+                <p data-i18n="sinapss.strategy1.step1">Dall'obiettivo alle scene da girare.</p>
               </div>
               <div class="cs-touchpoint">
                 <span class="cs-step-num">02</span>
                 <b>Shooting</b>
-                <p>Riprese, inquadrature e costruzione del materiale.</p>
+                <p data-i18n="sinapss.strategy1.step2">Riprese, inquadrature e costruzione del materiale.</p>
               </div>
               <div class="cs-touchpoint">
                 <span class="cs-step-num">03</span>
                 <b>Editing</b>
-                <p>Montaggio, timing e flusso narrativo.</p>
+                <p data-i18n="sinapss.strategy1.step3">Montaggio, timing e flusso narrativo.</p>
               </div>
               <div class="cs-touchpoint">
                 <span class="cs-step-num">04</span>
                 <b>Motion</b>
-                <p>Testi, transizioni e micro-animazioni.</p>
+                <p data-i18n="sinapss.strategy1.step4">Testi, transizioni e micro-animazioni.</p>
               </div>
             </div>
           </div>
@@ -1960,19 +2060,19 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Non montare sulla musica. Montare con la musica.</h2>
+              <h2 data-i18n="sinapss.strategy2.title">Non montare sulla musica. Montare con la musica.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.strategy2.p1">
                 Tagli, cambi di scala, testi, transizioni e micro-animazioni
                 seguono il sound e contribuiscono a costruire il movimento del
                 video.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.strategy2.p2">
                 A seconda del cliente il ritmo può diventare più veloce, più
                 morbido o più elastico.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.strategy2.p3">
                 Il punto non era applicare lo stesso stile a tutto, ma trovare
                 ogni volta il movimento giusto per il contenuto e per il brand.
               </p>
@@ -1983,7 +2083,7 @@
         <section class="cs-case">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Selected motion work</h2>
+              <h2 data-i18n="sinapss.motion.title">Selected motion work</h2>
             </div>
 
             <div class="cs-video-featured reveal">
@@ -1998,11 +2098,11 @@
               </div>
               <div class="cs-video-meta">
                 <div class="cs-video-meta-item">
-                  <span class="cs-video-meta-label">Cliente</span
+                  <span class="cs-video-meta-label" data-i18n="common.video.client">Cliente</span
                   ><span class="cs-video-meta-value">Veramente</span>
                 </div>
                 <div class="cs-video-meta-item">
-                  <span class="cs-video-meta-label">Tipo di contenuto</span
+                  <span class="cs-video-meta-label" data-i18n="common.video.contentType">Tipo di contenuto</span
                   ><span class="cs-video-meta-value">Video reel</span>
                 </div>
                 <div class="cs-video-meta-item">
@@ -2026,11 +2126,11 @@
               </div>
               <div class="cs-video-meta">
                 <div class="cs-video-meta-item">
-                  <span class="cs-video-meta-label">Cliente</span
+                  <span class="cs-video-meta-label" data-i18n="common.video.client">Cliente</span
                   ><span class="cs-video-meta-value">Veramente</span>
                 </div>
                 <div class="cs-video-meta-item">
-                  <span class="cs-video-meta-label">Tipo di contenuto</span
+                  <span class="cs-video-meta-label" data-i18n="common.video.contentType">Tipo di contenuto</span
                   ><span class="cs-video-meta-value"
                     >Video reel dimostrazione shooting</span
                   >
@@ -2056,11 +2156,11 @@
               </div>
               <div class="cs-video-meta">
                 <div class="cs-video-meta-item">
-                  <span class="cs-video-meta-label">Cliente</span
+                  <span class="cs-video-meta-label" data-i18n="common.video.client">Cliente</span
                   ><span class="cs-video-meta-value">Da inserire</span>
                 </div>
                 <div class="cs-video-meta-item">
-                  <span class="cs-video-meta-label">Tipo di contenuto</span
+                  <span class="cs-video-meta-label" data-i18n="common.video.contentType">Tipo di contenuto</span
                   ><span class="cs-video-meta-value">Teasing apertura</span>
                 </div>
                 <div class="cs-video-meta-item">
@@ -2082,11 +2182,11 @@
               </div>
               <div class="cs-video-meta">
                 <div class="cs-video-meta-item">
-                  <span class="cs-video-meta-label">Cliente</span
+                  <span class="cs-video-meta-label" data-i18n="common.video.client">Cliente</span
                   ><span class="cs-video-meta-value">Felicetta Bistrò</span>
                 </div>
                 <div class="cs-video-meta-item">
-                  <span class="cs-video-meta-label">Tipo di contenuto</span
+                  <span class="cs-video-meta-label" data-i18n="common.video.contentType">Tipo di contenuto</span
                   ><span class="cs-video-meta-value">Intervista TikTok</span>
                 </div>
                 <div class="cs-video-meta-item">
@@ -2101,7 +2201,7 @@
         <section class="cs-case">
           <div class="container">
             <div class="section-head reveal">
-              <h2>More work</h2>
+              <h2 data-i18n="sinapss.moreWork.title">More work</h2>
             </div>
             <div
               class="cs-gallery-grid cs-gallery-grid-4 reveal"
@@ -2154,16 +2254,16 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Tools</h2>
+              <h2 data-i18n="sinapss.tools.title">Tools</h2>
             </div>
             <div class="cs-touchpoints cs-touchpoints-2 reveal">
               <div class="cs-touchpoint">
                 <b>Adobe Premiere Pro</b>
-                <p>Montaggio, sound sync, timing e struttura.</p>
+                <p data-i18n="sinapss.tools.premiere">Montaggio, sound sync, timing e struttura.</p>
               </div>
               <div class="cs-touchpoint">
                 <b>Adobe After Effects</b>
-                <p>
+                <p data-i18n="sinapss.tools.aftereffects">
                   Motion graphics, testi animati, transizioni e
                   micro-animazioni.
                 </p>
@@ -2175,18 +2275,18 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head center reveal">
-              <h2>Stesso processo. Ogni volta un linguaggio diverso.</h2>
+              <h2 data-i18n="sinapss.process2.title">Stesso processo. Ogni volta un linguaggio diverso.</h2>
             </div>
             <div
               class="cs-case-copy"
               style="margin-left: auto; margin-right: auto; text-align: center"
             >
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.process2.p1">
                 Lavorare in agenzia significava passare rapidamente da un
                 cliente all'altro, con identità, pubblici e obiettivi
                 differenti.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="sinapss.process2.p2">
                 Il mio lavoro non era portare lo stesso stile ovunque, ma capire
                 quanto ritmo, movimento e presenza visiva servissero ogni volta.
               </p>
@@ -2196,7 +2296,7 @@
 
         <section class="cs-closing-section">
           <div class="container">
-            <h2 class="cs-closing-title reveal">
+            <h2 class="cs-closing-title reveal" data-i18n-html="sinapss.closing.title">
               Ogni video ha il suo ritmo.<br />Il lavoro è trovarlo.
             </h2>
             <button
@@ -2204,7 +2304,7 @@
               class="btn btn-signature cs-back-btn"
               data-case-close
             >
-              Torna ai progetti
+              <span data-i18n="common.backToProjects">Torna ai progetti</span>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -2239,8 +2339,13 @@
             >
               <path d="M15 18l-6-6 6-6" />
             </svg>
-            Torna ai progetti
+            <span data-i18n="common.backToProjects">Torna ai progetti</span>
           </button>
+          <div class="lang-switch" role="group" aria-label="Language / Lingua">
+            <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
         </div>
 
         <section class="cs-hero">
@@ -2248,16 +2353,16 @@
             <span class="bracket reveal"
               >ENRICA LEONARDIS · ARCHITETTO INTERIOR DESIGNER</span
             >
-            <h1 id="csTitleLeonardis" class="cs-hero-title reveal">
+            <h1 id="csTitleLeonardis" class="cs-hero-title reveal" data-i18n="leonardis.hero.title">
               Prima di comunicare, capire cosa vale davvero la pena raccontare.
             </h1>
             <div class="cs-hero-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.hero.p1">
                 Il progetto nasce dalla necessità di rendere la comunicazione
                 dello Studio Leonardis più riconoscibile, coerente e capace di
                 trasmettere il suo metodo.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.hero.p2">
                 Abbiamo lavorato sull'identità del professionista, sui valori
                 dello studio, sul target, sul posizionamento e sulla presenza
                 digitale per costruire una strategia capace di raccontare non
@@ -2265,15 +2370,15 @@
               </p>
             </div>
             <div class="cs-process reveal">
-              <span class="cs-process-step cs-process-step-1">Analisi</span>
+              <span class="cs-process-step cs-process-step-1" data-i18n="leonardis.process.step1">Analisi</span>
               <span class="cs-process-arrow">→</span>
-              <span class="cs-process-step cs-process-step-2">Strategia</span>
+              <span class="cs-process-step cs-process-step-2" data-i18n="leonardis.process.step2">Strategia</span>
               <span class="cs-process-arrow">→</span>
-              <span class="cs-process-step cs-process-step-3"
+              <span class="cs-process-step cs-process-step-3" data-i18n="leonardis.process.step3"
                 >Sistema editoriale</span
               >
               <span class="cs-process-arrow">→</span>
-              <span class="cs-process-step cs-process-step-4">Produzione</span>
+              <span class="cs-process-step cs-process-step-4" data-i18n="leonardis.process.step4">Produzione</span>
             </div>
           </div>
         </section>
@@ -2281,10 +2386,10 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Capire prima di costruire.</h2>
+              <h2 data-i18n="leonardis.strategy1.title">Capire prima di costruire.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.strategy1.p1">
                 Prima di definire contenuti e formati abbiamo analizzato il
                 contesto: competitor, target e buyer personas, valori e punti
                 distintivi dello studio, mission, posizionamento e presenza
@@ -2294,8 +2399,8 @@
 
             <div class="cs-insight-grid reveal">
               <div class="cs-insight-item">
-                <span class="cs-insight-label">Target</span>
-                <p>
+                <span class="cs-insight-label" data-i18n="leonardis.insight1.label">Target</span>
+                <p data-i18n="leonardis.insight1.text">
                   Capire cosa cerca davvero il cliente: ascolto,
                   accompagnamento, affidabilità e un progetto che rispecchi la
                   propria identità.
@@ -2309,8 +2414,8 @@
                 </div>
               </div>
               <div class="cs-insight-item">
-                <span class="cs-insight-label">Competitor</span>
-                <p>
+                <span class="cs-insight-label" data-i18n="leonardis.insight2.label">Competitor</span>
+                <p data-i18n="leonardis.insight2.text">
                   Abbiamo osservato come il settore costruisce autorevolezza
                   attraverso qualità visiva, contenuti educativi, rubriche, bio
                   chiare, CTA e presenza coerente.
@@ -2324,8 +2429,8 @@
                 </div>
               </div>
               <div class="cs-insight-item">
-                <span class="cs-insight-label">Posizionamento</span>
-                <p>
+                <span class="cs-insight-label" data-i18n="leonardis.insight3.label">Posizionamento</span>
+                <p data-i18n="leonardis.insight3.text">
                   Il punto distintivo non era proporre uno stile da imporre, ma
                   costruire spazi insieme alle persone.
                 </p>
@@ -2342,6 +2447,7 @@
             <p
               class="body-p cs-case-highlight reveal"
               style="max-width: 600px; margin: 46px auto 0; text-align: center"
+              data-i18n="leonardis.strategy1.highlight"
             >
               “Non seguiamo uno stile. Costruiamo il tuo.”
             </p>
@@ -2351,15 +2457,15 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Trasformare il posizionamento in un sistema di contenuti.</h2>
+              <h2 data-i18n="leonardis.strategy2.title">Trasformare il posizionamento in un sistema di contenuti.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.strategy2.p1">
                 Dopo la fase di analisi abbiamo costruito una strategia social
                 completa, definendo obiettivi, formati, rubriche e direzione
                 visiva.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.strategy2.p2">
                 L'obiettivo era creare una presenza più coerente e
                 riconoscibile, capace di raccontare progetti, metodo,
                 competenze, persona e processo di lavoro attraverso un piano
@@ -2370,28 +2476,28 @@
             <div class="cs-touchpoints cs-touchpoints-4 reveal">
               <div class="cs-touchpoint">
                 <b>Prima / Dopo</b>
-                <p>
+                <p data-i18n="leonardis.touchpoint1.desc">
                   Case history sintetiche per mostrare la trasformazione degli
                   spazi.
                 </p>
               </div>
               <div class="cs-touchpoint">
                 <b>Il Glossario dell'Architetto</b>
-                <p>Termini tecnici spiegati in modo accessibile.</p>
+                <p data-i18n="leonardis.touchpoint2.desc">Termini tecnici spiegati in modo accessibile.</p>
               </div>
               <div class="cs-touchpoint">
                 <b>ArchitetTips</b>
-                <p>Consigli pratici su spazi, materiali e progettazione.</p>
+                <p data-i18n="leonardis.touchpoint3.desc">Consigli pratici su spazi, materiali e progettazione.</p>
               </div>
               <div class="cs-touchpoint">
                 <b>Conosciamoci</b>
-                <p>
+                <p data-i18n="leonardis.touchpoint4.desc">
                   Contenuti dedicati a Enrica, al team, ai valori e alla storia
                   dello studio.
                 </p>
               </div>
             </div>
-            <p class="cs-rubrica-extra reveal">
+            <p class="cs-rubrica-extra reveal" data-i18n-html="leonardis.rubricaExtra">
               <b>In viaggio con l'architetto</b> — il modo in cui un architetto
               osserva e interpreta i luoghi.
             </p>
@@ -2401,10 +2507,10 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Una comunicazione coerente anche nel modo in cui appare.</h2>
+              <h2 data-i18n="leonardis.strategy3.title">Una comunicazione coerente anche nel modo in cui appare.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.strategy3.p1">
                 La strategia ha incluso anche una direzione visiva dedicata:
                 font, tono grafico, ordine del feed e modo di presentare i
                 contenuti.
@@ -2428,10 +2534,10 @@
         <section class="cs-case">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Dal piano editoriale a un contenuto reale.</h2>
+              <h2 data-i18n="leonardis.case1.title">Dal piano editoriale a un contenuto reale.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.case1.p1">
                 Uno dei contenuti sviluppati è stato un post dedicato alla
                 trasformazione degli spazi, coerente con la rubrica Prima /
                 Dopo.
@@ -2502,24 +2608,24 @@
           <div class="container">
             <span class="bracket reveal">VIDEO PRODUCTION · MULTICAMERA</span>
             <div class="section-head reveal" style="margin-top: 22px">
-              <h2>La strategia arriva sul set.</h2>
+              <h2 data-i18n="leonardis.case2.title">La strategia arriva sul set.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.case2.p1">
                 Il progetto si è concluso con la produzione di un video
                 corporate emozionale di circa 4 minuti.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.case2.p2">
                 Abbiamo realizzato vere riprese multicamera e interviste per
                 raccontare lo studio attraverso persone, spazi e metodo.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="leonardis.case2.p3">
                 Mi sono occupata direttamente del montaggio finale, lavorando
                 sulla selezione delle interviste, sull'alternanza delle camere,
                 sul ritmo narrativo, sulla musica e sulla costruzione emotiva
                 del video.
               </p>
-              <p class="body-p cs-case-highlight reveal">
+              <p class="body-p cs-case-highlight reveal" data-i18n-html="leonardis.case2.highlight">
                 Dall'analisi al set.<br />Dalla strategia al racconto.
               </p>
             </div>
@@ -2529,39 +2635,39 @@
         <section class="cs-role">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Il mio contributo</h2>
+              <h2 data-i18n="leonardis.role.title">Il mio contributo</h2>
             </div>
             <div class="cs-touchpoints reveal">
               <div class="cs-touchpoint">
                 <b>Strategy</b>
-                <p>
+                <p data-i18n="leonardis.role.item1">
                   Analisi, posizionamento, target e sviluppo della strategia
                   insieme a una collega.
                 </p>
-                <span class="cs-role-badge">In team</span>
+                <span class="cs-role-badge" data-i18n="leonardis.role.inTeam">In team</span>
               </div>
               <div class="cs-touchpoint">
                 <b>Content System</b>
-                <p>Definizione di rubriche, formati e piano editoriale.</p>
-                <span class="cs-role-badge">In team</span>
+                <p data-i18n="leonardis.role.item2">Definizione di rubriche, formati e piano editoriale.</p>
+                <span class="cs-role-badge" data-i18n="leonardis.role.inTeam">In team</span>
               </div>
               <div class="cs-touchpoint">
                 <b>Visual Direction</b>
-                <p>
+                <p data-i18n="leonardis.role.item3">
                   Scelta dei font, direzione grafica e adattamento dei
                   contenuti.
                 </p>
-                <span class="cs-role-badge">In team</span>
+                <span class="cs-role-badge" data-i18n="leonardis.role.inTeam">In team</span>
               </div>
               <div class="cs-touchpoint">
                 <b>Video Production</b>
-                <p>Riprese multicamera e interviste sviluppate in team.</p>
-                <span class="cs-role-badge">In team</span>
+                <p data-i18n="leonardis.role.item4">Riprese multicamera e interviste sviluppate in team.</p>
+                <span class="cs-role-badge" data-i18n="leonardis.role.inTeam">In team</span>
               </div>
               <div class="cs-touchpoint">
                 <b>Video Editing</b>
-                <p>Montaggio completo del video corporate a mia cura.</p>
-                <span class="cs-role-badge cs-role-badge-solo">A mia cura</span>
+                <p data-i18n="leonardis.role.item5">Montaggio completo del video corporate a mia cura.</p>
+                <span class="cs-role-badge cs-role-badge-solo" data-i18n="leonardis.role.soloCredit">A mia cura</span>
               </div>
             </div>
           </div>
@@ -2569,11 +2675,11 @@
 
         <section class="cs-closing-section">
           <div class="container">
-            <h2 class="cs-closing-title reveal">
+            <h2 class="cs-closing-title reveal" data-i18n-html="leonardis.closing.title">
               Prima capire cosa rende un professionista diverso.<br />Poi
               trovare il modo di farlo percepire.
             </h2>
-            <p class="body-p cs-closing-text reveal">
+            <p class="body-p cs-closing-text reveal" data-i18n="leonardis.closing.text">
               Questo progetto mi ha permesso di lavorare su tutta la catena
               della comunicazione: dalla lettura del contesto alla definizione
               del posizionamento, dalla costruzione del piano editoriale fino
@@ -2582,6 +2688,7 @@
             <p
               class="body-p cs-case-highlight reveal"
               style="max-width: 600px; margin: 0 auto 40px; text-align: center"
+              data-i18n="leonardis.closing.highlight"
             >
               La strategia funziona davvero quando riesce a diventare contenuto.
             </p>
@@ -2590,7 +2697,7 @@
               class="btn btn-signature cs-back-btn"
               data-case-close
             >
-              Torna ai progetti
+              <span data-i18n="common.backToProjects">Torna ai progetti</span>
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -2625,8 +2732,13 @@
             >
               <path d="M15 18l-6-6 6-6" />
             </svg>
-            Torna ai progetti
+            <span data-i18n="common.backToProjects">Torna ai progetti</span>
           </button>
+          <div class="lang-switch" role="group" aria-label="Language / Lingua">
+            <button type="button" class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+            <span class="lang-sep" aria-hidden="true">|</span>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
         </div>
 
         <section class="cs-hero">
@@ -2634,17 +2746,17 @@
             <span class="bracket reveal"
               >FRESKO · NAMING &amp; VISUAL IDENTITY</span
             >
-            <h1 id="csTitleFresko" class="cs-hero-title reveal">
+            <h1 id="csTitleFresko" class="cs-hero-title reveal" data-i18n-html="fresko.hero.title">
               Lo spreco non doveva essere il protagonista.<br />Il cibo sì.
             </h1>
             <div class="cs-hero-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.hero.p1">
                 Fresko nasce come web app anti-spreco pensata per aiutare le
                 persone a sapere cosa hanno già in casa, tenere sotto controllo
                 le scadenze e trovare modi per utilizzare gli alimenti prima che
                 vengano dimenticati o buttati.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.hero.p2">
                 L'obiettivo non era costruire una comunicazione moralista o
                 troppo "green", ma rendere il tema dello spreco alimentare più
                 vicino, giovane e appetibile.
@@ -2656,13 +2768,13 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>
+              <h2 data-i18n-html="fresko.problem.title">
                 Il problema non era solo comprare meglio.<br />Era ricordarsi
                 cosa c'era già.
               </h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.problem.p1">
                 Molti alimenti finiscono dimenticati in fondo al frigo o alla
                 dispensa. Fresko nasce per trasformare questo problema
                 quotidiano in qualcosa di più semplice: sapere cosa hai, quando
@@ -2675,15 +2787,15 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Fresco, ma con la K.</h2>
+              <h2 data-i18n="fresko.naming.title">Fresco, ma con la K.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.naming.p1">
                 Il naming doveva essere breve, facile da ricordare,
                 internazionale, giovane e coerente con un prodotto digitale
                 legato al cibo. Da qui nasce Fresko.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.naming.p2">
                 Il nome richiama immediatamente il concetto di freschezza,
                 mentre la K lo rende più distintivo, contemporaneo e
                 riconoscibile. Il sito è stato pensato in inglese per dare al
@@ -2706,7 +2818,7 @@
           <div class="container">
             <div class="cs-payoff-band reveal">
               <p class="cs-payoff-text">SAVE FOOD,<br />KEEP IT FRESKO.</p>
-              <p class="cs-payoff-note">
+              <p class="cs-payoff-note" data-i18n="fresko.payoff.note">
                 Il payoff utilizza il nome del brand come parte del linguaggio
                 stesso del progetto.
               </p>
@@ -2717,15 +2829,15 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Un simbolo semplice da riconoscere.</h2>
+              <h2 data-i18n="fresko.logo.title">Un simbolo semplice da riconoscere.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.logo.p1">
                 Il limone è diventato l'elemento centrale del logo perché
                 richiama immediatamente il mondo del cibo e il concetto di
                 freschezza.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.logo.p2">
                 Nel wordmark sostituisce visivamente la "O" di Fresko, rendendo
                 il nome più riconoscibile e trasformando il simbolo in parte
                 integrante del brand.
@@ -2746,15 +2858,15 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Dare un volto al brand.</h2>
+              <h2 data-i18n="fresko.mascot.title">Dare un volto al brand.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.mascot.p1">
                 Dal limone nasce anche la mascotte. L'obiettivo era rendere
                 Fresko più giovane, informale e vicino a un pubblico abituato a
                 prodotti digitali dal tono leggero.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.mascot.p2">
                 Cappellino e occhiali aggiungono personalità e trasformano il
                 simbolo del brand in un personaggio riconoscibile. Alcuni
                 dettagli della mascotte richiamano anche la figura dell'ideatore
@@ -2777,7 +2889,7 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Un'identità costruita attorno a un'idea semplice.</h2>
+              <h2 data-i18n="fresko.mv.title">Un'identità costruita attorno a un'idea semplice.</h2>
             </div>
             <div class="cs-mv-grid reveal">
               <div class="cs-mv-block cs-mv-block-dark">
@@ -2829,7 +2941,7 @@
         <section class="cs-strategy">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Fresco anche nel modo in cui appare.</h2>
+              <h2 data-i18n="fresko.visual.title">Fresco anche nel modo in cui appare.</h2>
             </div>
             <div class="cs-palette-row reveal">
               <div class="cs-palette-chip">
@@ -2838,7 +2950,7 @@
                   style="background: var(--fresko-dark)"
                 ></div>
                 <div class="cs-palette-info">
-                  <span class="cs-palette-name">Verde scuro</span
+                  <span class="cs-palette-name" data-i18n="fresko.palette.dark">Verde scuro</span
                   ><span class="cs-palette-hex">#0F2B1E</span>
                 </div>
               </div>
@@ -2848,7 +2960,7 @@
                   style="background: var(--fresko-green)"
                 ></div>
                 <div class="cs-palette-info">
-                  <span class="cs-palette-name">Verde secondario</span
+                  <span class="cs-palette-name" data-i18n="fresko.palette.green">Verde secondario</span
                   ><span class="cs-palette-hex">#1D4D34</span>
                 </div>
               </div>
@@ -2881,19 +2993,19 @@
                   style="background: var(--fresko-yellow)"
                 ></div>
                 <div class="cs-palette-info">
-                  <span class="cs-palette-name">Giallo</span
+                  <span class="cs-palette-name" data-i18n="fresko.palette.yellow">Giallo</span
                   ><span class="cs-palette-hex">#FFD600</span>
                 </div>
               </div>
             </div>
-            <p class="body-p reveal" style="margin-top: 20px">
+            <p class="body-p reveal" style="margin-top: 20px" data-i18n="fresko.visual.paletteNote">
               Lime e giallo non hanno lo stesso peso: il lime è l'accento
               principale dell'interfaccia, mentre il giallo è legato soprattutto
               al limone, alla mascotte e ai piccoli dettagli.
             </p>
             <div class="cs-type-specimen reveal">
               <p class="cs-type-specimen-word">Poppins</p>
-              <p class="cs-type-specimen-tag">
+              <p class="cs-type-specimen-tag" data-i18n="fresko.visual.typeTag">
                 Bold · Clean · Friendly — scelta per mantenere l'identità
                 semplice, digitale, leggibile e accessibile, con un tono giovane
                 senza diventare infantile.
@@ -2905,15 +3017,15 @@
         <section class="cs-case">
           <div class="container">
             <div class="section-head reveal">
-              <h2>L'identità entra nel prodotto.</h2>
+              <h2 data-i18n="fresko.product.title">L'identità entra nel prodotto.</h2>
             </div>
             <div class="cs-case-copy">
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.product.p1">
                 Logo, palette, tipografia, immagini food e tone of voice sono
                 stati applicati alla web app per mantenere la stessa personalità
                 anche nell'esperienza digitale.
               </p>
-              <p class="body-p reveal">
+              <p class="body-p reveal" data-i18n="fresko.product.p2">
                 L'obiettivo era creare un'interfaccia che parlasse di
                 anti-spreco attraverso il desiderio di utilizzare il cibo, non
                 attraverso il senso di colpa.
@@ -2956,7 +3068,7 @@
               </div>
               <div class="cs-gallery-item" style="aspect-ratio: 4/3">
                 <div class="cs-placeholder">
-                  <span>Internal web app screen</span>
+                  <span data-i18n="fresko.internalScreen">Internal web app screen</span>
                 </div>
               </div>
             </div>
@@ -2966,40 +3078,40 @@
         <section class="cs-role">
           <div class="container">
             <div class="section-head reveal">
-              <h2>Il mio contributo</h2>
+              <h2 data-i18n="fresko.role.title">Il mio contributo</h2>
             </div>
             <div class="cs-touchpoints reveal">
               <div class="cs-touchpoint">
                 <b>Naming</b>
-                <p>
+                <p data-i18n="fresko.role.item1">
                   Definizione del nome Fresko e del suo posizionamento verbale.
                 </p>
               </div>
               <div class="cs-touchpoint">
                 <b>Logo</b>
-                <p>
+                <p data-i18n="fresko.role.item2">
                   Sviluppo del wordmark e utilizzo del limone come elemento
                   distintivo.
                 </p>
               </div>
               <div class="cs-touchpoint">
                 <b>Mascot Design</b>
-                <p>
+                <p data-i18n="fresko.role.item3">
                   Creazione della mascotte e definizione del suo tono giovane e
                   riconoscibile.
                 </p>
               </div>
               <div class="cs-touchpoint">
                 <b>Visual Direction</b>
-                <p>Palette, typography e linguaggio grafico.</p>
+                <p data-i18n="fresko.role.item4">Palette, typography e linguaggio grafico.</p>
               </div>
               <div class="cs-touchpoint">
                 <b>Brand Language</b>
-                <p>Payoff, mission e vision.</p>
+                <p data-i18n="fresko.role.item5">Payoff, mission e vision.</p>
               </div>
               <div class="cs-touchpoint">
                 <b>Product Application</b>
-                <p>Applicazione dell'identità alla web app.</p>
+                <p data-i18n="fresko.role.item6">Applicazione dell'identità alla web app.</p>
               </div>
             </div>
           </div>
@@ -3007,7 +3119,7 @@
 
         <section class="cs-closing-section">
           <div class="container">
-            <h2 class="cs-closing-title reveal">
+            <h2 class="cs-closing-title reveal" data-i18n="fresko.closing.title">
               Far venire voglia di usare quello che hai già.
             </h2>
             <a
@@ -3023,7 +3135,7 @@
                 class="btn btn-signature cs-back-btn"
                 data-case-close
               >
-                Torna ai progetti
+                <span data-i18n="common.backToProjects">Torna ai progetti</span>
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -3045,6 +3157,7 @@
         class="cs-lightbox-close"
         data-lightbox-close
         aria-label="Chiudi anteprima"
+        data-i18n-attr-aria-label="common.closePreview"
       >
         <svg
           viewBox="0 0 24 24"
@@ -3068,6 +3181,7 @@
 
     <script src="js/vendor/gsap.min.js"></script>
     <script src="js/vendor/ScrollTrigger.min.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

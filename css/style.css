@@ -167,6 +167,23 @@ p { color: var(--ink); margin: 0; }
 .nav-links a:hover { opacity: 1; }
 
 .nav-right { display: flex; align-items: center; gap: 18px; }
+
+.lang-switch { display: flex; align-items: center; gap: 8px; }
+.lang-btn {
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  opacity: 0.6;
+  padding: 4px 2px;
+  transition: opacity .2s ease, color .2s ease;
+}
+.lang-btn:hover { opacity: 0.9; }
+.lang-btn.active { color: var(--ink); opacity: 1; }
+.lang-sep { color: var(--hairline); font-size: 14px; }
+.lang-switch-mobile { display: none; }
+
 .nav-right .btn {
   background: var(--c-maize);
   border-color: var(--c-maize);
@@ -226,6 +243,7 @@ p { color: var(--ink); margin: 0; }
 
 .about-copy .lead-p { font-size: 34px; line-height: 1.25; letter-spacing: -0.34px; font-weight: 600; margin-bottom: 28px; }
 .about-copy p.body-p { color: var(--muted); font-size: 19px; line-height: 1.55; margin: 20px 0; }
+.about-copy p.body-p.about-emphasis { color: var(--ink); font-size: 21px; font-weight: 600; line-height: 1.45; }
 .about-copy em { color: var(--ink); font-style: normal; }
 
 /* ---------- Timeline — horizontal scroll-driven slideshow ---------- */
@@ -380,6 +398,9 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   position: sticky;
   top: 0;
   z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 18px 32px;
   background: rgba(255, 248, 237, .88);
   backdrop-filter: blur(10px);
@@ -700,6 +721,8 @@ html.cs-open, html.cs-open body { overflow: hidden; }
     flex-direction: column; gap: 4px; padding: 18px; border-radius: 14px;
   }
   .nav-links.mobile-open a { padding: 12px 6px; width: 100%; opacity: 1; }
+  .nav-links.mobile-open .lang-switch-mobile { display: flex; padding: 12px 6px 4px; }
+  .nav-right > .lang-switch { display: none; }
   .logo { font-size: 16px; }
   .hero { padding: 140px 0 80px; }
   .philosophy-pin { padding: 70px 0; }
