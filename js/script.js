@@ -341,7 +341,7 @@
       video.insertAdjacentElement('afterend', btn);
 
       function togglePlay() {
-        if (video.paused) { video.play().catch(function () {}); }
+        if (video.paused) { video.muted = false; video.play().catch(function () {}); }
         else { video.pause(); }
       }
       btn.addEventListener('click', function (e) { e.stopPropagation(); togglePlay(); });
@@ -457,6 +457,7 @@
           lightboxImg.hidden = true;
           lightboxVideo.hidden = false;
           lightbox.setAttribute('aria-hidden', 'false');
+          lightboxVideo.muted = false;
           lightboxVideo.play().catch(function () {});
         });
       });
