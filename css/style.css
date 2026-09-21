@@ -265,7 +265,7 @@ p { color: var(--ink); margin: 0; }
 
 /* ---------- Horizontal scroll work section ---------- */
 .horizontal-section { position: relative; background: var(--bg); }
-.h-sticky-head { padding: 56px 0 20px; }
+.h-sticky-head { padding: 96px 0 20px; }
 .h-scroll-hint { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; color: var(--muted); font-size: 15px; }
 .h-scroll-hint svg { width: 18px; height: 18px; animation: nudge-x 1.6s ease-in-out infinite; }
 @keyframes nudge-x { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
@@ -331,7 +331,7 @@ p { color: var(--ink); margin: 0; }
 .h-panel-cta h3 { font-size: 28px; margin-bottom: 20px; letter-spacing: -0.02em; }
 
 @media (max-height: 800px) and (min-width: 981px) {
-  .h-sticky-head { padding: 50px 0 20px; }
+  .h-sticky-head { padding: 84px 0 20px; }
   .h-scroll-hint { display: none; }
   .h-panel-preview { max-height: 26vh; }
   .h-panel-cta { max-height: 26vh; }
