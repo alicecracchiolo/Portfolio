@@ -284,11 +284,6 @@ p { color: var(--ink); margin: 0; }
   align-items: flex-end;
   padding: 22px;
 }
-.h-panel-preview .h-panel-icon { width: 48px; height: 48px; stroke: var(--ink); opacity: 0.75; position: absolute; top: 22px; left: 22px; }
-.h-panel-preview .h-panel-cat-tag {
-  font-size: 13px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
-  color: rgba(47,48,40,0.7);
-}
 .h-panel-preview-fresko { background: linear-gradient(135deg, var(--fresko-dark), var(--fresko-green)); }
 .h-panel-body { padding: 20px 4px 0; }
 
