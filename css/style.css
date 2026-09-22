@@ -312,11 +312,14 @@ p { color: var(--ink); margin: 0; }
 .h-cover-caption span:last-child { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 .h-cover-caption-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
-/* Fresko: single centered lockup — kicker above wordmark, optically balanced */
-.h-cover-fresko { display: flex; align-items: center; justify-content: center; padding: 28px; }
-.h-cover-fresko-stack { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
-.h-cover-fresko-logo { max-width: 230px; width: 72%; height: auto; }
-.h-cover-kicker-fresko { color: var(--fresko-lime); opacity: 0.9; }
+/* Fresko: the wordmark is centered on the rectangle itself (not on the
+   kicker+logo group), so its own optical weight sits on the true center
+   regardless of the kicker's height; the kicker is pinned near the top
+   independently. */
+.h-cover-fresko { padding: 0; }
+.h-cover-fresko-stack { position: absolute; inset: 0; }
+.h-cover-kicker-fresko { position: absolute; top: 26px; left: 0; right: 0; text-align: center; color: var(--fresko-lime); opacity: 0.9; }
+.h-cover-fresko-logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 230px; width: 72%; height: auto; }
 
 /* BuddyJob: dark ground, two soft brand-color blobs, logo protagonist, bottom caption bar */
 .h-cover-buddyjob { background: #17121c; padding: 0; align-items: stretch; }
@@ -491,11 +494,6 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 
 .cs-gallery-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 560px; }
 
-.cs-video-hero { position: relative; aspect-ratio: 16/9; border-radius: var(--radius-card); overflow: hidden; background: var(--ink); margin: 46px 0 10px; }
-.cs-video-hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.cs-video-placeholder-lg svg { width: 54px; height: 54px; }
-.cs-video-placeholder-lg span { font-size: 14px; }
-
 .cs-strategy-ref { display: block; font-size: 13px; color: var(--muted); font-style: italic; margin: -12px 0 22px; }
 
 .cs-results { padding: 70px 0 90px; }
@@ -560,11 +558,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-gallery-grid-4 { grid-template-columns: repeat(4, 1fr); }
 .cs-gallery-grid-6-story { grid-template-columns: repeat(6, 1fr); max-width: 720px; }
 .cs-gallery-item-story { aspect-ratio: 9/16; }
-.cs-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 14px; text-align: center; background: var(--panel); border: 1.5px dashed var(--hairline); box-sizing: border-box; }
-.cs-placeholder span { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); line-height: 1.4; }
 .cs-gallery-item-video { aspect-ratio: 9/16; }
-.cs-video-placeholder { flex-direction: column; gap: 12px; }
-.cs-video-placeholder svg { width: 34px; height: 34px; color: var(--muted); opacity: 0.7; }
 .cs-gallery-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .cs-video-box video, .cs-gallery-item-video video { cursor: pointer; }
 .cs-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, 0.85); background: rgba(0, 0, 0, 0.55); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease; z-index: 2; }
@@ -628,8 +622,6 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-device-dots { display: flex; gap: 7px; padding: 0 4px 12px; }
 .cs-device-dots span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.25); display: block; }
 .cs-device-screen { position: relative; aspect-ratio: 16/10; background: var(--fresko-dark); border-radius: 3px 3px 0 0; overflow: hidden; }
-.cs-device-screen .cs-placeholder { background: transparent; border: none; }
-.cs-device-screen .cs-placeholder span { color: var(--fresko-cream); opacity: 0.6; }
 .cs-device-base { height: 16px; background: linear-gradient(var(--ink), #1c1d17); border-radius: 0 0 8px 8px; }
 .cs-device-base::after { content: ''; display: block; width: 130px; height: 5px; background: rgba(255,255,255,0.12); border-radius: 0 0 6px 6px; margin: 0 auto; }
 
@@ -662,8 +654,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 /* ---------- CTA ---------- */
 .cta { padding: 0 0 140px; }
 .cta-box { background: var(--panel); border: 1px solid var(--hairline); border-radius: 24px; padding: 100px 60px; text-align: center; }
-.cta-box h2 { font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -0.02em; max-width: 760px; margin: 0 auto 22px; }
-.cta-box p { color: var(--muted); max-width: 500px; margin: 0 auto 40px; font-size: 19px; }
+.cta-box h2 { font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -0.02em; max-width: 760px; margin: 0 auto 40px; }
 
 /* ---------- Contact ---------- */
 .contact { padding: 0 0 140px; }
