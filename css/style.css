@@ -60,6 +60,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--bg); overflow-x: hidden; }
+#storia, #servizi, #lavori, #contatti { scroll-margin-top: 100px; }
 
 body {
   margin: 0;
@@ -657,7 +658,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cta-box h2 { font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -0.02em; max-width: 760px; margin: 0 auto 40px; }
 
 /* ---------- Contact ---------- */
-.contact { padding: 0 0 140px; }
+.contact { padding: 100px 0 140px; }
 .contact .container { display: flex; justify-content: center; }
 .contact-info { max-width: 480px; text-align: center; }
 .contact-info h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 22px; letter-spacing: -0.02em; }

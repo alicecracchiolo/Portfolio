@@ -13,6 +13,52 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // ---------- Anchor navigation: precise scroll targeting ----------
+  // A plain browser anchor jump (even with scroll-behavior: smooth) lands
+  // at the target element's own top, which for a section whose content is
+  // revealed by a scrubbed, pinned ScrollTrigger (e.g. Filosofia) can be
+  // well before that reveal has played out, leaving the section looking
+  // empty until the visitor scrolls further. Sections registered here
+  // instead land at the scroll position where their reveal has already
+  // completed, computed straight from the ScrollTrigger's own start/end
+  // (so it stays correct across refresh/resize); everything else falls
+  // back to a header-aware offset of the element's natural position.
+  var pinnedSectionReveal = {};
+
+  function scrollToId(id) {
+    var target = document.getElementById(id);
+    if (!target) return;
+    var top;
+    var reveal = pinnedSectionReveal[id];
+    var st = reveal && reveal.getScrollTrigger && reveal.getScrollTrigger();
+    if (st) {
+      top = st.start + reveal.revealFraction * (st.end - st.start);
+    } else {
+      var headerOffset = header ? header.getBoundingClientRect().height : 0;
+      top = target.getBoundingClientRect().top + window.scrollY - headerOffset - 16;
+    }
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    if (window.history && history.pushState) history.pushState(null, '', '#' + id);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    var id = link.getAttribute('href').slice(1);
+    if (!id || !document.getElementById(id)) return;
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      scrollToId(id);
+    });
+  });
+
+  if (window.location.hash) {
+    window.addEventListener('load', function () {
+      // Give ScrollTrigger instances (created synchronously above, but
+      // measured against final layout/fonts) a moment to settle before
+      // computing a pinned-section target off their start/end values.
+      setTimeout(function () { scrollToId(window.location.hash.slice(1)); }, hasGSAP ? 300 : 0);
+    });
+  }
+
   // ---------- Mobile nav toggle ----------
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
@@ -219,6 +265,14 @@
         .to(philoInner, { xPercent: 0, opacity: 1, duration: 0.2, ease: 'power2.out' })
         .to({}, { duration: 1 });
 
+      // Register where an anchor jump to #servizi should land: comfortably
+      // past the 0.2/1.2 point in the timeline where the reveal finishes,
+      // read live off this instance's ScrollTrigger start/end.
+      pinnedSectionReveal.servizi = {
+        getScrollTrigger: function () { return philoTl.scrollTrigger; },
+        revealFraction: 0.22
+      };
+
       return function () {
         gsap.set(philoInner, { xPercent: 0, opacity: 1 });
       };
@@ -226,6 +280,7 @@
 
     mmPhilo.add('(max-width: 980px)', function () {
       gsap.set(philoInner, { xPercent: 0, opacity: 1 });
+      pinnedSectionReveal.servizi = null;
     });
   } else if (philoInner) {
     philoInner.style.opacity = 1;
