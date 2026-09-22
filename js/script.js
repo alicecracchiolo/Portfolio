@@ -463,6 +463,14 @@
       if (opener) opener.focus();
     };
 
+    // Secondary links inside an otherwise fully-clickable card (e.g. a
+    // project's Instagram profile) need to act independently of the
+    // card's own open-case-study click/keydown handling.
+    document.querySelectorAll('.h-panel-social').forEach(function (link) {
+      link.addEventListener('click', function (e) { e.stopPropagation(); });
+      link.addEventListener('keydown', function (e) { e.stopPropagation(); });
+    });
+
     document.querySelectorAll('[data-case-open]').forEach(function (trigger) {
       trigger.addEventListener('click', function () { openCaseStudy(trigger.dataset.caseOpen, trigger); });
       trigger.addEventListener('keydown', function (e) {
