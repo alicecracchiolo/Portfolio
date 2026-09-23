@@ -362,7 +362,7 @@ p { color: var(--ink); margin: 0; }
 .h-panel-body h3 { font-size: 24px; margin-bottom: 10px; letter-spacing: -0.02em; }
 .h-panel-body p { color: var(--muted); font-size: 16px; line-height: 1.5; margin-bottom: 14px; }
 .h-panel-secondary { display: block; font-size: 13px; color: var(--muted); opacity: 0.75; margin: -8px 0 14px; }
-.h-panel-social { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: var(--muted); opacity: 0.85; margin: -8px 0 14px; transition: opacity .25s ease, color .25s ease; }
+.h-panel-social { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: var(--muted); opacity: 0.85; margin: 18px 0 4px; transition: opacity .25s ease, color .25s ease; }
 .h-panel-social:hover, .h-panel-social:focus-visible { opacity: 1; color: var(--ink); }
 .h-panel-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--muted); padding-top: 14px; width: 100%; border-top: 1px solid var(--hairline); transition: opacity .25s ease; }
 .h-panel-link svg { width: 14px; height: 14px; }
