@@ -244,7 +244,8 @@
   // through the hook i18n.js calls after each language apply, rather than
   // relying on a single call here.
   setupFermeWord();
-  window.__onLanguageApplied = setupFermeWord;
+  window.__onLanguageApplied = window.__onLanguageApplied || [];
+  window.__onLanguageApplied.push(setupFermeWord);
 
   // ---------- Timeline: horizontal scroll-driven slideshow (Il Percorso) ----------
   // Set up before the Lavori pin below: Il Percorso sits earlier in the

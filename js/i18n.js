@@ -618,7 +618,14 @@
 
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
 
-    if (typeof window.__onLanguageApplied === 'function') window.__onLanguageApplied(lang);
+    // Other scripts (script.js, typo-glue.js) register post-render work here
+    // — anything that reacts to text this function just replaced — since
+    // this runs after every language apply, not only the first one.
+    if (Array.isArray(window.__onLanguageApplied)) {
+      window.__onLanguageApplied.forEach(function (fn) {
+        if (typeof fn === 'function') fn(lang);
+      });
+    }
   }
 
   function initLangSwitch() {
