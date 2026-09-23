@@ -232,6 +232,104 @@ p { color: var(--ink); margin: 0; }
   pointer-events: none;
 }
 
+/* "ferme"/"still": a small interactive discovery inside the headline —
+   see js/script.js setupFermeWord(). Hover/tap only; never a loop. */
+.ferme-wrap { white-space: nowrap; }
+.ferme-word {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .3s ease;
+}
+.ferme-word::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0.02em;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.7);
+  transform-origin: left;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.ferme-word:hover::after {
+  opacity: 0.3;
+  transform: scaleX(1);
+}
+.ferme-word:focus-visible {
+  outline: 2px solid var(--c-coral);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.ferme-word:focus-visible::after {
+  opacity: 0.5;
+  transform: scaleX(1);
+}
+.ferme-letter { display: inline-block; }
+.ferme-word.ferme-flash { color: var(--c-coral); }
+
+/* "idee"/"ideas": a coral underline that draws in briefly, in sympathy
+   with the "ferme" interaction — see js/script.js. */
+.idee-word { position: relative; display: inline-block; }
+.idee-underline {
+  position: absolute;
+  left: 0; right: 0; bottom: -0.04em;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--c-coral);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  font-style: normal;
+}
+.idee-word.is-active-static .idee-underline { opacity: 1; transform: scaleX(1); transition: opacity .3s ease; }
+
+/* Small, quiet fragments of real projects, woken up briefly by the
+   "ferme" interaction (see js/script.js). Kept muted and small on
+   purpose — clues, not thumbnails. */
+.hero-frag {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.8;
+  filter: saturate(0.85);
+}
+.hero-frag img { position: absolute; max-width: none; }
+.hero-frag-buddyjob {
+  left: 3%; bottom: 4%;
+  width: 30px; height: 62px;
+}
+.hero-frag-buddyjob img {
+  width: 500px; height: 100px;
+  left: 0; top: -9px;
+}
+.hero-frag-epicode {
+  right: 16%; top: 62%;
+  width: 54px; height: 58px;
+}
+.hero-frag-epicode img {
+  width: 234px; height: 58px;
+  left: 0; top: 0;
+}
+.hero-frag-fresko {
+  right: 6%; bottom: 8%;
+  width: 42px; height: 64px;
+}
+.hero-frag-fresko img {
+  width: 172px; height: 64px;
+  left: -130px; top: 0;
+}
+@media (max-width: 760px) {
+  .hero-frag { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-frag { display: none; }
+}
+
 /* ---------- Marquee ---------- */
 /* ---------- About ---------- */
 .about { padding: 140px 0; }

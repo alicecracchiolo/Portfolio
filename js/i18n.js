@@ -9,8 +9,8 @@
   "nav.lavori": "Lavori",
   "nav.contatti": "Contatti",
   "nav.parliamone": "Parliamone",
-  "hero.title1": "Le idee <span class=\"accent\">migliori</span>",
-  "hero.title2": "non stanno ferme.",
+  "hero.title1": "Le <span class=\"idee-word\">idee<i class=\"idee-underline\"></i></span> <span class=\"accent\">migliori</span>",
+  "hero.title2": "non stanno <span class=\"ferme-wrap\"><span class=\"ferme-word\" id=\"fermeWord\" tabindex=\"0\" role=\"button\" aria-label=\"Le idee migliori non stanno ferme: tocca per vedere l'effetto\">ferme</span>.</span>",
   "hero.lead": "Trasformo quello che un brand ha da dire in qualcosa che valga la pena ascoltare.",
   "hero.cta": "Guarda i progetti",
   "about.quote": "\"<b>Tutto è scalabile e reinventabile.</b>\"",
@@ -468,8 +468,8 @@
   "fresko.visual.typeTag": "Bold · Clean · Friendly — chosen to keep the identity simple, digital, readable and accessible, with a young tone that never tips into childish.",
   "hero.cta": "See the projects",
   "hero.lead": "I turn what a brand has to say into something worth listening to.",
-  "hero.title1": "The <span class=\"accent\">best</span> ideas",
-  "hero.title2": "don't stand still.",
+  "hero.title1": "The <span class=\"accent\">best</span> <span class=\"idee-word\">ideas<i class=\"idee-underline\"></i></span>",
+  "hero.title2": "don't stand <span class=\"ferme-wrap\"><span class=\"ferme-word\" id=\"fermeWord\" tabindex=\"0\" role=\"button\" aria-label=\"The best ideas don't stand still: tap to see the effect\">still</span>.</span>",
   "lavori.buddyjob.desc": "For BuddyJob I turn conversations, trends and everyday situations into content that informs, builds recognition and gets the community involved.",
   "lavori.buddyjob.title": "Reading the work. Then telling it.",
   "lavori.desc": "Strategy, content, video and identity: different projects, born from different problems, each one developed by finding its own shape.",
@@ -617,6 +617,8 @@
     });
 
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+
+    if (typeof window.__onLanguageApplied === 'function') window.__onLanguageApplied(lang);
   }
 
   function initLangSwitch() {

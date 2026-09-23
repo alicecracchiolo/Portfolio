@@ -144,6 +144,108 @@
     });
   }
 
+  // ---------- Hero: "ferme"/"still" micro-interaction ----------
+  // The word that means "standing still" is the one thing in the hero
+  // that shouldn't stand still. Hover (desktop) or tap (mobile) briefly
+  // shakes its letters loose, draws a coral underline under "idee"/
+  // "ideas", and nudges a few small real-project fragments — then
+  // everything settles back. Re-run after every language switch, since
+  // applyLanguage() replaces this markup wholesale from the dictionary.
+  var fermeLetterOffsets = [
+    { x: -2, y: -7, rotate: -5 },
+    { x: 3, y: 5, rotate: 4 },
+    { x: -3, y: 4, rotate: -3 },
+    { x: 2, y: -6, rotate: 5 },
+    { x: -2, y: 6, rotate: -4 },
+    { x: 3, y: -4, rotate: 3 }
+  ];
+
+  function setupFermeWord() {
+    var word = document.getElementById('fermeWord');
+    if (!word) return;
+    var idee = document.querySelector('.idee-word');
+    var underline = idee ? idee.querySelector('.idee-underline') : null;
+    var frags = Array.prototype.slice.call(document.querySelectorAll('.hero-frag'));
+
+    var text = word.textContent;
+    word.innerHTML = '';
+    text.split('').forEach(function (ch) {
+      var span = document.createElement('span');
+      span.className = 'ferme-letter';
+      span.textContent = ch;
+      word.appendChild(span);
+    });
+    var letters = word.querySelectorAll('.ferme-letter');
+
+    var playing = false;
+
+    function playReduced() {
+      word.classList.add('ferme-flash');
+      if (idee) idee.classList.add('is-active-static');
+      setTimeout(function () {
+        word.classList.remove('ferme-flash');
+        if (idee) idee.classList.remove('is-active-static');
+      }, 650);
+    }
+
+    function playFull() {
+      var small = window.matchMedia('(max-width: 760px)').matches;
+      var k = small ? 0.55 : 1;
+      var tl = gsap.timeline({ onComplete: function () { playing = false; } });
+
+      tl.to(letters, {
+        x: function (i) { return fermeLetterOffsets[i % fermeLetterOffsets.length].x * k; },
+        y: function (i) { return fermeLetterOffsets[i % fermeLetterOffsets.length].y * k; },
+        rotate: function (i) { return fermeLetterOffsets[i % fermeLetterOffsets.length].rotate * k; },
+        duration: 0.3,
+        ease: 'power2.out',
+        stagger: 0.02
+      }, 0)
+      .to(letters, { x: 0, y: 0, rotate: 0, duration: 0.5, ease: 'power2.inOut', stagger: 0.02 }, 0.32);
+
+      if (underline) {
+        tl.fromTo(underline, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.26, ease: 'power2.out' }, 0.05)
+          .to(underline, { scaleX: 0.85, opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 0.55);
+      }
+
+      if (!small) {
+        frags.forEach(function (frag, i) {
+          var dx = (i % 2 === 0 ? 1 : -1) * (8 + i * 3);
+          var dy = (i % 2 === 0 ? -1 : 1) * (6 + i * 2);
+          var rot = (i % 2 === 0 ? -1 : 1) * (3 + i);
+          tl.to(frag, { x: dx, y: dy, rotate: rot, duration: 0.4, ease: 'power2.out' }, 0.05 + i * 0.03)
+            .to(frag, { x: 0, y: 0, rotate: 0, duration: 0.55, ease: 'power2.inOut' }, 0.5 + i * 0.03);
+        });
+      }
+    }
+
+    function trigger() {
+      if (playing) return;
+      playing = true;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced || !hasGSAP) {
+        playReduced();
+        playing = false;
+      } else {
+        playFull();
+      }
+    }
+
+    word.addEventListener('mouseenter', trigger);
+    word.addEventListener('click', trigger);
+    word.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger(); }
+    });
+  }
+
+  // i18n.js overwrites this markup wholesale from its dictionary on every
+  // applyLanguage() call (including its own deferred initial call), which
+  // would otherwise wipe out the letter-splitting below — so re-run it
+  // through the hook i18n.js calls after each language apply, rather than
+  // relying on a single call here.
+  setupFermeWord();
+  window.__onLanguageApplied = setupFermeWord;
+
   // ---------- Timeline: horizontal scroll-driven slideshow (Il Percorso) ----------
   // Set up before the Lavori pin below: Il Percorso sits earlier in the
   // document, and ScrollTrigger resolves pinned sections' scroll positions
