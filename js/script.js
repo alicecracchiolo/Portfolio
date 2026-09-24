@@ -130,14 +130,7 @@
     // Hero entrance
     var tl = gsap.timeline({ delay: 0.15 });
     tl.fromTo('.hero-title .line-inner', { yPercent: 110 }, { yPercent: 0, duration: 1, ease: 'power4.out', stagger: 0.12 })
-      .fromTo('.hero-fade', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, '-=0.5')
-      .fromTo('.hero-visual', { opacity: 0, scale: 0.85 }, { opacity: 0.95, scale: 1, duration: 1.2, ease: 'power3.out' }, '-=1');
-
-    // Hero parallax blob
-    gsap.to('.hero-visual', {
-      yPercent: 18, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-    });
+      .fromTo('.hero-fade', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, '-=0.5');
   } else {
     document.querySelectorAll('.reveal, .hero-fade').forEach(function (el) {
       el.style.opacity = 1;
@@ -159,6 +152,14 @@
     { x: -2, y: 6, rotate: -4 },
     { x: 3, y: -4, rotate: 3 }
   ];
+
+  // Each fragment's hidden "rest" pose — must match its CSS transform
+  // exactly, since the reveal animates FROM this and back TO it.
+  var heroFragRest = {
+    'hero-frag-epicode': { x: 0, y: 10, rot: -3 },
+    'hero-frag-fresko': { x: 10, y: 0, rot: 4 },
+    'hero-frag-buddyjob': { x: 0, y: -8, rot: 0 }
+  };
 
   function setupFermeWord() {
     var word = document.getElementById('fermeWord');
@@ -209,12 +210,16 @@
       }
 
       if (!small) {
+        // Fragments react ~100ms after "ferme" starts moving, then fade
+        // delicately back to their hidden rest pose — never left visible.
         frags.forEach(function (frag, i) {
-          var dx = (i % 2 === 0 ? 1 : -1) * (8 + i * 3);
-          var dy = (i % 2 === 0 ? -1 : 1) * (6 + i * 2);
-          var rot = (i % 2 === 0 ? -1 : 1) * (3 + i);
-          tl.to(frag, { x: dx, y: dy, rotate: rot, duration: 0.4, ease: 'power2.out' }, 0.05 + i * 0.03)
-            .to(frag, { x: 0, y: 0, rotate: 0, duration: 0.55, ease: 'power2.inOut' }, 0.5 + i * 0.03);
+          var restClass = Object.keys(heroFragRest).filter(function (c) { return frag.classList.contains(c); })[0];
+          var rest = heroFragRest[restClass] || { x: 0, y: 0, rot: 0 };
+          tl.fromTo(frag,
+            { opacity: 0, x: rest.x, y: rest.y, rotate: rest.rot },
+            { opacity: 1, x: 0, y: 0, rotate: 0, duration: 0.35, ease: 'power2.out' },
+            0.1 + i * 0.03
+          ).to(frag, { opacity: 0, x: rest.x, y: rest.y, rotate: rest.rot, duration: 0.5, ease: 'power2.inOut' }, 0.55 + i * 0.03);
         });
       }
     }
@@ -247,48 +252,22 @@
   window.__onLanguageApplied = window.__onLanguageApplied || [];
   window.__onLanguageApplied.push(setupFermeWord);
 
-  // ---------- Skills: soap-bubble floating ----------
-  // Each bubble drifts on its own slow, independent loop (outer element),
-  // while hover/proximity lives on a separate inner element — kept apart
-  // so the two never fight over the same transform.
-  var skillBubbles = Array.prototype.slice.call(document.querySelectorAll('.skill-bubble'));
-  if (skillBubbles.length) {
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var smallViewport = window.matchMedia('(max-width: 760px)').matches;
-    var driftScale = smallViewport ? 0.5 : 1;
-
-    if (hasGSAP && !reduceMotion) {
-      skillBubbles.forEach(function (bubble) {
-        var dur = parseFloat(bubble.dataset.duration) || 10;
-        var delay = parseFloat(bubble.dataset.delay) || 0;
-        var dx = (parseFloat(bubble.dataset.dx) || 0) * driftScale;
-        var dy = (parseFloat(bubble.dataset.dy) || 0) * driftScale;
-        var rot = (parseFloat(bubble.dataset.rot) || 0) * driftScale;
-        gsap.to(bubble, {
-          x: dx,
-          y: dy,
-          rotate: rot,
-          duration: dur,
-          delay: delay,
-          ease: 'sine.inOut',
-          repeat: -1,
-          yoyo: true
-        });
+  // ---------- Skills: soap-bubble hover ----------
+  // Idle floating is CSS-only now (see .skill-bubble's animation-name
+  // per :nth-child + the floatA/B/C keyframes) so it keeps running
+  // regardless of GSAP; this only adds the secondary hover lift, kept on
+  // a separate inner element so it never fights the outer float.
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.skill-bubble').forEach(function (bubble) {
+      var inner = bubble.querySelector('.skill-bubble-inner');
+      if (!inner) return;
+      bubble.addEventListener('mouseenter', function () {
+        if (hasGSAP) gsap.to(inner, { scale: 1.045, y: -4, duration: 0.45, ease: 'power2.out' });
       });
-    }
-
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      skillBubbles.forEach(function (bubble) {
-        var inner = bubble.querySelector('.skill-bubble-inner');
-        if (!inner) return;
-        bubble.addEventListener('mouseenter', function () {
-          if (hasGSAP) gsap.to(inner, { scale: 1.045, y: -4, duration: 0.45, ease: 'power2.out' });
-        });
-        bubble.addEventListener('mouseleave', function () {
-          if (hasGSAP) gsap.to(inner, { scale: 1, y: 0, duration: 0.55, ease: 'power2.out' });
-        });
+      bubble.addEventListener('mouseleave', function () {
+        if (hasGSAP) gsap.to(inner, { scale: 1, y: 0, duration: 0.55, ease: 'power2.out' });
       });
-    }
+    });
   }
 
   // ---------- Timeline: horizontal scroll-driven slideshow (Il Percorso) ----------
