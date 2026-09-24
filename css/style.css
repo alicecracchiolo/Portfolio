@@ -4,7 +4,7 @@
    type, outlined pills, hairline dividers.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
@@ -54,12 +54,12 @@
 
   --radius-card: 8px;
   --radius-pill: 100px;
-  /* Airone — expressive voice: hero, section titles, case-study headlines,
+  /* Display — expressive voice: hero, section titles, case-study headlines,
      manifesto phrases and other big display moments. */
-  --font: 'Inter Tight', Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  /* Built — functional voice: body copy, navbar, descriptions, metadata,
+  --font-display: 'Bricolage Grotesque', Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Body — functional voice: body copy, navbar, descriptions, metadata,
      pills, categories, card text, CTA, footer, microcopy. */
-  --font-body: 'Poppins', 'Inter Tight', Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'DM Sans', Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --ease: cubic-bezier(.22,.68,0,1);
 }
 
@@ -97,12 +97,12 @@ section { position: relative; }
   font-size: 16px;
   color: var(--ink);
   margin-bottom: 22px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .bracket b { font-weight: 600; }
 
 h1, h2, h3, h4 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-weight: 600;
   margin: 0;
   color: var(--ink);
@@ -208,8 +208,8 @@ p { color: var(--ink); margin: 0; text-wrap: pretty; }
 .hero .container { position: relative; }
 .hero-title {
   font-size: clamp(2.6rem, 8vw, 6.6rem);
-  font-weight: 600;
-  line-height: 1.15;
+  font-weight: 700;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   max-width: 980px;
 }
@@ -495,14 +495,15 @@ p { color: var(--ink); margin: 0; text-wrap: pretty; }
 .about-visual img { width: 100%; }
 .about-visual .quote-tag {
   margin-top: 20px;
-  font-family: var(--font);
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 19px;
   font-style: normal;
   color: var(--muted);
 }
 .about-visual .quote-tag b { color: var(--c-coral); font-weight: 500; }
 
-.about-copy .lead-p { font-family: var(--font); font-size: clamp(1.6rem, 4vw, 2.125rem); line-height: 1.25; letter-spacing: -0.34px; font-weight: 600; margin-bottom: 28px; text-wrap: balance; }
+.about-copy .lead-p { font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.125rem); line-height: 1.25; letter-spacing: -0.34px; font-weight: 600; margin-bottom: 28px; text-wrap: balance; }
 .about-copy p.body-p { color: var(--muted); font-size: 19px; line-height: 1.55; margin: 20px 0; }
 .about-copy p.body-p.about-emphasis { color: var(--ink); font-size: 21px; font-weight: 600; line-height: 1.45; }
 .about-copy em { color: var(--ink); font-style: normal; }
@@ -522,7 +523,7 @@ p { color: var(--ink); margin: 0; text-wrap: pretty; }
 
 .th-frame-head { opacity: 0; transform: translateY(40px); }
 .th-frame-count { display: block; font-size: 15px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 22px; }
-.th-frame-year { display: block; font-family: var(--font); font-size: clamp(3.2rem, min(9vw, 13vh), 7rem); line-height: 1.2; letter-spacing: -0.02em; color: var(--c-maize); margin-bottom: 10px; }
+.th-frame-year { display: block; font-family: var(--font-display); font-size: clamp(3.2rem, min(9vw, 13vh), 7rem); line-height: 1.2; letter-spacing: -0.02em; color: var(--c-maize); margin-bottom: 10px; }
 .th-frame-head h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.02em; }
 
 .th-frame-desc { opacity: 0; transform: translateY(30px); color: var(--muted); font-size: 21px; line-height: 1.55; max-width: 560px; margin-top: 28px; }
@@ -539,7 +540,7 @@ p { color: var(--ink); margin: 0; text-wrap: pretty; }
 .philosophy-inner { max-width: 680px; margin: 0 auto; text-align: center; opacity: 0; }
 .philosophy-inner h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); letter-spacing: -0.02em; margin-bottom: 44px; color: var(--bg); }
 .philosophy-copy { text-align: left; }
-.philosophy-copy .lead-p { font-family: var(--font); font-size: clamp(1.35rem, 3.5vw, 1.625rem); line-height: 1.4; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 22px; color: var(--bg); text-wrap: balance; }
+.philosophy-copy .lead-p { font-family: var(--font-display); font-size: clamp(1.35rem, 3.5vw, 1.625rem); line-height: 1.4; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 22px; color: var(--bg); text-wrap: balance; }
 .philosophy-copy .lead-p .lead-accent { color: var(--c-coral); }
 .philosophy-copy p.body-p { color: rgba(255, 248, 237, .7); font-size: 19px; line-height: 1.6; margin: 18px 0; }
 
@@ -639,7 +640,7 @@ p { color: var(--ink); margin: 0; text-wrap: pretty; }
   aspect-ratio: 3/2;
   max-height: 30vh;
 }
-.h-panel-cta h3 { font-size: 28px; margin-bottom: 20px; letter-spacing: -0.02em; }
+.h-panel-cta h3 { font-size: 28px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.02em; }
 
 @media (max-height: 800px) and (min-width: 981px) {
   .h-sticky-head { padding: 84px 0 20px; }
@@ -720,7 +721,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-strategy-grid-3 { grid-template-columns: repeat(3, 1fr); }
 
 .cs-process { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin: 44px 0 6px; }
-.cs-process-step { font-family: var(--font); font-size: clamp(1.05rem, 2.2vw, 1.6rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em; color: var(--ink); padding-bottom: 6px; border-bottom: 4px solid var(--c-maize); }
+.cs-process-step { font-family: var(--font-display); font-size: clamp(1.05rem, 2.2vw, 1.6rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; color: var(--ink); padding-bottom: 6px; border-bottom: 4px solid var(--c-maize); }
 .cs-process-step-2 { border-bottom-color: var(--c-coral); }
 .cs-process-step-3 { border-bottom-color: var(--c-junebud); }
 .cs-process-step-4 { border-bottom-color: var(--c-papaya); }
@@ -763,7 +764,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-results { padding: 70px 0 90px; }
 .cs-stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin: 54px 0 30px; }
 .cs-stat { display: flex; flex-direction: column; gap: 8px; }
-.cs-stat b { font-family: var(--font); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1.2; }
+.cs-stat b { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1.2; }
 .cs-stat-label { font-size: 15px; color: var(--muted); }
 .cs-stat-delta { font-size: 14px; font-weight: 600; color: var(--c-success); }
 .cs-results-note { color: var(--muted); font-size: 15px; max-width: 640px; margin-top: 6px; }
@@ -812,7 +813,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 
 .cs-result-grid { display: flex; flex-wrap: wrap; gap: 32px; margin-bottom: 8px; padding-top: 26px; border-top: 1px solid var(--hairline); }
 .cs-result-item { display: flex; flex-direction: column; gap: 4px; min-width: 110px; }
-.cs-result-item b { font-family: var(--font); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; }
+.cs-result-item b { font-family: var(--font-display); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; }
 .cs-result-item span { font-size: 13px; color: var(--muted); }
 .cs-result-item.is-featured b { color: var(--c-signature); font-size: 36px; }
 
@@ -848,7 +849,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 
 /* ---------- Fresko case study ---------- */
 .cs-payoff-band { background: var(--fresko-dark); padding: 90px 40px; border-radius: var(--radius-card); text-align: center; }
-.cs-payoff-text { font-family: var(--font); font-size: clamp(2.1rem, 6.4vw, 4.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; color: var(--fresko-lime); margin: 0 0 22px; text-wrap: balance; }
+.cs-payoff-text { font-family: var(--font-display); font-size: clamp(2.1rem, 6.4vw, 4.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; color: var(--fresko-lime); margin: 0 0 22px; text-wrap: balance; }
 .cs-payoff-note { color: var(--fresko-cream); opacity: 0.72; font-size: 15px; max-width: 460px; margin: 0 auto; }
 
 .cs-brand-block { border-radius: var(--radius-card); padding: 70px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
@@ -878,8 +879,8 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 .cs-palette-hex { display: block; font-size: 13px; color: var(--muted); font-family: monospace; }
 
 .cs-type-specimen { border-radius: var(--radius-card); border: 1px solid var(--hairline); background: var(--panel); padding: 40px; margin-top: 24px; }
-.cs-type-specimen-word { font-family: 'Poppins', var(--font); font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.4rem); letter-spacing: -0.01em; color: var(--ink); margin: 0 0 10px; }
-.cs-type-specimen-tag { font-family: 'Poppins', var(--font); font-size: 15px; color: var(--muted); }
+.cs-type-specimen-word { font-family: 'Poppins', var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.4rem); letter-spacing: -0.01em; color: var(--ink); margin: 0 0 10px; }
+.cs-type-specimen-tag { font-family: 'Poppins', var(--font-display); font-size: 15px; color: var(--muted); }
 
 .cs-device-frame { max-width: 880px; margin: 0 auto; }
 .cs-device-bezel { background: var(--ink); border-radius: 16px 16px 0 0; padding: 16px 16px 0; }
@@ -967,7 +968,7 @@ html.cs-open, html.cs-open body { overflow: hidden; }
 /* ---------- CTA ---------- */
 .cta { padding: 0 0 140px; }
 .cta-box { background: var(--panel); border: 1px solid var(--hairline); border-radius: 24px; padding: 100px 60px; text-align: center; }
-.cta-box h2 { font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -0.02em; max-width: 760px; margin: 0 auto 40px; }
+.cta-box h2 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.02em; max-width: 760px; margin: 0 auto 40px; }
 
 /* ---------- Contact ---------- */
 .contact { padding: 100px 0 140px; }
