@@ -334,7 +334,6 @@ p { color: var(--ink); margin: 0; text-wrap: pretty; }
 
 /* ---------- Skills / Competenze — soap bubbles ---------- */
 .skills { padding: 90px 0 130px; }
-.skills .bracket { margin-bottom: 8px; }
 
 .skills-bubbles {
   position: static;
