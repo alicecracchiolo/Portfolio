@@ -145,28 +145,42 @@
   // everything settles back. Re-run after every language switch, since
   // applyLanguage() replaces this markup wholesale from the dictionary.
   var fermeLetterOffsets = [
-    { x: -2, y: -7, rotate: -5 },
-    { x: 3, y: 5, rotate: 4 },
-    { x: -3, y: 4, rotate: -3 },
-    { x: 2, y: -6, rotate: 5 },
-    { x: -2, y: 6, rotate: -4 },
-    { x: 3, y: -4, rotate: 3 }
+    { x: -4, y: -6, rotate: -1.5 },
+    { x: 6, y: 5, rotate: 1.8 },
+    { x: -6, y: 4, rotate: -1.2 },
+    { x: 5, y: -5, rotate: 1.5 },
+    { x: -5, y: 6, rotate: -1.8 },
+    { x: 6, y: -4, rotate: 1.2 }
   ];
-
-  // Each fragment's hidden "rest" pose — must match its CSS transform
-  // exactly, since the reveal animates FROM this and back TO it.
-  var heroFragRest = {
-    'hero-frag-epicode': { x: 0, y: 10, rot: -3 },
-    'hero-frag-fresko': { x: 10, y: 0, rot: 4 },
-    'hero-frag-buddyjob': { x: 0, y: -8, rot: 0 }
-  };
 
   function setupFermeWord() {
     var word = document.getElementById('fermeWord');
     if (!word) return;
     var idee = document.querySelector('.idee-word');
     var underline = idee ? idee.querySelector('.idee-underline') : null;
-    var frags = Array.prototype.slice.call(document.querySelectorAll('.hero-frag'));
+    var heroTitle = word.closest('.hero-title');
+    var arrow = document.getElementById('fermeArrow');
+    var arrowPaths = arrow ? arrow.querySelectorAll('.ferme-arrow-path') : [];
+    var spark = document.getElementById('fermeSpark');
+
+    // .line's overflow:hidden (the entrance-animation mask) is exactly
+    // line-height tall, so these two marks are positioned relative to
+    // .hero-title itself (overflow: visible) instead — recomputed on
+    // every trigger since the word's position can shift (resize,
+    // language switch changing "ferme" to "still").
+    function positionFermeDecor() {
+      if (!heroTitle || (!arrow && !spark)) return;
+      var wordRect = word.getBoundingClientRect();
+      var titleRect = heroTitle.getBoundingClientRect();
+      if (arrow) {
+        arrow.style.left = (wordRect.right - titleRect.left + 6) + 'px';
+        arrow.style.top = (wordRect.bottom - titleRect.top - 10) + 'px';
+      }
+      if (spark) {
+        spark.style.left = (wordRect.left - titleRect.left - 20) + 'px';
+        spark.style.top = (wordRect.bottom - titleRect.top + 2) + 'px';
+      }
+    }
 
     var text = word.textContent;
     word.innerHTML = '';
@@ -189,38 +203,40 @@
       }, 650);
     }
 
+    // "ferme" is the protagonist: letters shake loose (~600-900ms total,
+    // staggered so it never reads as one mechanical block), and 2 tiny
+    // abstract typographic marks — an arrow that draws itself and a
+    // sparkle — react ~100ms in, then everything settles back. No brand
+    // or project references belong here.
     function playFull() {
       var small = window.matchMedia('(max-width: 760px)').matches;
-      var k = small ? 0.55 : 1;
+      var k = small ? 0.6 : 1;
       var tl = gsap.timeline({ onComplete: function () { playing = false; } });
 
       tl.to(letters, {
         x: function (i) { return fermeLetterOffsets[i % fermeLetterOffsets.length].x * k; },
         y: function (i) { return fermeLetterOffsets[i % fermeLetterOffsets.length].y * k; },
         rotate: function (i) { return fermeLetterOffsets[i % fermeLetterOffsets.length].rotate * k; },
-        duration: 0.3,
+        duration: 0.22,
         ease: 'power2.out',
-        stagger: 0.02
+        stagger: 0.03
       }, 0)
-      .to(letters, { x: 0, y: 0, rotate: 0, duration: 0.5, ease: 'power2.inOut', stagger: 0.02 }, 0.32);
+      .to(letters, { x: 0, y: 0, rotate: 0, duration: 0.32, ease: 'power2.inOut', stagger: 0.03 }, 0.28);
 
       if (underline) {
-        tl.fromTo(underline, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.26, ease: 'power2.out' }, 0.05)
-          .to(underline, { scaleX: 0.85, opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 0.55);
+        tl.fromTo(underline, { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.22, ease: 'power2.out' }, 0.1)
+          .to(underline, { scaleX: 0.85, opacity: 0, duration: 0.32, ease: 'power2.inOut' }, 0.45);
       }
 
-      if (!small) {
-        // Fragments react ~100ms after "ferme" starts moving, then fade
-        // delicately back to their hidden rest pose — never left visible.
-        frags.forEach(function (frag, i) {
-          var restClass = Object.keys(heroFragRest).filter(function (c) { return frag.classList.contains(c); })[0];
-          var rest = heroFragRest[restClass] || { x: 0, y: 0, rot: 0 };
-          tl.fromTo(frag,
-            { opacity: 0, x: rest.x, y: rest.y, rotate: rest.rot },
-            { opacity: 1, x: 0, y: 0, rotate: 0, duration: 0.35, ease: 'power2.out' },
-            0.1 + i * 0.03
-          ).to(frag, { opacity: 0, x: rest.x, y: rest.y, rotate: rest.rot, duration: 0.5, ease: 'power2.inOut' }, 0.55 + i * 0.03);
-        });
+      if (arrow && arrowPaths.length) {
+        tl.set(arrow, { opacity: 1 }, 0.1)
+          .fromTo(arrowPaths, { strokeDashoffset: 30 }, { strokeDashoffset: 0, duration: 0.24, ease: 'power2.out', stagger: 0.03 }, 0.1)
+          .to(arrow, { opacity: 0, duration: 0.28, ease: 'power2.inOut' }, 0.48);
+      }
+
+      if (spark) {
+        tl.fromTo(spark, { opacity: 0, scale: 0.4, rotate: -12 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.2, ease: 'back.out(2)' }, 0.12)
+          .to(spark, { opacity: 0, scale: 0.6, duration: 0.28, ease: 'power2.inOut' }, 0.46);
       }
     }
 
@@ -232,6 +248,7 @@
         playReduced();
         playing = false;
       } else {
+        positionFermeDecor();
         playFull();
       }
     }
