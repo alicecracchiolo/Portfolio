@@ -331,7 +331,117 @@ p { color: var(--ink); margin: 0; text-wrap: pretty; }
   .hero-frag { display: none; }
 }
 
-/* ---------- Marquee ---------- */
+/* ---------- Skills / Competenze — soap bubbles ---------- */
+.skills { padding: 90px 0 130px; }
+.skills .bracket { margin-bottom: 8px; }
+
+.skills-bubbles {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 18px;
+  padding: 28px 6px 4px;
+}
+
+.skill-bubble {
+  position: static;
+  width: clamp(112px, 30vw, var(--size));
+  height: clamp(112px, 30vw, var(--size));
+  border-radius: 50%;
+  cursor: default;
+}
+
+.skill-bubble-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10%;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 46%),
+    radial-gradient(circle at 74% 78%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 40%),
+    conic-gradient(from 210deg at 55% 60%,
+      rgba(242, 137, 131, 0.10),
+      rgba(200, 211, 95, 0.09),
+      rgba(252, 199, 75, 0.10),
+      rgba(160, 170, 255, 0.09),
+      rgba(242, 137, 131, 0.10));
+  box-shadow:
+    inset 0 0 22px rgba(255, 255, 255, 0.4),
+    inset 0 -14px 26px rgba(120, 110, 160, 0.07),
+    0 10px 26px rgba(47, 48, 40, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(2px) saturate(1.15);
+  -webkit-backdrop-filter: blur(2px) saturate(1.15);
+}
+.skill-bubble-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(from 40deg,
+    rgba(255, 182, 193, 0.4), rgba(173, 216, 255, 0.4),
+    rgba(200, 180, 255, 0.4), rgba(190, 255, 210, 0.4),
+    rgba(255, 182, 193, 0.4));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.skill-bubble-inner::after {
+  content: '';
+  position: absolute;
+  top: 13%;
+  left: 20%;
+  width: 30%;
+  height: 18%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  filter: blur(1px);
+  opacity: 0.85;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+.skill-bubble-inner span {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+  max-width: 82%;
+  font-size: clamp(12px, calc(var(--size) * 0.075), 16px);
+  text-wrap: balance;
+}
+
+@media (min-width: 981px) {
+  .skills-bubbles {
+    position: relative;
+    display: block;
+    height: 620px;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .skill-bubble {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-bubble-inner { transition: none; }
+}
+
 /* ---------- About ---------- */
 .about { padding: 140px 0; }
 .about .container { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 90px; align-items: start; }
@@ -757,6 +867,55 @@ html.cs-open, html.cs-open body { overflow: hidden; }
   .cs-role, .cs-results, .cs-strategy { padding: 60px 0; }
   .cs-case { padding: 64px 0; }
   .cs-closing-section { padding: 70px 0 90px; }
+}
+
+/* ---------- Tools — horizontal marquee ---------- */
+.tools { padding: 60px 0 90px; }
+.tools .bracket { margin-bottom: 0; }
+
+.tools-marquee { overflow: hidden; margin-top: 34px; }
+.tools-track-wrap {
+  display: flex;
+  width: max-content;
+  animation: tools-marquee 32s linear infinite;
+}
+.tools-track {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding-right: 40px;
+}
+.tools-item {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(20px, 3.4vw, 34px);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.tools-sep {
+  display: inline-block;
+  margin: 0 26px;
+  font-size: 0.5em;
+  color: var(--c-coral);
+  opacity: 0.85;
+  vertical-align: middle;
+}
+
+.tools-marquee:hover .tools-track-wrap { animation-play-state: paused; }
+
+@keyframes tools-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 760px) {
+  .tools-sep { margin: 0 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tools-track-wrap { animation: none; width: auto; flex-wrap: wrap; }
+  .tools-track { white-space: normal; flex-wrap: wrap; row-gap: 10px; }
+  .tools-track[aria-hidden="true"] { display: none; }
 }
 
 /* ---------- CTA ---------- */

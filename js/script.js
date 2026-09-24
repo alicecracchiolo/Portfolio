@@ -247,6 +247,50 @@
   window.__onLanguageApplied = window.__onLanguageApplied || [];
   window.__onLanguageApplied.push(setupFermeWord);
 
+  // ---------- Skills: soap-bubble floating ----------
+  // Each bubble drifts on its own slow, independent loop (outer element),
+  // while hover/proximity lives on a separate inner element — kept apart
+  // so the two never fight over the same transform.
+  var skillBubbles = Array.prototype.slice.call(document.querySelectorAll('.skill-bubble'));
+  if (skillBubbles.length) {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var smallViewport = window.matchMedia('(max-width: 760px)').matches;
+    var driftScale = smallViewport ? 0.5 : 1;
+
+    if (hasGSAP && !reduceMotion) {
+      skillBubbles.forEach(function (bubble) {
+        var dur = parseFloat(bubble.dataset.duration) || 10;
+        var delay = parseFloat(bubble.dataset.delay) || 0;
+        var dx = (parseFloat(bubble.dataset.dx) || 0) * driftScale;
+        var dy = (parseFloat(bubble.dataset.dy) || 0) * driftScale;
+        var rot = (parseFloat(bubble.dataset.rot) || 0) * driftScale;
+        gsap.to(bubble, {
+          x: dx,
+          y: dy,
+          rotate: rot,
+          duration: dur,
+          delay: delay,
+          ease: 'sine.inOut',
+          repeat: -1,
+          yoyo: true
+        });
+      });
+    }
+
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      skillBubbles.forEach(function (bubble) {
+        var inner = bubble.querySelector('.skill-bubble-inner');
+        if (!inner) return;
+        bubble.addEventListener('mouseenter', function () {
+          if (hasGSAP) gsap.to(inner, { scale: 1.045, y: -4, duration: 0.45, ease: 'power2.out' });
+        });
+        bubble.addEventListener('mouseleave', function () {
+          if (hasGSAP) gsap.to(inner, { scale: 1, y: 0, duration: 0.55, ease: 'power2.out' });
+        });
+      });
+    }
+  }
+
   // ---------- Timeline: horizontal scroll-driven slideshow (Il Percorso) ----------
   // Set up before the Lavori pin below: Il Percorso sits earlier in the
   // document, and ScrollTrigger resolves pinned sections' scroll positions
