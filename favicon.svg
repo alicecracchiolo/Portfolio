@@ -1,4 +1,4 @@
 <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="14" fill="#F28983"/>
-  <text x="32" y="43" text-anchor="middle" font-family="'Inter Tight', Arial, sans-serif" font-weight="700" font-size="28" fill="#FFF8ED">A</text>
+  <rect width="64" height="64" rx="20" fill="#5e4955"/>
+  <path d="M32 9c1.9 13.3 6 17.9 23 23-17 5.1-21.1 9.7-23 23-1.9-13.3-6-17.9-23-23 17-5.1 21.1-9.7 23-23z" fill="#fdf3ff"/>
 </svg>
