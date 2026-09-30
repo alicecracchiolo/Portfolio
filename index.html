@@ -112,6 +112,11 @@
       </svg>
     </div>
 
+    <!-- ============ SIPARIO CAMBIO LINGUA ============ -->
+    <div class="lang-curtain" id="langCurtain" hidden aria-hidden="true">
+      <span class="lang-curtain-word">English</span>
+    </div>
+
     <!-- ============ CURSORE ============ -->
     <div class="cursor" aria-hidden="true">
       <div class="cursor-ring" id="cursorRing"><span class="cursor-label" id="cursorLabel"></span></div>
@@ -131,6 +136,10 @@
         <a href="#progetti" class="roll"><span data-text="Progetti">Progetti</span></a>
         <a href="#contatti" class="roll"><span data-text="Contatti">Contatti</span></a>
       </nav>
+      <div class="nav-right">
+      <button class="lang-toggle magnetic" type="button" data-cursor="cambia">
+        <span data-lang="it">IT</span><span class="lang-sep" aria-hidden="true">/</span><span data-lang="en">EN</span>
+      </button>
       <a href="#contatti" class="nav-cta magnetic" data-cursor="scrivimi">
         <span>Parliamone</span>
         <svg><use href="#d-sparkle" /></svg>
@@ -138,6 +147,7 @@
       <button class="nav-burger" id="burger" aria-label="Apri menu" aria-expanded="false">
         <span></span><span></span>
       </button>
+      </div>
     </header>
 
     <div class="menu" id="menu" aria-hidden="true">
@@ -472,6 +482,7 @@
 
     <script src="js/vendor/gsap.min.js"></script>
     <script src="js/vendor/ScrollTrigger.min.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/data.js"></script>
     <script src="js/physics.js"></script>
     <script src="js/main.js"></script>

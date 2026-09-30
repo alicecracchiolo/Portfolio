@@ -4,10 +4,13 @@ Sito statico, zero framework: HTML + CSS + JavaScript vanilla, con GSAP/ScrollTr
 
 - `index.html` — struttura delle 4 sezioni (Storia, Filosofia, Progetti, Contatti) + loader, cursore, footer
 - `css/style.css` — palette, tipografia, layout e responsive
-- `js/data.js` — contenuti dei case study (testi, numeri, gallerie, video)
+- `js/i18n.js` — lingua (italiano predefinito, inglese): testi statici tradotti e pulsante IT/EN
+- `js/data.js` — contenuti dei case study in italiano e inglese (testi, numeri, gallerie, video)
 - `js/main.js` — smooth scroll, loader, cursore, animazioni allo scroll, overlay dei progetti
 - `js/physics.js` — motore fisico 2D del footer (cerchi da trascinare e lanciare)
 - `assets/` — immagini (convertite in WebP) e video
+
+La lingua scelta resta salvata nel browser; un link che finisce con `#en` apre direttamente la versione inglese.
 
 Per vederlo in locale basta un server statico, ad esempio:
 

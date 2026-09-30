@@ -13,6 +13,7 @@
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var rand = function (a, b) { return a + Math.random() * (b - a); };
+  var T = window.I18N.L;
   var PALETTE = ["#737e4e", "#996888", "#5e4955", "#d6b3ca", "#b5bf8a"];
   var DOODLES = ["d-sparkle", "d-star", "d-flower", "d-heart", "d-spiral"];
 
@@ -245,7 +246,7 @@
       if (t) {
         var txt = t.getAttribute("data-cursor");
         if (txt === null) txt = t.matches("figure") ? "guarda" : "✦";
-        label.textContent = txt;
+        label.textContent = I18N.cursorLabel(txt);
         ring.classList.add("is-hover");
       } else {
         ring.classList.remove("is-hover");
@@ -798,7 +799,7 @@
       var dp = DOODLE_PAIRS[i % DOODLE_PAIRS.length];
       out +=
         '<article class="p-card" tabindex="0" role="button" data-case="' + p.id + '" data-cursor="apri" ' +
-        'aria-label="Apri il progetto ' + p.name + '" style="--card-bg:' + p.color + ";--card-ink:" + p.ink + '">' +
+        'aria-label="' + T("Apri il progetto ", "Open the project ") + p.name + '" style="--card-bg:' + p.color + ";--card-ink:" + p.ink + '">' +
         '<div class="p-card-top"><span class="p-card-num">0' + (i + 1) + "</span><span>" + p.tag + "</span></div>" +
         '<div class="p-card-cover ' + (p.cover.fit === "logo" ? "" : p.cover.fit) + '">' +
         '<svg class="pc-doodle a"><use href="#' + dp[0] + '"/></svg>' +
@@ -812,8 +813,8 @@
         "</article>";
     });
     out +=
-      '<div class="p-card-end"><p>Ti è venuta<br><em>un\'idea?</em></p>' +
-      '<a href="#contatti" class="btn-pill magnetic" data-cursor="dai!">Scrivimi <svg width="18" height="18"><use href="#i-arrow"/></svg></a></div>';
+      '<div class="p-card-end"><p>' + T("Ti è venuta<br><em>un'idea?</em>", "Got an<br><em>idea?</em>") + "</p>" +
+      '<a href="#contatti" class="btn-pill magnetic" data-cursor="' + I18N.cursorLabel("dai!") + '">' + T("Scrivimi", "Write to me") + ' <svg width="18" height="18"><use href="#i-arrow"/></svg></a></div>';
     track.innerHTML = out;
 
     $$(".p-card", track).forEach(function (card) {
@@ -908,9 +909,9 @@
   function fmt(v, suffix) {
     var s;
     if (suffix) {
-      s = (Math.round(v * 10) / 10).toLocaleString("it-IT", { maximumFractionDigits: 1 });
+      s = (Math.round(v * 10) / 10).toLocaleString(I18N.locale, { maximumFractionDigits: 1 });
     } else {
-      s = Math.round(v).toLocaleString("it-IT");
+      s = Math.round(v).toLocaleString(I18N.locale);
     }
     return s + (suffix || "");
   }
@@ -941,7 +942,7 @@
         h = '<section class="cb">' + kicker + '<div class="cb-stats' + (b.small ? " small" : "") + '">' +
           b.items.map(function (s) {
             return '<div class="stat"><b data-count="' + s[0] + '" data-suffix="' + (s[1] || "") + '">0</b><span>' + s[2] + "</span>" +
-              (s[3] ? "<i>" + s[3] + "</i>" : "") + "</div>";
+              (s[3] ? "<i>" + (I18N.en ? s[3].replace(",", ".") : s[3]) + "</i>" : "") + "</div>";
           }).join("") + "</div></section>";
         break;
       case "gallery":
@@ -982,7 +983,7 @@
     if (p.link) {
       links += '<a class="btn-pill magnetic" href="' + p.link.href + '" target="_blank" rel="noopener noreferrer" data-cursor="apri">' + p.link.label + ' <svg width="18" height="18"><use href="#i-arrow"/></svg></a>';
     }
-    links += '<button type="button" class="btn-pill ghost magnetic" data-close-case data-cursor="chiudi">Torna ai progetti</button>';
+    links += '<button type="button" class="btn-pill ghost magnetic" data-close-case data-cursor="chiudi">' + T("Torna ai progetti", "Back to projects") + "</button>";
 
     caseBody.innerHTML =
       '<header class="case-hero">' +
@@ -997,7 +998,7 @@
       '<section class="case-closing"><h2>' + p.closing.title + "</h2>" +
       (p.closing.text ? "<p>" + p.closing.text + "</p>" : "") +
       '<div class="case-links">' + links + "</div></section>" +
-      '<a class="case-next" href="#" data-next="' + next.id + '" data-cursor="avanti"><small>prossimo progetto</small><b>' + next.name + "</b></a>" +
+      '<a class="case-next" href="#" data-next="' + next.id + '" data-cursor="' + I18N.cursorLabel("avanti") + '"><small>' + T("prossimo progetto", "next project") + "</small><b>" + next.name + "</b></a>" +
       "</div>";
 
     caseEl.style.setProperty("--case-bg", p.color);
@@ -1278,7 +1279,7 @@
       var x = e.clientX || innerWidth / 2;
       var y = e.clientY || innerHeight / 2;
       var ok = function () {
-        toast("copiata! ✦ ora scrivimi");
+        toast(T("copiata! ✦ ora scrivimi", "copied! ✦ now write to me"));
         burst(x, y, 22);
       };
       // se il browser rifiuta gli appunti, seleziono il testo così si copia a mano
@@ -1288,7 +1289,7 @@
         range.selectNodeContents($(".mail-big-text"));
         sel.removeAllRanges();
         sel.addRange(range);
-        toast("selezionata ✦ premi Ctrl/Cmd+C");
+        toast(T("selezionata ✦ premi Ctrl/Cmd+C", "selected ✦ press Ctrl/Cmd+C"));
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(email).then(ok, fallback);
@@ -1330,19 +1331,19 @@
 
     var M = "#fdf3ff", G = "#2a2b2a", O = "#737e4e", L = "#996888", P = "#d6b3ca", S = "#c4cc9f";
     var items = [
-      { label: "Storia", href: "#storia", bg: M, ink: G, size: 1.25, cursor: "vai" },
-      { label: "Filosofia", href: "#filosofia", bg: O, ink: M, size: 1.35, cursor: "vai" },
-      { label: "Progetti", href: "#progetti", bg: G, ink: M, size: 1.45, cursor: "vai" },
-      { label: "Contatti", href: "#contatti", bg: L, ink: M, size: 1.3, cursor: "vai" },
+      { label: T("Storia", "Story"), href: "#storia", bg: M, ink: G, size: 1.25, cursor: T("vai", "go") },
+      { label: T("Filosofia", "Philosophy"), href: "#filosofia", bg: O, ink: M, size: 1.35, cursor: T("vai", "go"), fs: T(0.36, 0.3) },
+      { label: T("Progetti", "Projects"), href: "#progetti", bg: G, ink: M, size: 1.45, cursor: T("vai", "go") },
+      { label: T("Contatti", "Contact"), href: "#contatti", bg: L, ink: M, size: 1.3, cursor: T("vai", "go") },
       { icon: "i-linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/alice-cracchiolo/", bg: P, ink: G, size: 0.95, cursor: "LinkedIn" },
       { icon: "i-instagram", label: "Instagram", href: "https://www.instagram.com/alice.cracchiolo/", bg: S, ink: G, size: 0.95, cursor: "Instagram" },
       { icon: "i-mail", label: "Email", href: "mailto:alice.cracchiolo@gmail.com", bg: M, ink: L, size: 0.95, cursor: "email" },
-      { label: "idee ✦", bg: P, ink: G, size: 1.05 },
-      { label: "curiosità", bg: M, ink: O, size: 1.15, fs: 0.3 },
+      { label: T("idee ✦", "ideas ✦"), bg: P, ink: G, size: 1.05 },
+      { label: T("curiosità", "curiosity"), bg: M, ink: O, size: 1.15, fs: 0.3 },
       { label: "content", bg: S, ink: G, size: 1 },
       { label: "copy", bg: G, ink: P, size: 0.85 },
       { label: "video", bg: O, ink: M, size: 0.9 },
-      { label: "caffè?", bg: L, ink: M, size: 0.8 },
+      { label: T("caffè?", "coffee?"), bg: L, ink: M, size: 0.8 },
       { icon: "d-star", bg: M, ink: O, size: 0.7 },
       { icon: "d-flower", bg: G, ink: P, size: 0.75 },
       { icon: "d-heart", bg: P, ink: "#5e4955", size: 0.65 },
@@ -1466,10 +1467,51 @@
   }
 
   /* ---------------------------------------------------------
+     RITORNO DAL CAMBIO LINGUA — niente loader: il sipario della
+     lingua copre la pagina, torno allo stesso punto e lo sollevo
+     --------------------------------------------------------- */
+  function returnFromLangSwitch(state) {
+    var loader = $("#loader");
+    if (loader) loader.remove();
+    var curtain = $("#langCurtain");
+    $(".lang-curtain-word", curtain).textContent = I18N.en ? "English" : "Italiano";
+    curtain.hidden = false;
+    gsap.set(curtain, { yPercent: 0 });
+    html.classList.remove("is-loading");
+    heroIntro();
+
+    var lifted = false;
+    var lift = function () {
+      if (lifted) return;
+      lifted = true;
+      ScrollTrigger.refresh();
+      var y = Math.max(0, Math.min(SmoothScroll.limit(), (state && state.y) || 0));
+      window.scrollTo(0, y);
+      SmoothScroll.current = SmoothScroll.target = y;
+      ScrollTrigger.update();
+      gsap.to(".lang-curtain-word", { yPercent: -120, rotation: -6, duration: 0.6, ease: "power3.in" });
+      gsap.to(curtain, {
+        yPercent: -100,
+        duration: 0.9,
+        delay: 0.25,
+        ease: "power4.inOut",
+        onComplete: function () { curtain.hidden = true; }
+      });
+    };
+    // aspetto i font (cambiano le misure del layout), ma non all'infinito
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { setTimeout(lift, 150); });
+    setTimeout(lift, 2500);
+  }
+
+  /* ---------------------------------------------------------
      AVVIO
      --------------------------------------------------------- */
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   window.scrollTo(0, 0);
+
+  // la lingua va applicata prima di qualsiasi split del testo
+  I18N.applyStatic();
+  I18N.initToggle();
 
   buildCards();
   prepHero();
@@ -1484,7 +1526,8 @@
   initFooter();
   initDraggables();
   initMagnetic();
-  runLoader();
+  if (I18N.switched) returnFromLangSwitch(I18N.switched);
+  else runLoader();
 
   if (document.fonts) document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
   window.addEventListener("load", function () { ScrollTrigger.refresh(); });

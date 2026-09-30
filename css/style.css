@@ -54,6 +54,13 @@ body {
   overflow-x: hidden;
 }
 
+/* il nastro inclinato e i blob escono apposta dai bordi: su mobile
+   overflow-x: hidden sul body non basta, clip li taglia davvero */
+html,
+body {
+  overflow-x: clip;
+}
+
 img,
 video,
 svg {
@@ -2853,4 +2860,81 @@ body.dark-zone .social-rail-line {
 html.is-grabbing,
 html.is-grabbing * {
   cursor: grabbing;
+}
+
+/* =========================================================
+   LINGUA — pulsante IT / EN e sipario del cambio
+   ========================================================= */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.lang-toggle [data-lang] {
+  opacity: 0.45;
+  transition: opacity 0.3s, color 0.3s;
+}
+
+.lang-toggle [data-lang].is-on {
+  opacity: 1;
+  color: var(--lavender);
+}
+
+.lang-toggle .lang-sep {
+  opacity: 0.35;
+}
+
+.lang-toggle:hover [data-lang]:not(.is-on) {
+  opacity: 1;
+}
+
+.nav.on-dark .lang-toggle [data-lang].is-on {
+  color: #d6b3ca;
+}
+
+.lang-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 1600;
+  background: var(--mauve);
+  color: var(--mist);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.lang-curtain[hidden] {
+  display: none;
+}
+
+.lang-curtain-word {
+  display: block;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  font-size: clamp(4rem, 16vw, 14rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 899px) {
+  .lang-toggle {
+    height: 48px;
+  }
 }
