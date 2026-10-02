@@ -10,6 +10,16 @@
   var html = document.documentElement;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var TOUCH = !finePointer;
+
+  /* Ingressi dei testi. Col mouse seguono lo scroll (scrub); sul touch lo scroll
+     a dito è a scatti e la barra del browser cambia le misure, quindi un testo
+     legato allo scroll può restare a metà o invisibile: lì l'animazione parte
+     una volta sola quando l'elemento entra e poi il testo resta visibile. */
+  function reveal(st) {
+    if (!TOUCH) return st;
+    return { trigger: st.trigger, scroller: st.scroller, start: "top 92%", toggleActions: "play none none none" };
+  }
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var rand = function (a, b) { return a + Math.random() * (b - a); };
@@ -604,7 +614,7 @@
         opacity: 1,
         ease: "power2.out",
         stagger: 0.06,
-        scrollTrigger: { trigger: t, start: "top 95%", end: "top 55%", scrub: 1 }
+        scrollTrigger: reveal({ trigger: t, start: "top 95%", end: "top 55%", scrub: 1 })
       });
     });
     $$(".sec-doodle").forEach(function (d) {
@@ -624,8 +634,10 @@
       gsap.to(words, {
         opacity: 1,
         ease: "none",
-        stagger: 0.05,
-        scrollTrigger: { trigger: p, start: "top 85%", end: "bottom 60%", scrub: 1 }
+        // sul touch parte da sola: parole più ravvicinate, così non si aspetta
+        stagger: TOUCH ? 0.015 : 0.05,
+        duration: TOUCH ? 0.4 : 0.5,
+        scrollTrigger: reveal({ trigger: p, start: "top 85%", end: "bottom 60%", scrub: 1 })
       });
     });
 
@@ -666,7 +678,7 @@
       y: 30,
       rotation: 4,
       ease: "power2.out",
-      scrollTrigger: { trigger: ".storia-emph", start: "top 95%", end: "top 75%", scrub: 1 }
+      scrollTrigger: reveal({ trigger: ".storia-emph", start: "top 95%", end: "top 75%", scrub: 1 })
     });
 
     // timeline: il filo si disegna, le tappe entrano con lo scroll
@@ -682,13 +694,13 @@
       y: 60,
       opacity: 0,
       ease: "power2.out",
-      scrollTrigger: { trigger: ".timeline-head", start: "top 90%", end: "top 60%", scrub: 1 }
+      scrollTrigger: reveal({ trigger: ".timeline-head", start: "top 90%", end: "top 60%", scrub: 1 })
     });
     $$(".tl-item").forEach(function (item, i) {
       var even = i % 2 === 1;
       var mobile = innerWidth < 900;
       var tl = gsap.timeline({
-        scrollTrigger: { trigger: item, start: "top 92%", end: "top 45%", scrub: 1.1 }
+        scrollTrigger: reveal({ trigger: item, start: "top 92%", end: "top 45%", scrub: 1.1 })
       });
       tl.from($(".tl-year", item), {
         x: mobile ? -40 : (even ? 160 : -160),
@@ -724,7 +736,7 @@
     var im = $(".impossible .im", lead);
     var strike = $(".impossible .strike path", lead);
     var tl = gsap.timeline({
-      scrollTrigger: { trigger: lead, start: "top 80%", end: "bottom 30%", scrub: 1 }
+      scrollTrigger: reveal({ trigger: lead, start: "top 80%", end: "bottom 30%", scrub: 1 })
     });
     tl.to(words, { opacity: 1, stagger: 0.12, ease: "none", duration: 0.5 })
       .to(strike, { strokeDashoffset: 0, duration: 0.6, ease: "power1.inOut" })
@@ -732,6 +744,8 @@
       .to(strike.parentNode, { opacity: 0, duration: 0.3 }, "<0.3")
       .to(im, { width: 0, duration: 0.5, ease: "power2.inOut" })
       .to(".impossible", { color: "#b5bf8a", duration: 0.3 }, "<");
+    // sul touch la sequenza parte da sola: più rapida, così non si aspetta
+    if (TOUCH) tl.timeScale(2.5);
 
     // la larghezza di "im" va misurata a font caricati
     var setImWidth = function () {
@@ -753,7 +767,7 @@
         y: 80,
         opacity: 0,
         ease: "power2.out",
-        scrollTrigger: { trigger: p, start: "top 95%", end: "top 70%", scrub: 1 }
+        scrollTrigger: reveal({ trigger: p, start: "top 95%", end: "top 70%", scrub: 1 })
       });
     });
 
@@ -768,13 +782,13 @@
         rotation: 0,
         opacity: 1,
         ease: "power2.out",
-        scrollTrigger: { trigger: li, start: "top 98%", end: "top 62%", scrub: 1 }
+        scrollTrigger: reveal({ trigger: li, start: "top 98%", end: "top 62%", scrub: 1 })
       });
     });
     gsap.from(".skills-note", {
       opacity: 0,
       y: 20,
-      scrollTrigger: { trigger: ".skills", start: "top 90%", end: "top 70%", scrub: 1 }
+      scrollTrigger: reveal({ trigger: ".skills", start: "top 90%", end: "top 70%", scrub: 1 })
     });
 
     gsap.from(".tool-badge", {
@@ -889,7 +903,7 @@
           rotation: i % 2 ? 6 : -6,
           opacity: 0,
           ease: "power2.out",
-          scrollTrigger: { trigger: card, start: "top 100%", end: "top 65%", scrub: 1 }
+          scrollTrigger: reveal({ trigger: card, start: "top 100%", end: "top 65%", scrub: 1 })
         });
       });
     });
@@ -1011,6 +1025,7 @@
       var targets = vars.targets;
       delete vars.targets;
       vars.scrollTrigger.scroller = S;
+      vars.scrollTrigger = reveal(vars.scrollTrigger);
       var t = gsap.from(targets, vars);
       caseTriggers.push(t);
     };
@@ -1257,13 +1272,13 @@
       opacity: 0,
       stagger: 0.08,
       ease: "power2.out",
-      scrollTrigger: { trigger: big, start: "top 95%", end: "top 60%", scrub: 1 }
+      scrollTrigger: reveal({ trigger: big, start: "top 95%", end: "top 60%", scrub: 1 })
     });
     gsap.from(".mail-big", {
       y: 60,
       opacity: 0,
       ease: "power2.out",
-      scrollTrigger: { trigger: ".mail-big", start: "top 98%", end: "top 75%", scrub: 1 }
+      scrollTrigger: reveal({ trigger: ".mail-big", start: "top 98%", end: "top 75%", scrub: 1 })
     });
     gsap.from(".c-card", {
       y: 100,
@@ -1271,7 +1286,7 @@
       opacity: 0,
       stagger: 0.1,
       ease: "power2.out",
-      scrollTrigger: { trigger: ".contatti-grid", start: "top 98%", end: "top 65%", scrub: 1 }
+      scrollTrigger: reveal({ trigger: ".contatti-grid", start: "top 98%", end: "top 65%", scrub: 1 })
     });
 
     var email = "alice.cracchiolo@gmail.com";

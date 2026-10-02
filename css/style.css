@@ -717,7 +717,8 @@ body.dark-zone .social-rail-line {
   font-family: var(--f-display);
   font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
   font-weight: 400;
-  font-size: clamp(4.2rem, 15vw, 15rem);
+  font-size: clamp(2.8rem, 15vw, 15rem);
+  white-space: nowrap;
   line-height: 0.85;
   letter-spacing: -0.045em;
 }
@@ -2707,7 +2708,7 @@ body.dark-zone .social-rail-line {
   }
 
   .hero-title {
-    font-size: clamp(3.4rem, 17vw, 6rem);
+    font-size: clamp(2.6rem, min(17vw, 15vh), 6rem);
   }
 
   .badge {
@@ -2936,5 +2937,62 @@ html.is-grabbing * {
 @media (max-width: 899px) {
   .lang-toggle {
     height: 48px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — rifiniture per telefoni, tablet e laptop bassi
+   ========================================================= */
+
+/* "passaci sopra col mouse" ha senso solo col mouse e con spazio a destra del titolo */
+@media (hover: none), (max-width: 1365px) {
+  .hero-note {
+    display: none;
+  }
+}
+
+/* sotto i 900px restano solo i doodle che non finiscono sopra il testo */
+@media (max-width: 899px) {
+  .hd-spiral,
+  .hd-star,
+  .hd-sparkle2,
+  .hd-heart {
+    display: none;
+  }
+}
+
+/* telefoni molto stretti (320px): logo, pulsante lingua e menu devono starci tutti */
+@media (max-width: 379px) {
+  .nav {
+    gap: 10px;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+  }
+
+  .nav-right {
+    gap: 8px;
+  }
+
+  .lang-toggle {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+}
+
+/* pulsante di chiusura dei progetti: più piccolo su mobile, copre meno testo */
+@media (max-width: 899px) {
+  .case-close {
+    top: 14px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .case-close span {
+    left: 14px;
+    right: 14px;
+    top: 23px;
   }
 }

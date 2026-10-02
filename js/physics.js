@@ -29,8 +29,12 @@
     var rect = this.container.getBoundingClientRect();
     this.W = rect.width;
     this.H = rect.height;
-    // raggio base proporzionale alla larghezza: su mobile i cerchi restano leggibili
-    this.base = Math.max(34, Math.min(84, this.W / 15));
+    // raggio base proporzionale alla larghezza, ma limitato anche dall'area:
+    // i cerchi occupano al massimo ~1/3 del riquadro, così su schermi bassi
+    // il mucchio non sale sopra il titolo del footer
+    var sumK2 = this.items.reduce(function (acc, it) { var k = it.size || 1; return acc + k * k; }, 0) || 1;
+    var byArea = Math.sqrt((this.W * this.H * 0.33) / (Math.PI * sumK2));
+    this.base = Math.max(30, Math.min(84, this.W / 15, byArea));
   };
 
   FooterPhysics.prototype._build = function () {
