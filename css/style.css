@@ -2996,3 +2996,64 @@ html.is-grabbing * {
     top: 23px;
   }
 }
+
+/* =========================================================
+   CASE STUDY — dato d'aggancio, sintesi, card in evidenza
+   ========================================================= */
+
+/* dato d'aggancio sotto il titolo della card (stesso tono delle etichette della card) */
+.p-card-hook {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 0 0 10px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(253, 243, 255, 0.16);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.p-card[data-case="fresko"] .p-card-hook {
+  background: rgba(15, 43, 30, 0.1);
+}
+
+/* riga di sintesi sotto il titolo: è un .case-kicker, solo con lo spazio sopra */
+.case-hero .case-meta {
+  margin: 22px 0 0;
+}
+
+/* la card dei numeri che conferma il testo: variante scura già usata in "I numeri" */
+.cb-stats .stat.is-key {
+  background: var(--graphite);
+  color: var(--mist);
+}
+
+.cb-note {
+  margin: 14px 0 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* video verticali 9:16 anche prima che il file sia caricato */
+.cb-gallery.vertical video {
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: var(--graphite);
+}
+
+/* testi dei case study scritti in index.html per motori di ricerca e lettori
+   senza JavaScript: fuori dallo schermo, l'interfaccia resta l'overlay */
+.case-archive {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

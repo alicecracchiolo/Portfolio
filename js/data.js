@@ -5,6 +5,36 @@
 (function () {
   var L = window.I18N.L;
 
+  /* ---------------------------------------------------------------
+     SEGNAPOSTO BUDDYJOB — da compilare.
+     Finché un valore è vuoto (""), la parte di frase che lo contiene
+     non compare sul sito: il testo resta corretto anche senza.
+     --------------------------------------------------------------- */
+  var BJ = {
+    // TODO: [Da sola / In un team di X persone] — "Il mio ruolo".
+    // IT senza punto finale (es. "Da sola", "In un team di 4 persone");
+    // EN con la virgola finale (es. "On my own,", "As part of a team of four,").
+    team: L("", ""),
+    // TODO: [periodo di confronto, es. i tre mesi precedenti] — nota sotto "I numeri".
+    // IT es. "i tre mesi precedenti"; EN es. "the previous three months".
+    comparePeriod: L("", ""),
+    // TODO: [es. interviste ai Buddy, POV, mini-guide…] — sezione Video.
+    // IT es. "interviste ai Buddy, POV, mini-guide"; EN es. "interviews with the Buddies, POVs, mini-guides".
+    videoFormats: L("", ""),
+    // TODO: [obiettivo, es. iscrizioni alla community / prime call con i coach] — "Oltre il feed".
+    // IT dopo "campagne ADV per" (es. "le iscrizioni alla community");
+    // EN dopo "ad campaigns to" (es. "drive community sign-ups").
+    adsGoal: L("", ""),
+    // TODO: [assets/buddyjob/video-1.mp4], [video-2.mp4], [video-3.mp4] — 2–3 video verticali 9:16,
+    // mp4 H.264 compressi + poster. Finché la lista è vuota il carosello non compare.
+    // Formato: { src: "assets/buddyjob/video/video-1.mp4", poster: "assets/buddyjob/video/video-1.jpg" }
+    videos: [],
+    // TODO: [views] · [reach] · [condivisioni] · [follow] dei video (facoltativi).
+    // Lascia null quelli che non hai: se sono tutti null il blocco non compare.
+    // Numeri interi, es. 120000 (sul sito diventa 120.000).
+    videoStats: { views: null, reach: null, shares: null, follows: null }
+  };
+
   window.PROJECTS = [
     {
       id: "buddyjob",
@@ -14,13 +44,18 @@
       ink: "var(--mist)",
       cover: { src: "assets/buddyjob/brand/logo.webp", alt: L("Logo BuddyJob", "BuddyJob logo"), fit: "logo" },
       title: L("Leggere il lavoro. Poi raccontarlo.", "Reading the work. Then telling it."),
+      // dato d'aggancio sotto il titolo della card
+      hook: L("+10.395 follower in poco più di tre mesi", "+10,395 followers in just over three months"),
       desc: L(
         "Per BuddyJob trasformo conversazioni, trend e situazioni quotidiane in contenuti capaci di informare, creare riconoscimento e far partecipare la community.",
         "For BuddyJob I turn conversations, trends and everyday situations into content that informs, builds recognition and gets the community involved."
       ),
       link: { href: "https://www.instagram.com/buddyjob_it/", label: "Instagram" },
-      skills: ["Research & Social Listening", "Concept", "Copywriting", "Format", "Editorial Design", "Social Media Management"],
+      skills: ["Research & Social Listening", "Concept", "Copywriting", "Format", "Editorial Design", "Social Media Management", "Video Production", "ADV", "Community Management"],
       question: L("Come rendere interessante un argomento di cui parlano già tutti?", "How do you make an already-crowded topic interesting?"),
+      // riga di sintesi sotto il titolo del case study
+      meta: L("Instagram · giugno – settembre 2026 · 3,7M visualizzazioni organiche · +10.395 follower",
+        "Instagram · June – September 2026 · 3.7M organic views · +10,395 followers"),
       intro: [
         L("Il lavoro è ovunque sui social: colloqui, burnout, stipendi, carriera, colleghi, dimissioni.",
           "Work is everywhere on social: interviews, burnout, salaries, careers, colleagues, resignations."),
@@ -32,7 +67,11 @@
       blocks: [
         { type: "text", kicker: L("Il mio ruolo", "My role"), paras: [
           L("Osservo conversazioni, trend e notizie sul mondo del lavoro e cerco l'angolo che può diventare BuddyJob. A volte significa approfondire. A volte spiegare. A volte basta un meme fatto nel momento giusto.",
-            "I watch conversations, trends and news about the world of work and look for the angle that can become BuddyJob. Sometimes that means digging deeper. Sometimes explaining. Sometimes it's just a meme made at the right moment.")
+            "I watch conversations, trends and news about the world of work and look for the angle that can become BuddyJob. Sometimes that means digging deeper. Sometimes explaining. Sometimes it's just a meme made at the right moment."),
+          L("Poi lo porto fino in fondo. " + (BJ.team ? BJ.team + " seguo" : "Seguo") +
+            " ricerca, concept, copy e grafica; per i video scrivo lo script, giro, monto e a volte ci metto la faccia. Curo anche le campagne ADV, i contenuti per LinkedIn e la community nei commenti.",
+            "Then I see it through to the end. " + (BJ.team ? BJ.team + " I handle" : "I handle") +
+            " research, concept, copy and design; for video I write the script, shoot, edit and sometimes appear on camera. I also run ad campaigns, LinkedIn content and the community in the comments.")
         ] },
         { type: "text", title: L("Un profilo non si costruisce post per post.", "A profile isn't built post by post."), paras: [
           L("Per BuddyJob ho lavorato alla costruzione di un sistema editoriale che non riguarda solo cosa pubblicare nel feed, ma anche come accompagnare chi arriva sul profilo.",
@@ -56,12 +95,16 @@
           ["Highlights", L("Contenuti evergreen pensati per orientare chi arriva sul profilo, spiegare BuddyJob, i servizi e gli strumenti disponibili.",
             "Evergreen content designed to orient people landing on the profile, explaining BuddyJob, its services and the tools available.")]
         ] },
-        { type: "stats", kicker: L("I numeri · 1 giugno — 10 settembre 2026", "The numbers · June 1 — September 10, 2026"), items: [
+        { type: "stats", kicker: L("I numeri · Instagram · 1 giugno — 10 settembre 2026", "The numbers · Instagram · June 1 — September 10, 2026"), items: [
           [3.7, "M", L("visualizzazioni organiche", "organic views"), "+127,4%"],
           [2.6, "M", L("persone raggiunte", "people reached"), "+128,2%"],
           [288.8, "K", L("interazioni con i contenuti", "content interactions"), "+176,5%"],
           [10395, "", L("nuovi follow", "new follows"), "+255,3%"]
-        ] },
+        ],
+          // nota sul confronto: compare solo quando il periodo è compilato
+          note: BJ.comparePeriod ? L("Variazioni rispetto a " + BJ.comparePeriod + ".", "Changes compared with " + BJ.comparePeriod + ".") : "" },
+
+        /* --- 1. Red flags --- */
         { type: "text", kicker: L("Parte del sistema: Intercettare", "Part of the system: Intercept"), title: L("Leggere i commenti prima di scrivere il post.", "Reading the comments before writing the post."), paras: [
           L("Una notizia molto discussa aveva acceso online una conversazione sui comportamenti normalizzati sul posto di lavoro.",
             "A widely-discussed news story had sparked an online conversation about normalized workplace behaviors."),
@@ -74,8 +117,22 @@
           [1.5, "M", L("persone raggiunte", "people reached")], [113, "K", L("interazioni", "interactions")], [29, "K", L("condivisioni", "shares")],
           [19.8, "K", L("salvataggi", "saves")], [5068, "", L("follow generati", "follows generated")]
         ] },
+        // 5.068 su 10.395 nuovi follower del periodo = 48,8%
+        { type: "highlight", html: L("Un solo post, nessuna sponsorizzazione: <em>quasi metà dei nuovi follower del periodo è arrivata da qui.</em>",
+          "One post, no paid promotion: <em>almost half of the period's new followers came from here.</em>") },
         { type: "text", paras: [L("Il contenuto non nasceva dal trend in sé, ma da quello che le persone stavano dicendo intorno al trend.",
           "The content didn't come from the trend itself, but from what people were actually saying around it.")] },
+
+        /* --- 2. Soft-on day --- */
+        { type: "text", kicker: L("Parte del sistema: Informare + Sperimentare", "Part of the system: Inform + Experiment"), title: L("Un trend nuovo ha bisogno anche di una forma nuova.", "A new trend also needs a new format."), paras: [
+          L("Quando soft-on day e soft-off day hanno iniziato a entrare nella conversazione online sul lavoro, ho approfondito il fenomeno e costruito un contenuto che ne spiegasse significato e contesto.",
+            "When soft-on days and soft-off days started entering the online conversation about work, I dug into the phenomenon and built a piece that explained its meaning and context."),
+          L("Fotografia, tipografia, collage, riferimenti digitali e movimento cambiano lungo il carosello seguendo il contenuto, invece di costringerlo dentro un unico template.",
+            "Photography, typography, collage, digital references and motion shift throughout the carousel following the content, instead of forcing it into a single template.")
+        ] },
+        { type: "gallery", dir: "assets/buddyjob/softdays/", items: ["cover", "switch", "pink", "equity", "animation-01.mp4", "soft-off-day", "fast-company", "non-sappiamo-ancora", "animation-02.mp4", "preferiresti"] },
+
+        /* --- 3. Meme --- */
         { type: "text", kicker: L("Parte del sistema: Creare relazione", "Part of the system: Build connection"), title: L("Non tutti i contenuti devono spiegare qualcosa.", "Not every piece of content has to explain something."), paras: [
           L("Dopo una settimana di temi più densi, il feed ha anche bisogno di respirare.", "After a week of denser topics, the feed also needs to breathe."),
           L("I meme fanno parte del content mix di BuddyJob proprio per questo: intercettano situazioni quotidiane, creano riconoscimento e danno alla community qualcosa da mandare immediatamente a un collega.",
@@ -83,18 +140,38 @@
         ] },
         { type: "gallery", dir: "assets/buddyjob/meme/", items: ["drama", "work", "september"] },
         { type: "stats", small: true, items: [
-          [223, "K", L("persone raggiunte", "people reached")], [29.6, "K", L("interazioni", "interactions")], [14.6, "K", L("condivisioni", "shares")],
+          [223, "K", L("persone raggiunte", "people reached")], [29.6, "K", L("interazioni", "interactions")],
+          // in evidenza: è il dato che conferma il testo (le condivisioni superano i like)
+          [14.6, "K", L("condivisioni", "shares"), "", true],
           [13.1, "K", L("like/reazioni", "likes/reactions")], [1390, "", L("salvataggi", "saves")], [113, "", L("nuovi follow", "new follows")]
         ] },
         { type: "text", paras: [L("In questo caso le condivisioni hanno superato i like: il contenuto non è stato soltanto apprezzato, è diventato qualcosa da mandare a qualcun altro.",
           "Here shares outpaced likes: the content wasn't just appreciated, it became something worth sending to someone else.")] },
-        { type: "text", kicker: L("Parte del sistema: Informare + Sperimentare", "Part of the system: Inform + Experiment"), title: L("Un trend nuovo ha bisogno anche di una forma nuova.", "A new trend also needs a new format."), paras: [
-          L("Quando soft-on day e soft-off day hanno iniziato a entrare nella conversazione online sul lavoro, ho approfondito il fenomeno e costruito un contenuto che ne spiegasse significato e contesto.",
-            "When soft-on days and soft-off days started entering the online conversation about work, I dug into the phenomenon and built a piece that explained its meaning and context."),
-          L("Fotografia, tipografia, collage, riferimenti digitali e movimento cambiano lungo il carosello seguendo il contenuto, invece di costringerlo dentro un unico template.",
-            "Photography, typography, collage, digital references and motion shift throughout the carousel following the content, instead of forcing it into a single template.")
+
+        /* --- Video --- */
+        { type: "text", kicker: L("Parte del sistema: Sperimentare", "Part of the system: Experiment"), title: L("Alcune idee hanno bisogno di muoversi.", "Some ideas need to move."), paras: [
+          L("Per i video seguo tutto il processo: scrivo lo script, giro, monto e a volte ci metto la faccia. Il formato cambia" +
+            (BJ.videoFormats ? ", " + BJ.videoFormats + "," : "") +
+            " ma il criterio è lo stesso dei caroselli: partire da quello che le persone vivono davvero al lavoro.",
+            "For video I handle the whole process: I write the script, shoot, edit and sometimes appear on camera. The format changes" +
+            (BJ.videoFormats ? " — " + BJ.videoFormats + " —" : "") +
+            " but the approach is the same as the carousels: start from what people actually go through at work.")
         ] },
-        { type: "gallery", dir: "assets/buddyjob/softdays/", items: ["cover", "switch", "pink", "equity", "animation-01.mp4", "soft-off-day", "fast-company", "non-sappiamo-ancora", "animation-02.mp4", "preferiresti"] }
+        { type: "gallery", vertical: true, items: BJ.videos },
+        { type: "stats", small: true, items: [
+          [BJ.videoStats.views, "", L("visualizzazioni", "views")],
+          [BJ.videoStats.reach, "", L("persone raggiunte", "people reached")],
+          [BJ.videoStats.shares, "", L("condivisioni", "shares")],
+          [BJ.videoStats.follows, "", L("follow", "follows")]
+        ] },
+
+        /* --- Oltre il feed --- */
+        { type: "text", kicker: L("Ogni contenuto ha un ruolo", "Every piece of content has a role"), title: L("Oltre il feed.", "Beyond the feed."), paras: [
+          L("Contenuti per LinkedIn pensati per un pubblico più professionale, campagne ADV" + (BJ.adsGoal ? " per " + BJ.adsGoal : "") +
+            " e, ogni giorno, le risposte nei commenti: la parte meno visibile del lavoro, ma quella che trasforma un pubblico in una community.",
+            "LinkedIn content made for a more professional audience, ad campaigns" + (BJ.adsGoal ? " to " + BJ.adsGoal : "") +
+            " and, every day, the replies in the comments: the least visible part of the work, but the one that turns an audience into a community.")
+        ] }
       ],
       closing: {
         title: L("Trasformare quello che succede nel mondo del lavoro in contenuti che valga la pena fermarsi a leggere.",

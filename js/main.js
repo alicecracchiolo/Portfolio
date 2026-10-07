@@ -804,32 +804,10 @@
   /* ---------------------------------------------------------
      PROGETTI — card + scroll orizzontale
      --------------------------------------------------------- */
-  var DOODLE_PAIRS = [["d-star", "d-sparkle"], ["d-spiral", "d-heart"], ["d-flower", "d-sparkle"], ["d-sparkle", "d-star"], ["d-heart", "d-flower"]];
-
   function buildCards() {
     var track = $("#progettiTrack");
-    var out = "";
-    PROJECTS.forEach(function (p, i) {
-      var dp = DOODLE_PAIRS[i % DOODLE_PAIRS.length];
-      out +=
-        '<article class="p-card" tabindex="0" role="button" data-case="' + p.id + '" data-cursor="apri" ' +
-        'aria-label="' + T("Apri il progetto ", "Open the project ") + p.name + '" style="--card-bg:' + p.color + ";--card-ink:" + p.ink + '">' +
-        '<div class="p-card-top"><span class="p-card-num">0' + (i + 1) + "</span><span>" + p.tag + "</span></div>" +
-        '<div class="p-card-cover ' + (p.cover.fit === "logo" ? "" : p.cover.fit) + '">' +
-        '<svg class="pc-doodle a"><use href="#' + dp[0] + '"/></svg>' +
-        '<img src="' + p.cover.src + '" alt="' + p.cover.alt + '" draggable="false" />' +
-        '<svg class="pc-doodle b"><use href="#' + dp[1] + '"/></svg>' +
-        "</div>" +
-        "<h3>" + p.title + "</h3>" +
-        "<p>" + p.desc + "</p>" +
-        '<div class="p-card-foot"><span>' + p.name + (p.secondary ? "<br><small>" + p.secondary + "</small>" : "") + "</span>" +
-        '<span class="p-card-go"><svg><use href="#i-arrow"/></svg></span></div>' +
-        "</article>";
-    });
-    out +=
-      '<div class="p-card-end"><p>' + T("Ti è venuta<br><em>un'idea?</em>", "Got an<br><em>idea?</em>") + "</p>" +
-      '<a href="#contatti" class="btn-pill magnetic" data-cursor="' + I18N.cursorLabel("dai!") + '">' + T("Scrivimi", "Write to me") + ' <svg width="18" height="18"><use href="#i-arrow"/></svg></a></div>';
-    track.innerHTML = out;
+    // sostituisce anche le card pre-renderizzate in index.html (stesso markup, lingua attiva)
+    track.innerHTML = Render.cardsHTML(PROJECTS);
 
     $$(".p-card", track).forEach(function (card) {
       card.addEventListener("click", function () { openCase(card.getAttribute("data-case")); });
@@ -920,101 +898,10 @@
   var currentCase = null;
   var lastFocus = null;
 
-  function fmt(v, suffix) {
-    var s;
-    if (suffix) {
-      s = (Math.round(v * 10) / 10).toLocaleString(I18N.locale, { maximumFractionDigits: 1 });
-    } else {
-      s = Math.round(v).toLocaleString(I18N.locale);
-    }
-    return s + (suffix || "");
-  }
-
-  function renderBlock(b) {
-    var h = "";
-    var kicker = b.kicker ? '<p class="cb-kicker"><svg><use href="#d-sparkle"/></svg>' + b.kicker + "</p>" : "";
-    switch (b.type) {
-      case "text":
-        h = '<section class="cb cb-text' + (b.small ? " small" : "") + '">' + kicker +
-          (b.title ? "<h2>" + b.title + "</h2>" : "") +
-          b.paras.map(function (p) { return "<p>" + p + "</p>"; }).join("") + "</section>";
-        break;
-      case "highlight":
-        h = '<blockquote class="cb cb-highlight"><svg><use href="#d-sparkle"/></svg>' + b.html + '<svg><use href="#d-star"/></svg></blockquote>';
-        break;
-      case "list":
-        h = '<section class="cb">' + kicker + '<ul class="cb-list">' +
-          b.items.map(function (it, i) {
-            return '<li><span class="n">0' + (i + 1) + "</span><b>" + it[0] + "</b><span>" + it[1] + "</span></li>";
-          }).join("") + "</ul></section>";
-        break;
-      case "steps":
-        h = '<section class="cb cb-steps">' +
-          b.items.map(function (s) { return "<span>" + s + "</span>"; }).join("<i>→</i>") + "</section>";
-        break;
-      case "stats":
-        h = '<section class="cb">' + kicker + '<div class="cb-stats' + (b.small ? " small" : "") + '">' +
-          b.items.map(function (s) {
-            return '<div class="stat"><b data-count="' + s[0] + '" data-suffix="' + (s[1] || "") + '">0</b><span>' + s[2] + "</span>" +
-              (s[3] ? "<i>" + (I18N.en ? s[3].replace(",", ".") : s[3]) + "</i>" : "") + "</div>";
-          }).join("") + "</div></section>";
-        break;
-      case "gallery":
-        // "bare": immagini libere, senza riquadro né scorrimento (per loghi e mascotte)
-        h = '<section class="cb"><div class="cb-gallery' + (b.wide ? " wide" : "") + (b.bare ? " bare" : "") + '"' +
-          (b.bare ? "" : ' data-native-scroll data-cursor="trascina"') + ">" +
-          b.items.map(function (n) {
-            if (/\.mp4$/.test(n)) {
-              return '<figure data-kind="video" data-src="' + b.dir + n + '"><video src="' + b.dir + n + '" muted loop playsinline preload="metadata"></video></figure>';
-            }
-            return '<figure data-kind="img" data-src="' + b.dir + n + '.webp"><img src="' + b.dir + n + '.webp" alt="" loading="lazy" draggable="false" /></figure>';
-          }).join("") + "</div></section>";
-        break;
-      case "videos":
-        h = '<section class="cb cb-videos">' +
-          b.items.map(function (v) {
-            return '<figure class="vid" data-kind="video" data-src="' + v[0] + '" data-cursor="play"><div class="vid-box">' +
-              '<video src="' + v[0] + '#t=0.5" muted loop playsinline preload="metadata"></video>' +
-              '<span class="vid-play">▶ play</span></div>' +
-              "<figcaption><b>" + v[1] + "</b><span>" + v[2] + " · " + v[3] + "</span></figcaption></figure>";
-          }).join("") + "</section>";
-        break;
-      case "palette":
-        h = '<section class="cb cb-palette">' +
-          b.items.map(function (c) {
-            var dark = ["#0F2B1E", "#1D4D34"].indexOf(c[1]) > -1;
-            return '<div class="swatch" style="background:' + c[1] + ";color:" + (dark ? "#F2F2E9" : "#0F2B1E") + '"><b>' + c[0] + "</b>" + c[1] + "</div>";
-          }).join("") + "</section>";
-        break;
-    }
-    return h;
-  }
+  var fmt = Render.fmt;
 
   function renderCase(p) {
-    var idx = PROJECTS.indexOf(p);
-    var next = PROJECTS[(idx + 1) % PROJECTS.length];
-    var links = "";
-    if (p.link) {
-      links += '<a class="btn-pill magnetic" href="' + p.link.href + '" target="_blank" rel="noopener noreferrer" data-cursor="apri">' + p.link.label + ' <svg width="18" height="18"><use href="#i-arrow"/></svg></a>';
-    }
-    links += '<button type="button" class="btn-pill ghost magnetic" data-close-case data-cursor="chiudi">' + T("Torna ai progetti", "Back to projects") + "</button>";
-
-    caseBody.innerHTML =
-      '<header class="case-hero">' +
-      '<svg class="case-hero-doodle"><use href="#d-flower"/></svg>' +
-      '<p class="case-kicker"><span>0' + (idx + 1) + " — " + p.name + "</span><span>✦</span><span>" + p.tag + "</span></p>" +
-      '<h1 id="caseTitle">' + p.question + "</h1>" +
-      '<div class="case-skills">' + p.skills.map(function (s) { return "<span>" + s + "</span>"; }).join("") + "</div>" +
-      "</header>" +
-      '<div class="case-content">' +
-      '<section class="cb cb-intro">' + p.intro.map(function (t) { return "<p>" + t + "</p>"; }).join("") + "</section>" +
-      p.blocks.map(renderBlock).join("") +
-      '<section class="case-closing"><h2>' + p.closing.title + "</h2>" +
-      (p.closing.text ? "<p>" + p.closing.text + "</p>" : "") +
-      '<div class="case-links">' + links + "</div></section>" +
-      '<a class="case-next" href="#" data-next="' + next.id + '" data-cursor="' + I18N.cursorLabel("avanti") + '"><small>' + T("prossimo progetto", "next project") + "</small><b>" + next.name + "</b></a>" +
-      "</div>";
-
+    caseBody.innerHTML = Render.caseHTML(p, PROJECTS);
     caseEl.style.setProperty("--case-bg", p.color);
     caseEl.style.setProperty("--case-ink", p.ink);
   }
@@ -1033,7 +920,7 @@
     var h1 = $(".case-hero h1", caseBody);
     var words = splitWords(h1);
     caseTriggers.push(gsap.from(words, { yPercent: 100, opacity: 0, rotation: 6, stagger: 0.04, duration: 1, ease: "expo.out", delay: 0.15 }));
-    caseTriggers.push(gsap.from(".case-kicker, .case-skills span", { y: 20, opacity: 0, stagger: 0.04, duration: 0.8, ease: "power3.out", delay: 0.3 }));
+    caseTriggers.push(gsap.from($$(".case-kicker, .case-skills span", caseBody), { y: 20, opacity: 0, stagger: 0.04, duration: 0.8, ease: "power3.out", delay: 0.3 }));
 
     $$(".cb-intro p, .cb-text, .cb-highlight, .cb-kicker", caseBody).forEach(function (el) {
       mk({ targets: el, y: 70, opacity: 0, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 96%", end: "top 72%", scrub: 1 } });
@@ -1070,7 +957,8 @@
     $$(".cb-palette", caseBody).forEach(function (el) {
       mk({ targets: $$(".swatch", el), scale: 0, rotation: -90, stagger: 0.1, ease: "back.out(1.6)", scrollTrigger: { trigger: el, start: "top 95%", end: "top 60%", scrub: 1 } });
     });
-    mk({ targets: ".case-closing", scale: 0.85, opacity: 0, ease: "power2.out", scrollTrigger: { trigger: ".case-closing", start: "top 98%", end: "top 60%", scrub: 1 } });
+    var closing = $(".case-closing", caseBody);
+    mk({ targets: closing, scale: 0.85, opacity: 0, ease: "power2.out", scrollTrigger: { trigger: closing, start: "top 98%", end: "top 60%", scrub: 1 } });
   }
 
   function wireCaseMedia() {
