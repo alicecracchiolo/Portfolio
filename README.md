@@ -5,7 +5,7 @@ Sito statico, zero framework: HTML + CSS + JavaScript vanilla, con GSAP/ScrollTr
 - `index.html` — struttura delle 4 sezioni (Storia, Filosofia, Progetti, Contatti) + loader, cursore, footer
 - `css/style.css` — palette, tipografia, layout e responsive
 - `js/i18n.js` — lingua (italiano predefinito, inglese): testi statici tradotti e pulsante IT/EN
-- `js/data.js` — contenuti dei case study in italiano e inglese (testi, numeri, gallerie, video); in cima i segnaposto BuddyJob da compilare
+- `js/data.js` — contenuti dei case study in italiano e inglese (testi, numeri, gallerie, video)
 - `js/render.js` — markup di card e case study, condiviso tra sito e pre-render
 - `scripts/prerender.js` — scrive card e testi dei case study dentro `index.html`
 - `js/main.js` — smooth scroll, loader, cursore, animazioni allo scroll, overlay dei progetti

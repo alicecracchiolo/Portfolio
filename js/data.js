@@ -5,36 +5,6 @@
 (function () {
   var L = window.I18N.L;
 
-  /* ---------------------------------------------------------------
-     SEGNAPOSTO BUDDYJOB — da compilare.
-     Finché un valore è vuoto (""), la parte di frase che lo contiene
-     non compare sul sito: il testo resta corretto anche senza.
-     --------------------------------------------------------------- */
-  var BJ = {
-    // TODO: [Da sola / In un team di X persone] — "Il mio ruolo".
-    // IT senza punto finale (es. "Da sola", "In un team di 4 persone");
-    // EN con la virgola finale (es. "On my own,", "As part of a team of four,").
-    team: L("", ""),
-    // TODO: [periodo di confronto, es. i tre mesi precedenti] — nota sotto "I numeri".
-    // IT es. "i tre mesi precedenti"; EN es. "the previous three months".
-    comparePeriod: L("", ""),
-    // TODO: [es. interviste ai Buddy, POV, mini-guide…] — sezione Video.
-    // IT es. "interviste ai Buddy, POV, mini-guide"; EN es. "interviews with the Buddies, POVs, mini-guides".
-    videoFormats: L("", ""),
-    // TODO: [obiettivo, es. iscrizioni alla community / prime call con i coach] — "Oltre il feed".
-    // IT dopo "campagne ADV per" (es. "le iscrizioni alla community");
-    // EN dopo "ad campaigns to" (es. "drive community sign-ups").
-    adsGoal: L("", ""),
-    // TODO: [assets/buddyjob/video-1.mp4], [video-2.mp4], [video-3.mp4] — 2–3 video verticali 9:16,
-    // mp4 H.264 compressi + poster. Finché la lista è vuota il carosello non compare.
-    // Formato: { src: "assets/buddyjob/video/video-1.mp4", poster: "assets/buddyjob/video/video-1.jpg" }
-    videos: [],
-    // TODO: [views] · [reach] · [condivisioni] · [follow] dei video (facoltativi).
-    // Lascia null quelli che non hai: se sono tutti null il blocco non compare.
-    // Numeri interi, es. 120000 (sul sito diventa 120.000).
-    videoStats: { views: null, reach: null, shares: null, follows: null }
-  };
-
   window.PROJECTS = [
     {
       id: "buddyjob",
@@ -68,10 +38,8 @@
         { type: "text", kicker: L("Il mio ruolo", "My role"), paras: [
           L("Osservo conversazioni, trend e notizie sul mondo del lavoro e cerco l'angolo che può diventare BuddyJob. A volte significa approfondire. A volte spiegare. A volte basta un meme fatto nel momento giusto.",
             "I watch conversations, trends and news about the world of work and look for the angle that can become BuddyJob. Sometimes that means digging deeper. Sometimes explaining. Sometimes it's just a meme made at the right moment."),
-          L("Poi lo porto fino in fondo. " + (BJ.team ? BJ.team + " seguo" : "Seguo") +
-            " ricerca, concept, copy e grafica; per i video scrivo lo script, giro, monto e a volte ci metto la faccia. Curo anche le campagne ADV, i contenuti per LinkedIn e la community nei commenti.",
-            "Then I see it through to the end. " + (BJ.team ? BJ.team + " I handle" : "I handle") +
-            " research, concept, copy and design; for video I write the script, shoot, edit and sometimes appear on camera. I also run ad campaigns, LinkedIn content and the community in the comments.")
+          L("Poi lo porto fino in fondo. Sull'online siamo in due, io e il mio manager: seguo ricerca, concept, copy e grafica; per i video scrivo lo script, giro, monto e a volte ci metto la faccia. Curo anche le campagne ADV, i contenuti per LinkedIn e la community nei commenti.",
+            "Then I see it through to the end. Online, it's just the two of us, my manager and me: I handle research, concept, copy and design; for video I write the script, shoot, edit and sometimes appear on camera. I also run ad campaigns, LinkedIn content and the community in the comments.")
         ] },
         { type: "text", title: L("Un profilo non si costruisce post per post.", "A profile isn't built post by post."), paras: [
           L("Per BuddyJob ho lavorato alla costruzione di un sistema editoriale che non riguarda solo cosa pubblicare nel feed, ma anche come accompagnare chi arriva sul profilo.",
@@ -100,9 +68,7 @@
           [2.6, "M", L("persone raggiunte", "people reached"), "+128,2%"],
           [288.8, "K", L("interazioni con i contenuti", "content interactions"), "+176,5%"],
           [10395, "", L("nuovi follow", "new follows"), "+255,3%"]
-        ],
-          // nota sul confronto: compare solo quando il periodo è compilato
-          note: BJ.comparePeriod ? L("Variazioni rispetto a " + BJ.comparePeriod + ".", "Changes compared with " + BJ.comparePeriod + ".") : "" },
+        ] },
 
         /* --- 1. Red flags --- */
         { type: "text", kicker: L("Parte del sistema: Intercettare", "Part of the system: Intercept"), title: L("Leggere i commenti prima di scrivere il post.", "Reading the comments before writing the post."), paras: [
@@ -150,27 +116,14 @@
 
         /* --- Video --- */
         { type: "text", kicker: L("Parte del sistema: Sperimentare", "Part of the system: Experiment"), title: L("Alcune idee hanno bisogno di muoversi.", "Some ideas need to move."), paras: [
-          L("Per i video seguo tutto il processo: scrivo lo script, giro, monto e a volte ci metto la faccia. Il formato cambia" +
-            (BJ.videoFormats ? ", " + BJ.videoFormats + "," : "") +
-            " ma il criterio è lo stesso dei caroselli: partire da quello che le persone vivono davvero al lavoro.",
-            "For video I handle the whole process: I write the script, shoot, edit and sometimes appear on camera. The format changes" +
-            (BJ.videoFormats ? " — " + BJ.videoFormats + " —" : "") +
-            " but the approach is the same as the carousels: start from what people actually go through at work.")
-        ] },
-        { type: "gallery", vertical: true, items: BJ.videos },
-        { type: "stats", small: true, items: [
-          [BJ.videoStats.views, "", L("visualizzazioni", "views")],
-          [BJ.videoStats.reach, "", L("persone raggiunte", "people reached")],
-          [BJ.videoStats.shares, "", L("condivisioni", "shares")],
-          [BJ.videoStats.follows, "", L("follow", "follows")]
+          L("Per i video seguo tutto il processo: scrivo lo script, giro, monto e a volte ci metto la faccia. Il formato cambia, ma il criterio è lo stesso dei caroselli: partire da quello che le persone vivono davvero al lavoro.",
+            "For video I handle the whole process: I write the script, shoot, edit and sometimes appear on camera. The format changes, but the approach is the same as the carousels: start from what people actually go through at work.")
         ] },
 
         /* --- Oltre il feed --- */
         { type: "text", kicker: L("Ogni contenuto ha un ruolo", "Every piece of content has a role"), title: L("Oltre il feed.", "Beyond the feed."), paras: [
-          L("Contenuti per LinkedIn pensati per un pubblico più professionale, campagne ADV" + (BJ.adsGoal ? " per " + BJ.adsGoal : "") +
-            " e, ogni giorno, le risposte nei commenti: la parte meno visibile del lavoro, ma quella che trasforma un pubblico in una community.",
-            "LinkedIn content made for a more professional audience, ad campaigns" + (BJ.adsGoal ? " to " + BJ.adsGoal : "") +
-            " and, every day, the replies in the comments: the least visible part of the work, but the one that turns an audience into a community.")
+          L("Contenuti per LinkedIn pensati per un pubblico più professionale, campagne ADV per acquisire lead e, ogni giorno, le risposte nei commenti: la parte meno visibile del lavoro, ma quella che trasforma un pubblico in una community.",
+            "LinkedIn content made for a more professional audience, ad campaigns to generate leads and, every day, the replies in the comments: the least visible part of the work, but the one that turns an audience into a community.")
         ] }
       ],
       closing: {

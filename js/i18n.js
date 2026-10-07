@@ -76,8 +76,7 @@
     [".tl-item:nth-child(3) h4", "I add motion"],
     [".tl-item:nth-child(3) .tl-card p", "I choose to specialize in Video &amp; Digital Strategies. Filming, editing and social languages join writing: ideas start taking shape in a lot more ways."],
     [".tl-item:nth-child(4) h4", "From idea to publication"],
-    // TODO: se il ruolo da SMM era in un'altra azienda, anteporre "First Social Media Manager at [company], then"
-    [".tl-item:nth-child(4) .tl-card p", "Content Marketing at BuddyJob. Today I follow content through the whole journey: concept, format, graphics, video, copy, publishing and community."],
+    [".tl-item:nth-child(4) .tl-card p", "First Social Media Manager at Sinapss, then Content Marketing at BuddyJob. Today I follow content through the whole journey: concept, format, graphics, video, copy, publishing and community."],
     ["#filosofia .sec-title", "Philosophy"],
     ["#filoLead",
       'Not knowing how to do something doesn\'t mean it\'s ' +
