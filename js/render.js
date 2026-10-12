@@ -9,14 +9,15 @@
   var T = I18N.L;
   var DOODLE_PAIRS = [["d-star", "d-sparkle"], ["d-spiral", "d-heart"], ["d-flower", "d-sparkle"], ["d-sparkle", "d-star"], ["d-heart", "d-flower"]];
 
+  // formato esplicito: migliaia sempre separate (5.069 / 5,069), una cifra decimale
+  // con i suffissi K/M. toLocaleString in italiano non separa i numeri a 4 cifre.
   function fmt(v, suffix) {
-    var s;
-    if (suffix) {
-      s = (Math.round(v * 10) / 10).toLocaleString(I18N.locale, { maximumFractionDigits: 1 });
-    } else {
-      s = Math.round(v).toLocaleString(I18N.locale);
-    }
-    return s + (suffix || "");
+    var thousands = I18N.en ? "," : ".";
+    var decimal = I18N.en ? "." : ",";
+    var n = suffix ? Math.round(v * 10) / 10 : Math.round(v);
+    var parts = String(n).split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
+    return parts.join(decimal) + (suffix || "");
   }
 
   function cardsHTML(projects) {

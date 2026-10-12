@@ -15,7 +15,7 @@
       cover: { src: "assets/buddyjob/brand/logo.webp", alt: L("Logo BuddyJob", "BuddyJob logo"), fit: "logo" },
       title: L("Leggere il lavoro. Poi raccontarlo.", "Reading the work. Then telling it."),
       // dato d'aggancio sotto il titolo della card
-      hook: L("+10.395 follower in poco più di tre mesi", "+10,395 followers in just over three months"),
+      hook: L("+11.270 follower in poco più di quattro mesi", "+11,270 followers in just over four months"),
       desc: L(
         "Per BuddyJob trasformo conversazioni, trend e situazioni quotidiane in contenuti capaci di informare, creare riconoscimento e far partecipare la community.",
         "For BuddyJob I turn conversations, trends and everyday situations into content that informs, builds recognition and gets the community involved."
@@ -24,8 +24,8 @@
       skills: ["Research & Social Listening", "Concept", "Copywriting", "Format", "Editorial Design", "Social Media Management", "Video Production", "ADV", "Community Management"],
       question: L("Come rendere interessante un argomento di cui parlano già tutti?", "How do you make an already-crowded topic interesting?"),
       // riga di sintesi sotto il titolo del case study
-      meta: L("Instagram · giugno – settembre 2026 · 3,7M visualizzazioni organiche · +10.395 follower",
-        "Instagram · June – September 2026 · 3.7M organic views · +10,395 followers"),
+      meta: L("Instagram · giugno – ottobre 2026 · 4,1M visualizzazioni organiche · +11.270 follower",
+        "Instagram · June – October 2026 · 4.1M organic views · +11,270 followers"),
       intro: [
         L("Il lavoro è ovunque sui social: colloqui, burnout, stipendi, carriera, colleghi, dimissioni.",
           "Work is everywhere on social: interviews, burnout, salaries, careers, colleagues, resignations."),
@@ -63,12 +63,14 @@
           ["Highlights", L("Contenuti evergreen pensati per orientare chi arriva sul profilo, spiegare BuddyJob, i servizi e gli strumenti disponibili.",
             "Evergreen content designed to orient people landing on the profile, explaining BuddyJob, its services and the tools available.")]
         ] },
-        { type: "stats", kicker: L("I numeri · Instagram · 1 giugno — 10 settembre 2026", "The numbers · Instagram · June 1 — September 10, 2026"), items: [
-          [3.7, "M", L("visualizzazioni organiche", "organic views"), "+127,4%"],
-          [2.6, "M", L("persone raggiunte", "people reached"), "+128,2%"],
-          [288.8, "K", L("interazioni con i contenuti", "content interactions"), "+176,5%"],
-          [10395, "", L("nuovi follow", "new follows"), "+255,3%"]
-        ] },
+        { type: "stats", kicker: L("I numeri · Instagram · 1 giugno — 12 ottobre 2026", "The numbers · Instagram · June 1 — October 12, 2026"), items: [
+          [4.1, "M", L("visualizzazioni organiche", "organic views"), "+104%"],
+          [2.7, "M", L("persone raggiunte", "people reached"), "+104,9%"],
+          [302.8, "K", L("interazioni con i contenuti", "content interactions"), "+155,2%"],
+          [11270, "", L("nuovi follow", "new follows"), "+224,7%"]
+        ],
+          note: L("Oggi il profilo ha 36.509 follower. 5,6M visualizzazioni totali (+20,4%), di cui 1,5M da inserzioni; copertura e interazioni includono i contenuti sponsorizzati.",
+            "Today the profile has 36,509 followers. 5.6M total views (+20.4%), 1.5M of them from ads; reach and interactions include sponsored content.") },
 
         /* --- 1. Red flags --- */
         { type: "text", kicker: L("Parte del sistema: Intercettare", "Part of the system: Intercept"), title: L("Leggere i commenti prima di scrivere il post.", "Reading the comments before writing the post."), paras: [
@@ -80,10 +82,10 @@
         { type: "highlight", html: L("Da lì è nato: <em>“10 frasi che in un ambiente di lavoro sono red flags”</em>.", "That's where <em>“10 phrases that are red flags in a workplace”</em> came from.") },
         { type: "gallery", dir: "assets/buddyjob/redflags/", items: ["cover", "tutti-devono-saper-fare-tutto", "siamo-una-grande-famiglia", "io-non-faccio-pausa-pranzo", "ringrazia-di-avere-un-lavoro", "deve-essere-pronto-per-ieri", "puoi-rimanere-tanto", "ora-si-ricomincia", "faccio-questo-lavoro-da-20-anni", "sei-pagato-per-lavorare", "impegno-e-passione"] },
         { type: "stats", small: true, items: [
-          [1.5, "M", L("persone raggiunte", "people reached")], [113, "K", L("interazioni", "interactions")], [29, "K", L("condivisioni", "shares")],
-          [19.8, "K", L("salvataggi", "saves")], [5068, "", L("follow generati", "follows generated")]
+          [1.5, "M", L("persone raggiunte", "people reached")], [113, "K", L("interazioni", "interactions")], [29.4, "K", L("condivisioni", "shares")],
+          [19.8, "K", L("salvataggi", "saves")], [5069, "", L("follow generati", "follows generated")]
         ] },
-        // 5.068 su 10.395 nuovi follower del periodo = 48,8%
+        // 5.069 su 11.270 nuovi follower del periodo = 45%
         { type: "highlight", html: L("Un solo post, nessuna sponsorizzazione: <em>quasi metà dei nuovi follower del periodo è arrivata da qui.</em>",
           "One post, no paid promotion: <em>almost half of the period's new followers came from here.</em>") },
         { type: "text", paras: [L("Il contenuto non nasceva dal trend in sé, ma da quello che le persone stavano dicendo intorno al trend.",
