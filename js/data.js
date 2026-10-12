@@ -122,7 +122,8 @@
         // reel verticali 9:16: partono muti quando entrano nello schermo, al clic si aprono con l'audio
         { type: "gallery", vertical: true, items: [
           { src: "assets/buddyjob/video/risposta-ai-commenti.mp4", poster: "assets/buddyjob/video/risposta-ai-commenti.webp" },
-          { src: "assets/buddyjob/video/tutti-ci-lamentiamo.mp4", poster: "assets/buddyjob/video/tutti-ci-lamentiamo.webp" }
+          { src: "assets/buddyjob/video/tutti-ci-lamentiamo.mp4", poster: "assets/buddyjob/video/tutti-ci-lamentiamo.webp" },
+          { src: "assets/buddyjob/video/consulenza-di-carriera.mp4", poster: "assets/buddyjob/video/consulenza-di-carriera.webp" }
         ] },
 
         /* --- Oltre il feed --- */
