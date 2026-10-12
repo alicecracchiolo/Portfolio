@@ -119,6 +119,11 @@
           L("Per i video seguo tutto il processo: scrivo lo script, giro, monto e a volte ci metto la faccia. Il formato cambia, ma il criterio è lo stesso dei caroselli: partire da quello che le persone vivono davvero al lavoro.",
             "For video I handle the whole process: I write the script, shoot, edit and sometimes appear on camera. The format changes, but the approach is the same as the carousels: start from what people actually go through at work.")
         ] },
+        // reel verticali 9:16: partono muti quando entrano nello schermo, al clic si aprono con l'audio
+        { type: "gallery", vertical: true, items: [
+          { src: "assets/buddyjob/video/risposta-ai-commenti.mp4", poster: "assets/buddyjob/video/risposta-ai-commenti.webp" },
+          { src: "assets/buddyjob/video/tutti-ci-lamentiamo.mp4", poster: "assets/buddyjob/video/tutti-ci-lamentiamo.webp" }
+        ] },
 
         /* --- Oltre il feed --- */
         { type: "text", kicker: L("Ogni contenuto ha un ruolo", "Every piece of content has a role"), title: L("Oltre il feed.", "Beyond the feed."), paras: [
@@ -365,7 +370,7 @@
       title: L("Fresco, ma con la K.", "Fresh, but with a K."),
       desc: L("Naming e identità visiva per una web app che aiuta a ricordare cosa c'è in frigo, monitorare le scadenze e utilizzare gli alimenti prima che vengano sprecati.",
         "Naming and visual identity for a web app that helps you remember what's in the fridge, track expiration dates and use food before it goes to waste."),
-      secondary: L("Fresko · Web app anti-spreco", "Fresko · Anti-food-waste web app"),
+      secondary: L("Progetto freelance · Web app anti-spreco", "Freelance project · Anti-food-waste web app"),
       link: { href: "https://fresko-hazel.vercel.app/", label: "Web app" },
       skills: ["Naming", "Logo", "Mascot Design", "Visual Direction", "Brand Language", "Product Application"],
       question: L("Lo spreco non doveva essere il protagonista.<br>Il cibo sì.", "Waste wasn't meant to be the protagonist.<br>Food was."),
