@@ -268,7 +268,7 @@
           ["assets/sinapss/video-05.mp4", "More work", "Social video", "Editing"],
           ["assets/sinapss/video-06.mp4", "More work", "Social video", "Editing"],
           ["assets/sinapss/video-07.mp4", "Casamare", "Social video", "Editing"],
-          ["assets/sinapss/video-08.mp4", "More work", "Social video", "Editing"]
+          ["assets/sinapss/video-08.mp4", "Alfredo", "Social video", "Editing"]
         ] },
         { type: "list", kicker: "Tools", items: [
           ["Adobe Premiere Pro", L("Montaggio, sound sync, timing e struttura.", "Editing, sound sync, timing and structure.")],
