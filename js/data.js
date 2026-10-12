@@ -266,7 +266,7 @@
           ["assets/sinapss/video-03.mp4", "Bagni di Montecristo", L("Teasing apertura", "Opening teaser"), "Editing"],
           ["assets/sinapss/video-04.mp4", "Felicetta Bistrò", L("Intervista TikTok", "TikTok interview"), "Editing"],
           ["assets/sinapss/video-05.mp4", "Veramente", "Social video", "Editing"],
-          ["assets/sinapss/video-06.mp4", "More work", "Social video", "Editing"],
+          ["assets/sinapss/video-06.mp4", "Veramente", "Social video", "Editing"],
           ["assets/sinapss/video-07.mp4", "Casamare", "Social video", "Editing"],
           ["assets/sinapss/video-08.mp4", "Alfredo", "Social video", "Editing"]
         ] },
