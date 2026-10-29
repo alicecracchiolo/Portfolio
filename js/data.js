@@ -1,7 +1,7 @@
 /* Contenuti dei case study, in italiano e inglese.
    L(it, en) restituisce il testo nella lingua attiva (vedi i18n.js).
    Ogni progetto è una sequenza di "blocchi" che main.js trasforma in markup:
-   text · list · steps · stats · gallery · videos · highlight · palette · images · reel. */
+   text · list · steps · stats · gallery · videos · highlight · palette · images. */
 (function () {
   var L = window.I18N.L;
 
@@ -466,11 +466,10 @@
           { code: "SZ-04", desc: L("Carosello Oudiyah · slide 2", "Oudiyah carousel · slide 2"), src: "assets/prove/suarez/SZ-04.webp" },
           { code: "SZ-05", desc: L("Carosello Oudiyah · slide 3", "Oudiyah carousel · slide 3"), src: "assets/prove/suarez/SZ-05.webp" }
         ] },
-        // TODO: inserire in href il [link Drive al video Fiorito]; finché è vuoto il riquadro non è cliccabile
-        { type: "reel", href: "",
-          ph: { code: "SZ-06", desc: L("Frame del reel Fiorito", "Frame from the Fiorito reel"), src: "assets/prove/suarez/SZ-06.webp" },
-          title: L("Reel reveal · linea Fiorito", "Reveal reel · Fiorito line"),
-          caption: L("Gli spezzoni diventano i teaser prima del lancio", "Its cut-downs become the pre-launch teasers") },
+        // reel reveal della linea Fiorito: parte muto quando entra nello schermo, al clic si apre con l'audio
+        { type: "gallery", vertical: true, items: [
+          { src: "assets/prove/suarez/fiorito-reel.mp4", poster: "assets/prove/suarez/fiorito-reel.webp" }
+        ] },
         { type: "steps", kicker: L("Il lancio in quattro fasi", "A four-phase launch"),
           items: [L("Teasing", "Teasing"), L("Reveal + ADV", "Reveal + ADV"), L("Amplificazione", "Amplification"), L("Mantenimento", "Sustain")] },
         { type: "text", small: true, paras: [

@@ -143,16 +143,6 @@
           ? '<div class="cb-pair">' + figs + "</div>"
           : '<div class="cb-gallery ph-gallery" data-native-scroll data-cursor="trascina">' + figs + "</div>") + "</section>";
         break;
-      case "reel":
-        // frame del reel in un riquadro 9:16 come gli altri video; se c'è il link si apre in una nuova scheda
-        if (archive) return "";
-        var inner = '<div class="vid-box">' + phHTML({ code: b.ph.code, desc: b.ph.desc, src: b.ph.src, ratio: "9/16" }) +
-          (b.href ? '<span class="vid-play">▶ play</span>' : "") + "</div>" +
-          "<figcaption><b>" + b.title + "</b><span>" + b.caption + "</span></figcaption>";
-        h = '<section class="cb cb-videos">' + (b.href
-          ? '<a class="vid vid-link" href="' + b.href + '" target="_blank" rel="noopener noreferrer" data-cursor="play">' + inner + "</a>"
-          : '<figure class="vid vid-link">' + inner + "</figure>") + "</section>";
-        break;
       case "palette":
         h = '<section class="cb cb-palette">' +
           b.items.map(function (c) {

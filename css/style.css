@@ -3060,7 +3060,7 @@ html.is-grabbing * {
 }
 
 /* =========================================================
-   PROVE DI STRATEGIA — separatore, segnaposto immagine, coppie, reel con link
+   PROVE DI STRATEGIA — separatore, segnaposto immagine, coppie
    ========================================================= */
 .p-sep {
   flex: none;
@@ -3171,25 +3171,6 @@ html.is-grabbing * {
   will-change: transform;
 }
 
-.vid-link {
-  display: block;
-  max-width: 320px;
-  color: inherit;
-}
-
-.vid-link .vid-box {
-  color: var(--mist);
-}
-
-.vid-link .ph {
-  position: absolute;
-  inset: 0;
-}
-
-a.vid-link:hover .vid-play {
-  opacity: 0.85;
-}
-
 .case-closing .case-closing-note {
   margin-top: 28px;
   font-size: 13px;
@@ -3207,9 +3188,5 @@ a.vid-link:hover .vid-play {
 
   .cb-pair {
     grid-template-columns: 1fr;
-  }
-
-  .vid-link {
-    max-width: 280px;
   }
 }
