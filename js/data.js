@@ -492,9 +492,7 @@
         title: L("Non lanciamo solo una gamma di ammorbidenti.<br>Lanciamo diversi modi di far profumare la casa.",
           "We're not just launching a range of fabric softeners.<br>We're launching new ways to make a home smell good."),
         note: L("Alcune immagini di sfondo e di prodotto sono state generate con l'AI e rifinite in Illustrator.",
-          "Some background and product images were generated with AI and refined in Illustrator."),
-        // TODO: inserire in href il [link Drive alla presentazione Suarez]; finché è vuoto il bottone non compare
-        link: { href: "", label: L("Guarda la strategia completa ↗", "See the full strategy ↗") }
+          "Some background and product images were generated with AI and refined in Illustrator.")
       }
     }
   ];

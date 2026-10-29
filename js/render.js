@@ -175,9 +175,6 @@
       if (p.link) {
         links += '<a class="btn-pill magnetic" href="' + p.link.href + '" target="_blank" rel="noopener noreferrer" data-cursor="apri">' + p.link.label + ' <svg width="18" height="18"><use href="#i-arrow"/></svg></a>';
       }
-      if (p.closing.link && p.closing.link.href) {
-        links += '<a class="btn-pill magnetic" href="' + p.closing.link.href + '" target="_blank" rel="noopener noreferrer" data-cursor="apri">' + p.closing.link.label + "</a>";
-      }
       links += '<button type="button" class="btn-pill ghost magnetic" data-close-case data-cursor="chiudi">' + T("Torna ai progetti", "Back to projects") + "</button>";
     } else if (p.link) {
       links = '<a href="' + p.link.href + '" rel="noopener noreferrer">' + p.link.label + "</a>";
