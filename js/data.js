@@ -453,7 +453,7 @@
           L("A sinistra la linea orientale, calda e preziosa. A destra la linea pop, fresca e allegra. Al centro le persone: creator, ufficio, backstage dello spot TV. Con l'AI solo per il mood, mai al posto del prodotto.",
             "On the left, the oriental line: warm and precious. On the right, the pop line: fresh and cheerful. In the middle, people: creators, the office, behind the scenes of the TV ad. AI only for mood, never in place of the product.")
         ] },
-        { type: "images", layout: "pair", ratio: "4/3", items: [
+        { type: "images", layout: "pair", ratio: "16/9", items: [
           { code: "SZ-01", desc: L("Schema del feed", "Feed layout"), src: "assets/prove/suarez/SZ-01.webp" },
           { code: "SZ-02", desc: L("Moodboard", "Moodboard"), src: "assets/prove/suarez/SZ-02.webp" }
         ] },
@@ -462,9 +462,11 @@
             "A carousel for the oriental line, letting you smell Oudiyah through a photo, and a reveal reel for the pop line: its cut-downs become the teasers ahead of launch.")
         ] },
         { type: "images", ratio: "4/5", items: [
-          { code: "SZ-03", desc: L("Carosello Oudiyah · slide 1", "Oudiyah carousel · slide 1"), src: "assets/prove/suarez/SZ-03.webp" },
-          { code: "SZ-04", desc: L("Carosello Oudiyah · slide 2", "Oudiyah carousel · slide 2"), src: "assets/prove/suarez/SZ-04.webp" },
-          { code: "SZ-05", desc: L("Carosello Oudiyah · slide 3", "Oudiyah carousel · slide 3"), src: "assets/prove/suarez/SZ-05.webp" }
+          { code: "SZ-03", desc: L("Carosello Oudiyah · Che profumo ha casa tua?", "Oudiyah carousel · What does your home smell like?"), src: "assets/prove/suarez/SZ-03.webp" },
+          { code: "SZ-04", desc: L("Carosello Oudiyah · Quello delle lenzuola appena cambiate", "Oudiyah carousel · Like freshly changed sheets"), src: "assets/prove/suarez/SZ-04.webp" },
+          { code: "SZ-05", desc: L("Carosello Oudiyah · Per tessuti e ambienti", "Oudiyah carousel · For fabrics and rooms"), src: "assets/prove/suarez/SZ-05.webp" },
+          { code: "SZ-06", desc: L("Carosello Oudiyah · Un gesto semplice", "Oudiyah carousel · One simple gesture"), src: "assets/prove/suarez/SZ-06.webp" },
+          { code: "SZ-07", desc: L("Carosello Oudiyah · Caldo. Intenso. Avvolgente.", "Oudiyah carousel · Warm. Intense. Enveloping."), src: "assets/prove/suarez/SZ-07.webp" }
         ] },
         // reel reveal della linea Fiorito: parte muto quando entra nello schermo, al clic si apre con l'audio
         { type: "gallery", vertical: true, items: [
