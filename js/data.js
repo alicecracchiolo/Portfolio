@@ -1,7 +1,7 @@
 /* Contenuti dei case study, in italiano e inglese.
    L(it, en) restituisce il testo nella lingua attiva (vedi i18n.js).
    Ogni progetto è una sequenza di "blocchi" che main.js trasforma in markup:
-   text · list · steps · stats · gallery · videos · highlight · palette. */
+   text · list · steps · stats · gallery · videos · highlight · palette · images · reel. */
 (function () {
   var L = window.I18N.L;
 
@@ -414,6 +414,97 @@
         ] }
       ],
       closing: { title: L("Far venire voglia di usare quello che hai già.", "Making you want to use what you already have.") }
+    },
+
+    /* ---------- Prove di strategia ----------
+       Progetti nati per dei colloqui. Ogni nuova prova va qui sotto con group: "prove":
+       il separatore compare da solo prima della prima card del gruppo.
+       Le immagini sono segnaposto (ph): caricando il file nel percorso indicato
+       l'immagine compare da sola al posto del riquadro tratteggiato. */
+    {
+      id: "suarez",
+      group: "prove",
+      name: "Suarez",
+      tag: L("Social Audit · Strategia di lancio · Multicanale", "Social Audit · Launch Strategy · Multichannel"),
+      color: "var(--mist-3)",
+      ink: "var(--graphite)",
+      cover: { fit: "photo", ph: { code: "SZ-00", desc: L("Copertina del progetto", "Project cover"), src: "assets/prove/suarez/SZ-00.webp" } },
+      title: L("Il layering, anche per la casa.", "Layering, for the home too."),
+      hook: L("4 profili analizzati, 1 strategia di lancio, 4 canali", "4 profiles audited, 1 launch strategy, 4 channels"),
+      desc: L("Audit dei profili di un gruppo di profumazioni per casa e bucato, e strategia di lancio per una nuova gamma di ammorbidenti.",
+        "An audit of the profiles of a home and laundry fragrance group, and a launch strategy for a new range of fabric softeners."),
+      secondary: L("Social Media & Content Creator Challenge · Suarez Company · Ottobre 2026", "Social Media & Content Creator Challenge · Suarez Company · October 2026"),
+      skills: ["Social Audit", "Brand Positioning", "Launch Strategy", "Influencer Marketing", "Moodboard", "Content Creation", "Video Editing"],
+      question: L("Come lanci un ammorbidente come se fosse un profumo?", "How do you launch a fabric softener as if it were a perfume?"),
+      meta: L("Prova di selezione · non commissionata né pubblicata · Instagram, TikTok, Facebook, Pinterest",
+        "Hiring challenge · not commissioned or published · Instagram, TikTok, Facebook, Pinterest"),
+      blocks: [
+        { type: "text", title: L("Da dove partivo", "Where I started"), paras: [
+          L("Quattro profili, tutti sotto i 5.000 follower, ognuno con un punto di forza da valorizzare. Sweet Home aveva prodotti perfetti per i social e un mondo riconoscibile come quello di Layali: il passo successivo era dare al feed una regia e raccontare il Made in Italy dell'azienda.",
+            "Four profiles, all under 5,000 followers, each with a strength worth building on. Sweet Home had products made for social and a world as recognizable as Layali's: the next step was to give the feed a sense of direction and tell the story of the company's Made in Italy.")
+        ] },
+        { type: "highlight", html: L("Come si stratificano i profumi sul corpo, si possono stratificare <em>anche in casa.</em>",
+          "Just as you layer fragrances on your skin, you can layer them <em>at home too.</em>") },
+        { type: "text", small: true, paras: [
+          L("Ammorbidente, profumo per bucato, profumo per tessuti, profumatore: Sweet Home punta sulle fragranze e crea questa esigenza.",
+            "Fabric softener, laundry perfume, fabric spray, home diffuser: Sweet Home leads with fragrance and creates the need.")
+        ] },
+        { type: "text", kicker: L("Il feed", "The feed"), title: L("Due anime ai lati, le persone al centro", "Two souls on the sides, people in the middle"), paras: [
+          L("A sinistra la linea orientale, calda e preziosa. A destra la linea pop, fresca e allegra. Al centro le persone: creator, ufficio, backstage dello spot TV. Con l'AI solo per il mood, mai al posto del prodotto.",
+            "On the left, the oriental line: warm and precious. On the right, the pop line: fresh and cheerful. In the middle, people: creators, the office, behind the scenes of the TV ad. AI only for mood, never in place of the product.")
+        ] },
+        { type: "images", layout: "pair", ratio: "4/3", items: [
+          { code: "SZ-01", desc: L("Schema del feed", "Feed layout"), src: "assets/prove/suarez/SZ-01.webp" },
+          { code: "SZ-02", desc: L("Moodboard", "Moodboard"), src: "assets/prove/suarez/SZ-02.webp" }
+        ] },
+        { type: "text", kicker: L("I contenuti", "The content"), paras: [
+          L("Un carosello per la linea orientale, che fa sentire il profumo di Oudiyah attraverso la foto, e un reel reveal per la linea pop: gli spezzoni diventano i teaser prima del lancio.",
+            "A carousel for the oriental line, letting you smell Oudiyah through a photo, and a reveal reel for the pop line: its cut-downs become the teasers ahead of launch.")
+        ] },
+        { type: "images", ratio: "4/5", items: [
+          { code: "SZ-03", desc: L("Carosello Oudiyah · slide 1", "Oudiyah carousel · slide 1"), src: "assets/prove/suarez/SZ-03.webp" },
+          { code: "SZ-04", desc: L("Carosello Oudiyah · slide 2", "Oudiyah carousel · slide 2"), src: "assets/prove/suarez/SZ-04.webp" },
+          { code: "SZ-05", desc: L("Carosello Oudiyah · slide 3", "Oudiyah carousel · slide 3"), src: "assets/prove/suarez/SZ-05.webp" }
+        ] },
+        // TODO: inserire in href il [link Drive al video Fiorito]; finché è vuoto il riquadro non è cliccabile
+        { type: "reel", href: "",
+          ph: { code: "SZ-06", desc: L("Frame del reel Fiorito", "Frame from the Fiorito reel"), src: "assets/prove/suarez/SZ-06.webp" },
+          title: L("Reel reveal · linea Fiorito", "Reveal reel · Fiorito line"),
+          caption: L("Gli spezzoni diventano i teaser prima del lancio", "Its cut-downs become the pre-launch teasers") },
+        { type: "steps", kicker: L("Il lancio in quattro fasi", "A four-phase launch"),
+          items: [L("Teasing", "Teasing"), L("Reveal + ADV", "Reveal + ADV"), L("Amplificazione", "Amplification"), L("Mantenimento", "Sustain")] },
+        { type: "text", small: true, paras: [
+          L("Prima creo desiderio, poi presento la gamma e la spingo subito, poi amplifico ciò che funziona e infine faccio vivere il prodotto attraverso le persone e i contenuti evergreen.",
+            "First I build desire, then I introduce the range and push it straight away, then I amplify what works, and finally I keep the product alive through people and evergreen content.")
+        ] },
+        { type: "list", kicker: L("Un ruolo per ogni canale", "A role for every channel"), items: [
+          ["Instagram", L("Editoriale e sensoriale.", "Editorial and sensory.")],
+          ["TikTok", L("Conversazione, trend, routine del bucato.", "Conversation, trends, laundry routines.")],
+          ["Facebook", L("Informativo e commerciale.", "Informative and commercial.")],
+          ["Pinterest", L("Un universo visivo che resta vivo nel tempo.", "A visual world that stays alive over time.")]
+        ] },
+        { type: "text", small: true, paras: [
+          L("E un test creativo su Meta: influencer-led contro brand-led, stesso pubblico e stesso budget, per capire quale linguaggio funziona meglio.",
+            "Plus a creative test on Meta: influencer-led versus brand-led, same audience and same budget, to see which language works better.")
+        ] }
+      ],
+      closing: {
+        title: L("Non lanciamo solo una gamma di ammorbidenti.<br>Lanciamo diversi modi di far profumare la casa.",
+          "We're not just launching a range of fabric softeners.<br>We're launching new ways to make a home smell good."),
+        note: L("Alcune immagini di sfondo e di prodotto sono state generate con l'AI e rifinite in Illustrator.",
+          "Some background and product images were generated with AI and refined in Illustrator."),
+        // TODO: inserire in href il [link Drive alla presentazione Suarez]; finché è vuoto il bottone non compare
+        link: { href: "", label: L("Guarda la strategia completa ↗", "See the full strategy ↗") }
+      }
     }
   ];
+
+  // separatori dei gruppi di progetti (vedi Render.cardsHTML)
+  window.PROJECT_GROUPS = {
+    prove: {
+      title: L("Prove di strategia", "Strategy trials"),
+      text: L("Progetti nati per dei colloqui: brief reali, nessuna pubblicazione. Qui si vede soprattutto come ragiono.",
+        "Projects born from job interviews: real briefs, nothing published. This is mostly where you see how I think.")
+    }
+  };
 })();

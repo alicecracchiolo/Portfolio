@@ -20,17 +20,35 @@
     return parts.join(decimal) + (suffix || "");
   }
 
+  /* Segnaposto immagine: riquadro tratteggiato con codice e descrizione.
+     L'immagine vera sta sopra con lo stesso percorso: appena il file esiste
+     copre il riquadro; finché manca, onerror la nasconde e resta il segnaposto.
+     ph = { code, desc, src, ratio } (ratio es. "4/3"; senza ratio riempie il contenitore) */
+  function phHTML(ph) {
+    return '<span class="ph"' + (ph.ratio ? ' style="aspect-ratio:' + ph.ratio + '"' : "") + ">" +
+      '<span class="ph-box"><b>' + ph.code + "</b><small>" + ph.desc + "</small></span>" +
+      '<img class="ph-img" src="' + ph.src + '" alt="' + (ph.alt || ph.desc) + '" loading="lazy" draggable="false" onerror="this.hidden=true" />' +
+      "</span>";
+  }
+
+  // separatore prima del primo progetto di un gruppo (es. "Prove di strategia")
+  function groupHTML(g) {
+    return '<div class="p-sep"><p class="p-sep-title"><svg><use href="#d-sparkle"/></svg>' + g.title + "</p><p>" + g.text + "</p></div>";
+  }
+
   function cardsHTML(projects) {
     var out = "";
+    var groups = window.PROJECT_GROUPS || {};
     projects.forEach(function (p, i) {
       var dp = DOODLE_PAIRS[i % DOODLE_PAIRS.length];
+      if (p.group && (i === 0 || projects[i - 1].group !== p.group) && groups[p.group]) out += groupHTML(groups[p.group]);
       out +=
         '<article class="p-card" tabindex="0" role="button" data-case="' + p.id + '" data-cursor="apri" ' +
         'aria-label="' + T("Apri il progetto ", "Open the project ") + p.name + '" style="--card-bg:' + p.color + ";--card-ink:" + p.ink + '">' +
         '<div class="p-card-top"><span class="p-card-num">0' + (i + 1) + "</span><span>" + p.tag + "</span></div>" +
         '<div class="p-card-cover ' + (p.cover.fit === "logo" ? "" : p.cover.fit) + '">' +
         '<svg class="pc-doodle a"><use href="#' + dp[0] + '"/></svg>' +
-        '<img src="' + p.cover.src + '" alt="' + p.cover.alt + '" draggable="false" />' +
+        (p.cover.ph ? phHTML(p.cover.ph) : '<img src="' + p.cover.src + '" alt="' + p.cover.alt + '" draggable="false" />') +
         '<svg class="pc-doodle b"><use href="#' + dp[1] + '"/></svg>' +
         "</div>" +
         "<h3>" + p.title + "</h3>" +
@@ -68,8 +86,8 @@
           }).join("") + "</ul></section>";
         break;
       case "steps":
-        h = '<section class="cb cb-steps">' +
-          b.items.map(function (s) { return "<span>" + s + "</span>"; }).join("<i>→</i>") + "</section>";
+        h = (kicker ? '<section class="cb">' + kicker + '<div class="cb-steps">' : '<section class="cb cb-steps">') +
+          b.items.map(function (s) { return "<span>" + s + "</span>"; }).join("<i>→</i>") + (kicker ? "</div>" : "") + "</section>";
         break;
       case "stats":
         // i numeri non ancora disponibili (null) non si mostrano; se mancano tutti, sparisce il blocco
@@ -115,6 +133,26 @@
               "<figcaption><b>" + v[1] + "</b><span>" + v[2] + " · " + v[3] + "</span></figcaption></figure>";
           }).join("") + "</section>";
         break;
+      case "images":
+        // layout "pair": affiancate (una sotto l'altra su mobile); "carousel": come le gallerie
+        if (archive) return "";
+        var figs = b.items.map(function (ph) {
+          return '<figure class="ph-fig" data-kind="img" data-src="' + ph.src + '">' + phHTML({ code: ph.code, desc: ph.desc, src: ph.src, ratio: b.ratio }) + "</figure>";
+        }).join("");
+        h = '<section class="cb">' + (b.layout === "pair"
+          ? '<div class="cb-pair">' + figs + "</div>"
+          : '<div class="cb-gallery ph-gallery" data-native-scroll data-cursor="trascina">' + figs + "</div>") + "</section>";
+        break;
+      case "reel":
+        // frame del reel in un riquadro 9:16 come gli altri video; se c'è il link si apre in una nuova scheda
+        if (archive) return "";
+        var inner = '<div class="vid-box">' + phHTML({ code: b.ph.code, desc: b.ph.desc, src: b.ph.src, ratio: "9/16" }) +
+          (b.href ? '<span class="vid-play">▶ play</span>' : "") + "</div>" +
+          "<figcaption><b>" + b.title + "</b><span>" + b.caption + "</span></figcaption>";
+        h = '<section class="cb cb-videos">' + (b.href
+          ? '<a class="vid vid-link" href="' + b.href + '" target="_blank" rel="noopener noreferrer" data-cursor="play">' + inner + "</a>"
+          : '<figure class="vid vid-link">' + inner + "</figure>") + "</section>";
+        break;
       case "palette":
         h = '<section class="cb cb-palette">' +
           b.items.map(function (c) {
@@ -137,6 +175,9 @@
       if (p.link) {
         links += '<a class="btn-pill magnetic" href="' + p.link.href + '" target="_blank" rel="noopener noreferrer" data-cursor="apri">' + p.link.label + ' <svg width="18" height="18"><use href="#i-arrow"/></svg></a>';
       }
+      if (p.closing.link && p.closing.link.href) {
+        links += '<a class="btn-pill magnetic" href="' + p.closing.link.href + '" target="_blank" rel="noopener noreferrer" data-cursor="apri">' + p.closing.link.label + "</a>";
+      }
       links += '<button type="button" class="btn-pill ghost magnetic" data-close-case data-cursor="chiudi">' + T("Torna ai progetti", "Back to projects") + "</button>";
     } else if (p.link) {
       links = '<a href="' + p.link.href + '" rel="noopener noreferrer">' + p.link.label + "</a>";
@@ -151,11 +192,12 @@
       '<div class="case-skills">' + p.skills.map(function (s) { return "<span>" + s + "</span>"; }).join("") + "</div>" +
       "</header>" +
       '<div class="case-content">' +
-      '<section class="cb cb-intro">' + p.intro.map(function (t) { return "<p>" + t + "</p>"; }).join("") + "</section>" +
+      (p.intro && p.intro.length ? '<section class="cb cb-intro">' + p.intro.map(function (t) { return "<p>" + t + "</p>"; }).join("") + "</section>" : "") +
       p.blocks.map(function (b) { return blockHTML(b, opts); }).join("") +
       '<section class="case-closing"><h2>' + p.closing.title + "</h2>" +
       (p.closing.text ? "<p>" + p.closing.text + "</p>" : "") +
-      (links ? '<div class="case-links">' + links + "</div>" : "") + "</section>" +
+      (links ? '<div class="case-links">' + links + "</div>" : "") +
+      (p.closing.note ? '<p class="case-closing-note">' + p.closing.note + "</p>" : "") + "</section>" +
       (archive ? "" :
         '<a class="case-next" href="#" data-next="' + next.id + '" data-cursor="' + I18N.cursorLabel("avanti") + '"><small>' + T("prossimo progetto", "next project") + "</small><b>" + next.name + "</b></a>") +
       "</div>";
