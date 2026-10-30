@@ -921,6 +921,8 @@
     var words = splitWords(h1);
     caseTriggers.push(gsap.from(words, { yPercent: 100, opacity: 0, rotation: 6, stagger: 0.04, duration: 1, ease: "expo.out", delay: 0.15 }));
     caseTriggers.push(gsap.from($$(".case-kicker, .case-skills span", caseBody), { y: 20, opacity: 0, stagger: 0.04, duration: 0.8, ease: "power3.out", delay: 0.3 }));
+    var heroMedia = $(".case-hero-media", caseBody);
+    if (heroMedia) caseTriggers.push(gsap.from(heroMedia, { y: 80, rotation: 10, opacity: 0, duration: 1.2, ease: "back.out(1.4)", delay: 0.35 }));
 
     $$(".cb-intro p, .cb-text, .cb-highlight, .cb-kicker", caseBody).forEach(function (el) {
       mk({ targets: el, y: 70, opacity: 0, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 96%", end: "top 72%", scrub: 1 } });
@@ -937,12 +939,13 @@
       $$("b[data-count]", el).forEach(function (b) {
         var target = parseFloat(b.getAttribute("data-count"));
         var suf = b.getAttribute("data-suffix");
+        var dec = +b.getAttribute("data-dec") || 0;
         var o = { v: 0 };
         var t = gsap.to(o, {
           v: target,
           duration: 2,
           ease: "expo.out",
-          onUpdate: function () { b.textContent = fmt(o.v, suf); },
+          onUpdate: function () { b.textContent = fmt(o.v, suf, dec); },
           scrollTrigger: { trigger: b, scroller: S, start: "top 92%", once: true }
         });
         caseTriggers.push(t);

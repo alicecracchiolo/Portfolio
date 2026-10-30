@@ -142,6 +142,69 @@
       }
     },
     {
+      id: "horror",
+      name: L("Un horror d'ufficio", "An Office Horror"),
+      tag: "ADV · Concept · Copywriting",
+      color: "#ff2d55",
+      ink: "#141414",
+      cover: { src: "assets/buddyjob/halloween/the-ping.webp", alt: L("Locandina The Ping della campagna Un horror d'ufficio", "The Ping poster from the An Office Horror campaign"), fit: "photo" },
+      title: L("La tua carriera non deve essere un horror.", "Your career shouldn't be a horror movie."),
+      hook: L("~320 lead e 74 acquisti a ~3,50 € per risultato", "~320 leads and 74 purchases at ~€3.50 per result"),
+      desc: L("Campagna ADV di Halloween per BuddyJob: le situazioni più temute della vita d'ufficio diventano locandine di film horror, per far prenotare la prima call gratuita.",
+        "A Halloween ad campaign for BuddyJob: the most dreaded moments of office life become horror movie posters, to get people to book their first free call."),
+      secondary: L("BuddyJob · Campagna ADV di Halloween", "BuddyJob · Halloween ad campaign"),
+      skills: ["Concept", "Copywriting", "Visual Design", "Meta Ads", "Social Media Management"],
+      question: L("E se le paure d'ufficio fossero film horror?", "What if office fears were horror movies?"),
+      meta: L("Meta Ads · feed Instagram e Facebook · Halloween · Concept, copy, creatività e gestione social",
+        "Meta Ads · Instagram and Facebook feed · Halloween · Concept, copy, creative and social management"),
+      // locandina in evidenza nell'hero
+      heroImg: { src: "assets/buddyjob/halloween/the-ping.webp", alt: L("Locandina The Ping: L'hai letto. Ora non puoi più ignorarlo.", "The Ping poster: You've read it. Now you can't ignore it.") },
+      blocks: [
+        { type: "text", kicker: L("La sfida", "The challenge"), title: L("Parlare di disagio, senza pesare.", "Talking about discomfort, without the weight."), paras: [
+          L("Feedback infiniti, recruiter che spariscono, reperibilità continua: il disagio lavorativo lo conoscono tutti, ma raccontarlo così com'è rischia di diventare pesante. E un servizio di coaching, nel feed, prima di tutto deve farsi notare.",
+            "Endless feedback, recruiters who vanish, being reachable all the time: everyone knows what workplace discomfort feels like, but telling it straight can easily get heavy. And in the feed, a coaching service first has to get noticed.")
+        ] },
+        { type: "text", kicker: L("L'idea", "The idea"), title: L("Ogni frustrazione d'ufficio diventa un film horror.", "Every office frustration becomes a horror movie."), paras: [
+          L("Basta un titolo e una tagline per ritrovarsi nella scena: il riconoscimento è immediato. E l'ironia abbassa la diffidenza verso un servizio di coaching, trasformando una paura in un sorriso e il sorriso in una call.",
+            "A title and a tagline are all it takes to see yourself in the scene: recognition is instant. And the irony lowers people's guard toward a coaching service, turning a fear into a smile, and the smile into a call.")
+        ] },
+        { type: "highlight", html: L("La tua carriera non deve essere <em>un horror.</em>", "Your career shouldn't be <em>a horror movie.</em>") },
+        { type: "stats", kicker: L("I risultati", "The results"), items: [
+          [185, "K", L("persone raggiunte", "people reached")],
+          [268, "K", L("visualizzazioni complessive", "total views")],
+          [14, "K+", L("interazioni", "interactions")],
+          // in evidenza: è il dato che conferma il commento sotto
+          [8, "%", L("engagement rate", "engagement rate"), "", true],
+          [320, "", "lead"],
+          [74, "", L("acquisti", "purchases")],
+          [3.5, " €", L("costo per risultato", "cost per result"), "", false, 2]
+        ], note: L("Valori arrotondati.", "Rounded figures.") },
+        { type: "text", small: true, paras: [
+          L("Il tono ironico ha generato un engagement ben sopra la media del settore e ha convertito l'attenzione in lead e acquisti a un costo contenuto.",
+            "The ironic tone drove engagement well above the industry average, and turned attention into leads and purchases at a low cost.")
+        ] },
+        { type: "images", layout: "trio", ratio: "4/5", kicker: L("Le locandine", "The posters"), items: [
+          { code: "The Ping", desc: L("L'hai letto. Ora non puoi più ignorarlo.", "You've read it. Now you can't ignore it."), src: "assets/buddyjob/halloween/the-ping.webp",
+            alt: L("Locandina The Ping: L'hai letto. Ora non puoi più ignorarlo.", "The Ping poster: You've read it. Now you can't ignore it.") },
+          { code: "Smile", desc: L("Sorridi. Il manager ti sta guardando.", "Smile. Your manager is watching."), src: "assets/buddyjob/halloween/smile.webp",
+            alt: L("Locandina Smile: Sorridi. Il manager ti sta guardando.", "Smile poster: Smile. Your manager is watching.") },
+          { code: "Deadline", desc: L("Vuoi finire in tempo?", "Do you want to finish in time?"), src: "assets/buddyjob/halloween/deadline.webp",
+            alt: L("Locandina Deadline: Vuoi finire in tempo?", "Deadline poster: Do you want to finish in time?") }
+        ] },
+        { type: "list", kicker: L("Il sistema", "The system"), items: [
+          [L("Struttura fissa", "Fixed structure"), L("“:BUDDYJOB presenta · Un horror d'ufficio”, titolo grande, tagline e la stessa CTA su ogni locandina.", "“:BUDDYJOB presents · An office horror”, a big title, a tagline and the same CTA on every poster.")],
+          [L("Palette del brand", "Brand palette"), L("Rosso corallo, giallo e nero tengono insieme la serie.", "Coral red, yellow and black hold the series together.")],
+          [L("Un sottogenere per titolo", "One subgenre per title"), L("Ogni locandina ha un trattamento visivo diverso, preso da un filone horror diverso.", "Each poster gets its own visual treatment, borrowed from a different horror subgenre.")],
+          [L("Format scalabile", "Scalable format"), L("Si aggiungono nuovi titoli senza riprogettare nulla.", "New titles can be added without redesigning anything.")]
+        ] }
+      ],
+      closing: {
+        title: L("La struttura resta.<br>Cambia solo la paura.", "The structure stays.<br>Only the fear changes."),
+        text: L("Per questo il format funziona: chi vede una locandina riconosce subito la seconda, e ogni nuova frustrazione d'ufficio può diventare il prossimo film.",
+          "That's why the format works: once you've seen one poster you recognize the next one instantly, and every new office frustration can become the next movie.")
+      }
+    },
+    {
       id: "epicode",
       name: "EPICODE",
       tag: "Social Media · Content Strategy",

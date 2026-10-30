@@ -11,10 +11,11 @@
 
   // formato esplicito: migliaia sempre separate (5.069 / 5,069), una cifra decimale
   // con i suffissi K/M. toLocaleString in italiano non separa i numeri a 4 cifre.
-  function fmt(v, suffix) {
+  // dec: cifre decimali fisse (es. 2 per "3,50 €"); senza, una sola se c'è un suffisso
+  function fmt(v, suffix, dec) {
     var thousands = I18N.en ? "," : ".";
     var decimal = I18N.en ? "." : ",";
-    var n = suffix ? Math.round(v * 10) / 10 : Math.round(v);
+    var n = dec ? v.toFixed(dec) : suffix ? Math.round(v * 10) / 10 : Math.round(v);
     var parts = String(n).split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands);
     return parts.join(decimal) + (suffix || "");
@@ -95,9 +96,9 @@
         if (!items.length) return "";
         h = '<section class="cb">' + kicker + '<div class="cb-stats' + (b.small ? " small" : "") + '">' +
           items.map(function (s) {
-            var shown = archive ? fmt(s[0], s[1]) : "0";
-            // s[4] === true: la card che conferma il testo, in evidenza
-            return '<div class="stat' + (s[4] ? " is-key" : "") + '"><b data-count="' + s[0] + '" data-suffix="' + (s[1] || "") + '">' + shown + "</b><span>" + s[2] + "</span>" +
+            var shown = archive ? fmt(s[0], s[1], s[5]) : "0";
+            // s[4] === true: la card che conferma il testo, in evidenza; s[5]: decimali fissi
+            return '<div class="stat' + (s[4] ? " is-key" : "") + '"><b data-count="' + s[0] + '" data-suffix="' + (s[1] || "") + '"' + (s[5] ? ' data-dec="' + s[5] + '"' : "") + ">" + shown + "</b><span>" + s[2] + "</span>" +
               (s[3] ? "<i>" + (I18N.en ? s[3].replace(",", ".") : s[3]) + "</i>" : "") + "</div>";
           }).join("") + "</div>" +
           (b.note ? '<p class="cb-note">' + b.note + "</p>" : "") +
@@ -134,13 +135,13 @@
           }).join("") + "</section>";
         break;
       case "images":
-        // layout "pair": affiancate (una sotto l'altra su mobile); "carousel": come le gallerie
+        // layout "pair"/"trio": affiancate su 2 o 3 colonne (una sotto l'altra su mobile); altrimenti scorrono come le gallerie
         if (archive) return "";
         var figs = b.items.map(function (ph) {
-          return '<figure class="ph-fig" data-kind="img" data-src="' + ph.src + '">' + phHTML({ code: ph.code, desc: ph.desc, src: ph.src, ratio: b.ratio }) + "</figure>";
+          return '<figure class="ph-fig" data-kind="img" data-src="' + ph.src + '">' + phHTML({ code: ph.code, desc: ph.desc, src: ph.src, alt: ph.alt, ratio: b.ratio }) + "</figure>";
         }).join("");
-        h = '<section class="cb">' + (b.layout === "pair"
-          ? '<div class="cb-pair">' + figs + "</div>"
+        h = '<section class="cb">' + kicker + (b.layout === "pair" || b.layout === "trio"
+          ? '<div class="cb-pair' + (b.layout === "trio" ? " trio" : "") + '">' + figs + "</div>"
           : '<div class="cb-gallery ph-gallery" data-native-scroll data-cursor="trascina">' + figs + "</div>") + "</section>";
         break;
       case "palette":
@@ -171,12 +172,16 @@
     }
     var tag = archive ? "h2" : "h1";
 
-    return '<header class="case-hero">' +
-      (archive ? "" : '<svg class="case-hero-doodle"><use href="#d-flower"/></svg>') +
+    // heroImg: immagine in evidenza accanto al titolo (al clic si apre a tutto schermo)
+    var media = p.heroImg && !archive;
+    return '<header class="case-hero' + (media ? " has-media" : "") + '">' +
+      (archive || media ? "" : '<svg class="case-hero-doodle"><use href="#d-flower"/></svg>') +
+      (media ? '<div class="case-hero-text">' : "") +
       '<p class="case-kicker"><span>0' + (idx + 1) + " — " + p.name + "</span><span>✦</span><span>" + p.tag + "</span></p>" +
       "<" + tag + (archive ? "" : ' id="caseTitle"') + ">" + p.question + "</" + tag + ">" +
       (p.meta ? '<p class="case-kicker case-meta">' + p.meta + "</p>" : "") +
       '<div class="case-skills">' + p.skills.map(function (s) { return "<span>" + s + "</span>"; }).join("") + "</div>" +
+      (media ? '</div><figure class="case-hero-media" data-kind="img" data-src="' + p.heroImg.src + '"><img src="' + p.heroImg.src + '" alt="' + p.heroImg.alt + '" draggable="false" /></figure>' : "") +
       "</header>" +
       '<div class="case-content">' +
       (p.intro && p.intro.length ? '<section class="cb cb-intro">' + p.intro.map(function (t) { return "<p>" + t + "</p>"; }).join("") + "</section>" : "") +

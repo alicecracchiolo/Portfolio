@@ -3171,6 +3171,34 @@ html.is-grabbing * {
   will-change: transform;
 }
 
+/* tre immagini affiancate (es. le locandine di una campagna) */
+.cb-pair.trio {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* hero con un'immagine in evidenza accanto al titolo */
+.case-hero.has-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(220px, 26vw, 380px);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.case-hero-media {
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  rotate: 3deg;
+  box-shadow: 0 30px 60px -24px rgba(42, 43, 42, 0.55);
+  cursor: zoom-in;
+}
+
+.case-hero-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .case-closing .case-closing-note {
   margin-top: 28px;
   font-size: 13px;
@@ -3186,7 +3214,16 @@ html.is-grabbing * {
     border-top: 2px dashed var(--lavender);
   }
 
-  .cb-pair {
+  .cb-pair,
+  .cb-pair.trio {
     grid-template-columns: 1fr;
+  }
+
+  .case-hero.has-media {
+    grid-template-columns: 1fr;
+  }
+
+  .case-hero-media {
+    width: min(100%, 300px);
   }
 }
