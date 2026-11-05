@@ -118,16 +118,18 @@
             alt: L("Locandina Deadline", "Deadline poster") }
         ] },
 
-        /* --- Case 04 · Product Communication ---
-           TODO: segnaposto BJ-04..BJ-06 in attesa della case history o del carosello sulle consulenze (assets/buddyjob/servizi/) */
+        /* --- Case 04 · Product Communication --- */
         { type: "text", anchor: "case04", kicker: "Case 04 · Product Communication", title: L("Partire dal problema, non dal servizio.", "Start from the problem, not the service."), paras: [
           L("I contenuti sulle consulenze partono da difficoltà reali: una crescita che si blocca, un rapporto complicato con il manager, un cambio di carriera. Solo dopo arriva il ruolo della consulenza, con una narrazione autentica e coerente con il resto del profilo.",
             "The coaching content starts from real struggles: growth that stalls, a difficult relationship with a manager, a career change. Only then comes the role of coaching, told in a way that feels genuine and consistent with the rest of the profile.")
         ] },
-        { type: "images", ratio: "4/5", items: [
-          { code: "BJ-04", desc: L("Case history o carosello sulle consulenze · cover", "Case history or coaching carousel · cover"), src: "assets/buddyjob/servizi/BJ-04.webp" },
-          { code: "BJ-05", desc: L("Slide interna", "Inside slide"), src: "assets/buddyjob/servizi/BJ-05.webp" },
-          { code: "BJ-06", desc: L("Slide interna", "Inside slide"), src: "assets/buddyjob/servizi/BJ-06.webp" }
+        { type: "images", layout: "trio", ratio: "4/5", items: [
+          { code: "BJ-04", desc: L("«Mi candido da mesi, ma non mi chiama nessuno.»", "“I've been applying for months, but nobody calls me back.”"), src: "assets/buddyjob/servizi/BJ-04.webp",
+            alt: L("Carosello: «Mi candido da mesi, ma non mi chiama nessuno.»", "Carousel: “I've been applying for months, but nobody calls me back.”") },
+          { code: "BJ-05", desc: L("Cosa facciamo in consulenza quando dici “So solo che così non posso continuare”", "What we do in coaching when you say “I just know I can't go on like this”"), src: "assets/buddyjob/servizi/BJ-05.webp",
+            alt: L("Carosello: Cosa facciamo in consulenza quando dici “So solo che così non posso continuare”", "Carousel: What we do in coaching when you say “I just know I can't go on like this”") },
+          { code: "BJ-06", desc: L("In quali momenti ti senti bravo nel tuo lavoro?", "When do you feel good at your job?"), src: "assets/buddyjob/servizi/BJ-06.webp",
+            alt: L("Carosello: In quali momenti ti senti bravo nel tuo lavoro?", "Carousel: When do you feel good at your job?") }
         ] },
 
         /* --- Case 05 · Educational Storytelling --- */
