@@ -187,23 +187,20 @@
       skills: ["News Research", "Content Ideation", "Copywriting", "Editorial Design", "Publishing", "Community Management"],
       question: L("Come racconti il tech se non è il tuo settore?", "How do you talk about tech when it's not your field?"),
       intro: [
-        L("Quando ho iniziato a lavorare su EPICODE, il tech non era il mio settore.", "When I started working on EPICODE, tech wasn't my field."),
-        L("La sfida quindi non era fingere di conoscere ciò che non conoscevo, ma trovare un metodo per capire prima di raccontare.",
-          "So the challenge wasn't pretending to know what I didn't, but finding a method to understand before explaining."),
-        L("Ricerca, fonti verticali, newsletter e confronto con il team sono diventati il punto di partenza per trasformare temi spesso tecnici in contenuti comprensibili, attuali e coerenti con la voce del brand.",
-          "Research, vertical sources, newsletters and back-and-forth with the team became the starting point for turning often-technical topics into content that was understandable, current and true to the brand's voice."),
+        L("Ho collaborato con il team marketing di EPICODE, realtà EdTech specializzata nella formazione tech, contribuendo alla comunicazione social del brand.",
+          "I worked with the marketing team at EPICODE, an EdTech company specializing in tech education, contributing to the brand's social communication."),
+        L("Il tech non era il mio settore: per questo ogni contenuto partiva dalla ricerca. Newsletter verticali, fonti di settore e confronto con il team mi servivano per capire prima di raccontare, e per trasformare temi spesso tecnici in contenuti comprensibili e attuali.",
+          "Tech wasn't my field, so every piece of content started with research. Vertical newsletters, industry sources and back-and-forth with the team helped me understand before explaining, and turn often-technical topics into content that was clear and current."),
+        L("Mi sono occupata dell'ideazione e produzione di contenuti per Instagram, tra caroselli, reel, stories interattive e format dedicati alla community. Ho lavorato sia su contenuti educational e di intrattenimento, sia sulla promozione di corsi, Master e Bachelor, adattando linguaggio, copy e visual ai diversi obiettivi di comunicazione.",
+          "I came up with and produced content for Instagram: carousels, reels, interactive stories and community formats. I worked on educational and entertainment content as well as the promotion of courses, Master's and Bachelor's programs, adapting language, copy and visuals to each communication goal."),
+        L("Ho seguito anche la gestione della community, soprattutto sui contenuti ADV, dove commenti, dubbi e obiezioni diventano parte del rapporto tra brand e pubblico. E ho contribuito al montaggio e all'adattamento dei video e alla valorizzazione delle testimonianze degli studenti, sempre in coerenza con l'identità visiva e il tone of voice del brand.",
+          "I also handled community management, especially on ad content, where comments, doubts and objections become part of the relationship between brand and audience. And I helped edit and adapt videos and bring student testimonials to the fore, always in line with the brand's visual identity and tone of voice."),
         L("La direzione editoriale, sviluppata insieme al team, ruotava intorno a un concetto preciso: lo “zio tech”. Qualcuno che il settore lo conosce, ma te lo racconta senza mettersi in cattedra.",
           "The editorial direction, developed with the team, revolved around one precise idea: the “tech uncle”. Someone who knows the field but explains it to you without lecturing.")
       ],
       blocks: [
         { type: "highlight", html: L("Non dovevo sapere tutto. <em>Dovevo sapere dove cercare, cosa verificare e come renderlo comprensibile.</em>",
           "I didn't need to know everything. <em>I needed to know where to look, what to verify and how to make it understandable.</em>") },
-        { type: "text", kicker: L("Cosa faccio", "What I do"), paras: [
-          L("Cerco temi e notizie attraverso newsletter e fonti di settore, individuo quelli che possono diventare contenuto, sviluppo concept, copy e visual e seguo la pubblicazione.",
-            "I look for topics and news through newsletters and industry sources, spot the ones that can become content, develop concept, copy and visuals, and follow through to publishing."),
-          L("Mi occupo anche della gestione della community, con particolare attenzione ai contenuti ADV, dove commenti, dubbi e obiezioni diventano una parte importante del rapporto tra brand e pubblico.",
-            "I also handle community management, with particular attention to ad content, where comments, doubts and objections become an important part of the relationship between brand and audience.")
-        ] },
         { type: "text", title: L("Prima capire. Poi tradurre.", "Understand first. Then translate."), paras: [
           L("Non arrivando dal settore tech, ho costruito una routine di ricerca che mi permettesse di orientarmi tra temi, linguaggi e notizie prima di trasformarli in contenuti.",
             "Not coming from the tech field, I built a research routine that let me navigate topics, languages and news before turning them into content."),
