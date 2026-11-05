@@ -75,18 +75,14 @@
           [L("Stories e community", "Stories & community"), L("Domande e situazioni di lavoro, con l'articolo del blog inviato in DM a chi lo chiede.", "Questions and work situations, with the blog article sent by DM to whoever asks."), "community"]
         ] },
 
-        /* --- Case 01 · Data Storytelling ---
-           TODO: segnaposto in attesa del carosello sui dati (es. salari o AI e lavoro):
-           aggiornare titolo e testo quando arriva il materiale e caricare BJ-01..BJ-03 in assets/buddyjob/data/ */
-        { type: "text", anchor: "case01", kicker: "Case 01 · Data Storytelling", title: L("Rendere leggibile un dato complesso.", "Making complex data readable."), paras: [
-          L("Salari e potere d'acquisto, trasparenza salariale, AI e occupazione, contratti scaduti: temi densi, che sui social rischiano di passare inosservati. Il lavoro parte dalle fonti, seleziona i dati che contano, trova l'angolo narrativo e lo traduce in testi e grafica facili da leggere e da condividere.",
-            "Salaries and purchasing power, pay transparency, AI and jobs, expired contracts: dense topics that can easily go unnoticed on social. The work starts from the sources, picks the data that matters, finds the narrative angle and turns it into copy and design that are easy to read and share.")
+        /* --- Case 01 · Data Storytelling --- */
+        { type: "text", anchor: "case01", kicker: "Case 01 · Data Storytelling", title: L("Gli italiani stanno scappando.", "Italians are leaving."), paras: [
+          L("Un tema di cui si parla molto, ma quasi sempre per sentito dire. Sono partita dai dati ISTAT sugli italiani residenti all'estero e dal rapporto CNEL sui giovani expat, e ho scelto i numeri che raccontano davvero la storia: quanti partono, a che età, dove vanno, con quale formazione.",
+            "A topic everyone talks about, but mostly on hearsay. I started from ISTAT data on Italians living abroad and the CNEL report on young expats, and picked the numbers that actually tell the story: how many leave, at what age, where they go and how educated they are."),
+          L("Un dato per slide, numeri grandi, icone e mappe al posto delle tabelle, e la fonte sempre in basso: un tema denso diventa qualcosa che si legge in pochi secondi e si condivide.",
+            "One figure per slide, big numbers, icons and maps instead of tables, and the source always at the bottom: a dense topic becomes something you can read in seconds and share.")
         ] },
-        { type: "images", ratio: "4/5", items: [
-          { code: "BJ-01", desc: L("Carosello dati · cover", "Data carousel · cover"), src: "assets/buddyjob/data/BJ-01.webp" },
-          { code: "BJ-02", desc: L("Carosello dati · slide interna", "Data carousel · inside slide"), src: "assets/buddyjob/data/BJ-02.webp" },
-          { code: "BJ-03", desc: L("Carosello dati · slide interna", "Data carousel · inside slide"), src: "assets/buddyjob/data/BJ-03.webp" }
-        ] },
+        { type: "gallery", dir: "assets/buddyjob/data/", items: ["cover", "eta-media", "partenze-rientri", "europa", "formazione"] },
 
         /* --- Case 02 · Entertainment & Engagement --- */
         { type: "text", anchor: "case02", kicker: "Case 02 · Entertainment & Engagement", title: L("Non tutti i contenuti devono spiegare qualcosa.", "Not every piece of content has to explain something."), paras: [
