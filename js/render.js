@@ -83,7 +83,9 @@
       case "list":
         h = '<section class="cb">' + kicker + '<ul class="cb-list">' +
           b.items.map(function (it, i) {
-            return '<li><span class="n">0' + (i + 1) + "</span><b>" + it[0] + "</b><span>" + it[1] + "</span></li>";
+            // it[2]: ancora di un blocco più avanti nella pagina, la voce diventa un link che ci porta
+            var jump = it[2] && !archive ? ' class="is-jump" data-jump="' + it[2] + '" role="link" tabindex="0" data-cursor="vai"' : "";
+            return "<li" + jump + '><span class="n">0' + (i + 1) + "</span><b>" + it[0] + (jump ? ' <i class="jump-arrow">↓</i>' : "") + "</b><span>" + it[1] + "</span></li>";
           }).join("") + "</ul></section>";
         break;
       case "steps":
@@ -152,6 +154,8 @@
           }).join("") + "</section>";
         break;
     }
+    // anchor: id del blocco, per i link interni (non nell'archivio, per non duplicare gli id)
+    if (b.anchor && !archive && h) h = h.replace(/^<(\w+)/, '<$1 id="cb-' + b.anchor + '"');
     return h;
   }
 

@@ -3171,6 +3171,29 @@ html.is-grabbing * {
   will-change: transform;
 }
 
+/* voce di elenco che porta a una sezione più avanti */
+.cb-list li.is-jump {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.cb-list li.is-jump:hover,
+.cb-list li.is-jump:focus-visible {
+  color: var(--lavender);
+}
+
+.jump-arrow {
+  display: inline-block;
+  font-style: normal;
+  font-size: 0.8em;
+  color: var(--lavender);
+  transition: transform 0.3s var(--ease);
+}
+
+.cb-list li.is-jump:hover .jump-arrow {
+  transform: translateY(4px);
+}
+
 /* link interno a un altro case study, dentro un blocco di testo */
 .cb-link {
   font-family: var(--f-display);

@@ -68,17 +68,17 @@
 
         /* --- Ecosistema --- */
         { type: "list", kicker: L("Formati diversi, obiettivi diversi, una sola voce", "Different formats, different goals, one voice"), items: [
-          [L("Dati e attualità", "Data & news"), L("Ricerche e notizie sul lavoro trasformate in caroselli chiari e condivisibili.", "Research and work news turned into clear, shareable carousels.")],
-          [L("Intrattenimento", "Entertainment"), L("Meme e situazioni d'ufficio in cui riconoscersi e da mandare a un collega.", "Memes and office moments to recognize yourself in and send to a colleague.")],
-          [L("Consigli di carriera", "Career advice"), L("Colloqui, aumenti, red flag e nuovi fenomeni: contenuti utili da salvare.", "Interviews, raises, red flags and new trends: useful content worth saving.")],
-          [L("Servizi", "Services"), L("Problemi reali del pubblico come punto di partenza per raccontare la consulenza.", "People's real problems as the starting point for explaining coaching.")],
-          [L("Stories e community", "Stories & community"), L("Domande e situazioni di lavoro, con l'articolo del blog inviato in DM a chi lo chiede.", "Questions and work situations, with the blog article sent by DM to whoever asks.")]
+          [L("Dati e attualità", "Data & news"), L("Ricerche e notizie sul lavoro trasformate in caroselli chiari e condivisibili.", "Research and work news turned into clear, shareable carousels."), "case01"],
+          [L("Intrattenimento", "Entertainment"), L("Meme e situazioni d'ufficio in cui riconoscersi e da mandare a un collega.", "Memes and office moments to recognize yourself in and send to a colleague."), "case02"],
+          [L("Consigli di carriera", "Career advice"), L("Colloqui, aumenti, red flag e nuovi fenomeni: contenuti utili da salvare.", "Interviews, raises, red flags and new trends: useful content worth saving."), "case05"],
+          [L("Servizi", "Services"), L("Problemi reali del pubblico come punto di partenza per raccontare la consulenza.", "People's real problems as the starting point for explaining coaching."), "case04"],
+          [L("Stories e community", "Stories & community"), L("Domande e situazioni di lavoro, con l'articolo del blog inviato in DM a chi lo chiede.", "Questions and work situations, with the blog article sent by DM to whoever asks."), "community"]
         ] },
 
         /* --- Case 01 · Data Storytelling ---
            TODO: segnaposto in attesa del carosello sui dati (es. salari o AI e lavoro):
            aggiornare titolo e testo quando arriva il materiale e caricare BJ-01..BJ-03 in assets/buddyjob/data/ */
-        { type: "text", kicker: "Case 01 · Data Storytelling", title: L("Rendere leggibile un dato complesso.", "Making complex data readable."), paras: [
+        { type: "text", anchor: "case01", kicker: "Case 01 · Data Storytelling", title: L("Rendere leggibile un dato complesso.", "Making complex data readable."), paras: [
           L("Salari e potere d'acquisto, trasparenza salariale, AI e occupazione, contratti scaduti: temi densi, che sui social rischiano di passare inosservati. Il lavoro parte dalle fonti, seleziona i dati che contano, trova l'angolo narrativo e lo traduce in testi e grafica facili da leggere e da condividere.",
             "Salaries and purchasing power, pay transparency, AI and jobs, expired contracts: dense topics that can easily go unnoticed on social. The work starts from the sources, picks the data that matters, finds the narrative angle and turns it into copy and design that are easy to read and share.")
         ] },
@@ -89,7 +89,7 @@
         ] },
 
         /* --- Case 02 · Entertainment & Engagement --- */
-        { type: "text", kicker: "Case 02 · Entertainment & Engagement", title: L("Non tutti i contenuti devono spiegare qualcosa.", "Not every piece of content has to explain something."), paras: [
+        { type: "text", anchor: "case02", kicker: "Case 02 · Entertainment & Engagement", title: L("Non tutti i contenuti devono spiegare qualcosa.", "Not every piece of content has to explain something."), paras: [
           L("Dopo una settimana di temi densi il feed ha bisogno di respirare. I meme partono da situazioni quotidiane, colloqui, manager, colleghi, e danno alla community qualcosa da mandare subito a qualcuno.",
             "After a week of dense topics, the feed needs to breathe. The memes start from everyday situations, interviews, managers, colleagues, and give the community something to send to someone straight away.")
         ] },
@@ -120,12 +120,9 @@
 
         /* --- Case 04 · Product Communication ---
            TODO: segnaposto BJ-04..BJ-06 in attesa della case history o del carosello sulle consulenze (assets/buddyjob/servizi/) */
-        { type: "text", kicker: "Case 04 · Product Communication", title: L("Partire dal problema, non dal servizio.", "Start from the problem, not the service."), paras: [
+        { type: "text", anchor: "case04", kicker: "Case 04 · Product Communication", title: L("Partire dal problema, non dal servizio.", "Start from the problem, not the service."), paras: [
           L("I contenuti sulle consulenze partono da difficoltà reali: una crescita che si blocca, un rapporto complicato con il manager, un cambio di carriera. Solo dopo arriva il ruolo della consulenza, con una narrazione autentica e coerente con il resto del profilo.",
             "The coaching content starts from real struggles: growth that stalls, a difficult relationship with a manager, a career change. Only then comes the role of coaching, told in a way that feels genuine and consistent with the rest of the profile.")
-        ] },
-        { type: "gallery", vertical: true, items: [
-          { src: "assets/buddyjob/video/consulenza-di-carriera.mp4", poster: "assets/buddyjob/video/consulenza-di-carriera.webp" }
         ] },
         { type: "images", ratio: "4/5", items: [
           { code: "BJ-04", desc: L("Case history o carosello sulle consulenze · cover", "Case history or coaching carousel · cover"), src: "assets/buddyjob/servizi/BJ-04.webp" },
@@ -134,7 +131,7 @@
         ] },
 
         /* --- Case 05 · Educational Storytelling --- */
-        { type: "text", kicker: "Case 05 · Educational Storytelling", title: L("Leggere i commenti prima di scrivere il post.", "Reading the comments before writing the post."), paras: [
+        { type: "text", anchor: "case05", kicker: "Case 05 · Educational Storytelling", title: L("Leggere i commenti prima di scrivere il post.", "Reading the comments before writing the post."), paras: [
           L("Una notizia molto discussa aveva acceso una conversazione sui comportamenti normalizzati al lavoro. Invece di fermarmi alla notizia sono andata a leggere come ne parlavano le persone: nei commenti tornavano sempre le stesse frasi.",
             "A widely discussed news story had sparked a conversation about normalized behavior at work. Instead of stopping at the headline, I read how people were talking about it: the same phrases kept coming back in the comments.")
         ] },
@@ -151,13 +148,16 @@
         { type: "gallery", dir: "assets/buddyjob/softdays/", items: ["cover", "switch", "pink", "equity", "animation-01.mp4", "soft-off-day", "fast-company", "non-sappiamo-ancora", "animation-02.mp4", "preferiresti"] },
 
         /* --- Video e community --- */
-        { type: "text", kicker: L("Video e community", "Video & community"), title: L("Alcune idee hanno bisogno di muoversi.", "Some ideas need to move."), paras: [
+        { type: "text", anchor: "community", kicker: L("Video e community", "Video & community"), title: L("Alcune idee hanno bisogno di muoversi.", "Some ideas need to move."), paras: [
           L("Per i video scrivo lo script, giro e monto. Il criterio è lo stesso dei caroselli: partire da quello che le persone vivono davvero al lavoro, a volte proprio dai loro commenti.",
-            "For video I write the script, shoot and edit. The approach is the same as the carousels: start from what people actually go through at work, sometimes straight from their comments.")
+            "For video I write the script, shoot and edit. The approach is the same as the carousels: start from what people actually go through at work, sometimes straight from their comments."),
+          L("Nelle stories la conversazione continua: domande e situazioni di lavoro a cui la community risponde, spesso collegate a un articolo del blog BuddyJob che arriva in DM a chi lo chiede con una keyword.",
+            "In Stories the conversation keeps going: questions and work situations the community responds to, often linked to a BuddyJob blog article sent by DM to anyone who asks with a keyword.")
         ] },
         { type: "gallery", vertical: true, items: [
           { src: "assets/buddyjob/video/risposta-ai-commenti.mp4", poster: "assets/buddyjob/video/risposta-ai-commenti.webp" },
-          { src: "assets/buddyjob/video/tutti-ci-lamentiamo.mp4", poster: "assets/buddyjob/video/tutti-ci-lamentiamo.webp" }
+          { src: "assets/buddyjob/video/tutti-ci-lamentiamo.mp4", poster: "assets/buddyjob/video/tutti-ci-lamentiamo.webp" },
+          { src: "assets/buddyjob/video/consulenza-di-carriera.mp4", poster: "assets/buddyjob/video/consulenza-di-carriera.webp" }
         ] },
 
         /* --- Processo --- */

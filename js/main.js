@@ -1036,6 +1036,19 @@
     caseTriggers.push({ kill: function () { io.disconnect(); } });
 
     $$("[data-close-case]", caseBody).forEach(function (b) { b.addEventListener("click", closeCase); });
+    // voci di elenco che portano a un punto più avanti nel case study
+    $$("[data-jump]", caseBody).forEach(function (li) {
+      function go(e) {
+        var t = $("#cb-" + li.getAttribute("data-jump"), caseBody);
+        if (!t) return;
+        e.preventDefault();
+        var top = t.getBoundingClientRect().top - caseScroll.getBoundingClientRect().top + caseScroll.scrollTop - 90;
+        caseScroll.scrollTo({ top: top, behavior: reduced ? "auto" : "smooth" });
+      }
+      li.addEventListener("click", go);
+      li.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") go(e); });
+    });
+
     // "prossimo progetto" e i link interni verso un altro case study
     $$("[data-next]", caseBody).forEach(function (a) { a.addEventListener("click", function (e) {
       e.preventDefault();
