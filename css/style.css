@@ -3171,6 +3171,14 @@ html.is-grabbing * {
   will-change: transform;
 }
 
+/* link interno a un altro case study, dentro un blocco di testo */
+.cb-link {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  color: var(--lavender);
+  border-bottom: 1.5px solid currentColor;
+}
+
 /* tre immagini affiancate (es. le locandine di una campagna) */
 .cb-pair.trio {
   grid-template-columns: repeat(3, minmax(0, 1fr));

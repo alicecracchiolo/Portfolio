@@ -1036,10 +1036,11 @@
     caseTriggers.push({ kill: function () { io.disconnect(); } });
 
     $$("[data-close-case]", caseBody).forEach(function (b) { b.addEventListener("click", closeCase); });
-    $(".case-next", caseBody).addEventListener("click", function (e) {
+    // "prossimo progetto" e i link interni verso un altro case study
+    $$("[data-next]", caseBody).forEach(function (a) { a.addEventListener("click", function (e) {
       e.preventDefault();
       switchCase(this.getAttribute("data-next"));
-    });
+    }); });
     initMagnetic(caseBody);
   }
 

@@ -9,136 +9,170 @@
     {
       id: "buddyjob",
       name: "BuddyJob",
-      tag: "Social Media · Content Strategy",
+      tag: "Content Strategy · Creative Direction",
       color: "var(--lavender)",
       ink: "var(--mist)",
       cover: { src: "assets/buddyjob/brand/logo.webp", alt: L("Logo BuddyJob", "BuddyJob logo"), fit: "logo" },
       title: L("Leggere il lavoro. Poi raccontarlo.", "Reading the work. Then telling it."),
       // dato d'aggancio sotto il titolo della card
-      hook: L("+11.270 follower in poco più di quattro mesi", "+11,270 followers in just over four months"),
+      hook: L("3,7M visualizzazioni · 2,6M account raggiunti", "3.7M views · 2.6M accounts reached"),
       desc: L(
-        "Per BuddyJob trasformo conversazioni, trend e situazioni quotidiane in contenuti capaci di informare, creare riconoscimento e far partecipare la community.",
-        "For BuddyJob I turn conversations, trends and everyday situations into content that informs, builds recognition and gets the community involved."
+        "Per BuddyJob seguo la comunicazione social dalla strategia all'esecuzione: ricerca, concept, copy, grafica e video, per far crescere la community e far conoscere i servizi di consulenza.",
+        "For BuddyJob I run social communication from strategy to execution: research, concept, copy, design and video, to grow the community and make the career coaching services known."
       ),
       link: { href: "https://www.instagram.com/buddyjob_it/", label: "Instagram" },
-      skills: ["Research & Social Listening", "Concept", "Copywriting", "Format", "Editorial Design", "Social Media Management", "Video Production", "ADV", "Community Management"],
-      question: L("Come rendere interessante un argomento di cui parlano già tutti?", "How do you make an already-crowded topic interesting?"),
+      skills: ["Content Strategy", "Creative Direction", "Social Media Management", "Graphic Design", "Copywriting", "Video Editing", "Community Management", "Performance Analysis"],
+      question: L("Far crescere una community.<br>E far conoscere un servizio.", "Growing a community.<br>And making a service known."),
       // riga di sintesi sotto il titolo del case study
-      meta: L("Instagram · giugno – ottobre 2026 · 4,1M visualizzazioni organiche · +11.270 follower",
-        "Instagram · June – October 2026 · 4.1M organic views · +11,270 followers"),
+      meta: L("Content Marketing & Creative Direction · Career development · Team social di due persone",
+        "Content Marketing & Creative Direction · Career development · Two-person social team"),
+      // copertina del carosello red flags in evidenza nell'hero
+      heroImg: { src: "assets/buddyjob/redflags/cover.webp", alt: L("Copertina del carosello 10 frasi che in un ambiente di lavoro sono red flags", "Cover of the carousel 10 phrases that are red flags in a workplace") },
       intro: [
-        L("Il lavoro è ovunque sui social: colloqui, burnout, stipendi, carriera, colleghi, dimissioni.",
-          "Work is everywhere on social: interviews, burnout, salaries, careers, colleagues, resignations."),
-        L("La sfida non era trovare qualcosa di cui parlare, ma trovare ogni volta un modo diverso di farlo.",
-          "The challenge was never finding something to talk about, but finding a different way to say it every time."),
-        L("Per BuddyJob lavoro sui contenuti social dalla ricerca all'idea, fino a copy e sviluppo visivo, cercando un equilibrio tra informazione, attualità, riconoscibilità ed engagement.",
-          "For BuddyJob I work on social content from research to concept, through copy and visual development, balancing information, relevance, recognizability and engagement.")
+        L("BuddyJob si occupa di orientamento e consulenza di carriera. Sui social parla a chi il lavoro lo sta cercando, cambiando o semplicemente vivendo: colloqui, stipendi, crescita, dinamiche aziendali.",
+          "BuddyJob works in career guidance and coaching. On social it talks to people who are looking for work, changing it or simply living it: interviews, salaries, growth, office dynamics."),
+        L("In un team social di due persone ho gestito in autonomia tutto il processo editoriale e creativo, dalla ricerca alla pubblicazione, contribuendo alla direzione creativa della comunicazione.",
+          "In a two-person social team I ran the whole editorial and creative process on my own, from research to publishing, and helped shape the creative direction of the brand's communication.")
       ],
       blocks: [
-        { type: "text", kicker: L("Il mio ruolo", "My role"), paras: [
-          L("Osservo conversazioni, trend e notizie sul mondo del lavoro e cerco l'angolo che può diventare BuddyJob. A volte significa approfondire. A volte spiegare. A volte basta un meme fatto nel momento giusto.",
-            "I watch conversations, trends and news about the world of work and look for the angle that can become BuddyJob. Sometimes that means digging deeper. Sometimes explaining. Sometimes it's just a meme made at the right moment."),
-          L("Poi lo porto fino in fondo. Sull'online siamo in due, io e il mio manager: seguo ricerca, concept, copy e grafica; per i video scrivo lo script, giro, monto e a volte ci metto la faccia. Curo anche le campagne ADV, i contenuti per LinkedIn e la community nei commenti.",
-            "Then I see it through to the end. Online, it's just the two of us, my manager and me: I handle research, concept, copy and design; for video I write the script, shoot, edit and sometimes appear on camera. I also run ad campaigns, LinkedIn content and the community in the comments.")
+        /* --- La sfida --- */
+        { type: "text", kicker: L("La sfida", "The challenge"), title: L("Due obiettivi, un solo linguaggio.", "Two goals, one language."), paras: [
+          L("Da una parte serviva visibilità: contenuti capaci di intercettare bisogni, conversazioni e trend del lavoro, e di costruire una community coinvolta. Dall'altra bisognava raccontare le consulenze di carriera e trasformare quell'attenzione in interesse per il servizio.",
+            "On one side, the brand needed visibility: content that taps into the needs, conversations and trends of working life, and builds an engaged community. On the other, the career coaching had to be explained, turning that attention into interest in the service."),
+          L("Ironia e attualità raggiungono tante persone; un servizio di consulenza chiede fiducia e approfondimento. Il mio lavoro è stato tenere insieme le due cose, con una voce coerente e riconoscibile.",
+            "Irony and current events reach a lot of people; a coaching service asks for trust and depth. My job was to hold the two together, with a voice that stays consistent and recognizable.")
         ] },
-        { type: "text", title: L("Un profilo non si costruisce post per post.", "A profile isn't built post by post."), paras: [
-          L("Per BuddyJob ho lavorato alla costruzione di un sistema editoriale che non riguarda solo cosa pubblicare nel feed, ma anche come accompagnare chi arriva sul profilo.",
-            "For BuddyJob I worked on building an editorial system that isn't just about what goes in the feed, but also how to guide people who land on the profile."),
-          L("Ho sviluppato un piano editoriale capace di alternare informazione, attualità, format ricorrenti, conversazioni della community e contenuti più leggeri, lasciando allo stesso tempo spazio a trend e temi che emergono nel momento.",
-            "I developed an editorial plan able to alternate information, current events, recurring formats, community conversations and lighter content, while still leaving room for trends and topics that emerge in the moment."),
-          L("Anche le Stories e le raccolte in evidenza fanno parte di questo lavoro: sono pensate per orientare chi scopre BuddyJob, spiegare servizi e strumenti e rendere il profilo più facile da esplorare.",
-            "Stories and highlight reels are part of this work too: they're designed to orient people discovering BuddyJob, explain services and tools, and make the profile easier to explore.")
+        { type: "highlight", html: L("Prima farsi notare. <em>Poi farsi scegliere.</em>", "Get noticed first. <em>Then get chosen.</em>") },
+
+        /* --- Il mio ruolo --- */
+        { type: "list", kicker: L("Il mio ruolo · dalla strategia all'esecuzione", "My role · from strategy to execution"), items: [
+          ["Content Strategy", L("Target, ricerca su trend e dati, insight, piano editoriale, format e obiettivi di ogni contenuto.", "Audience, research on trends and data, insights, editorial plan, formats and the goal of each piece.")],
+          ["Creative Direction", L("Concept, rubriche ricorrenti e linguaggio visivo, adattando l'identità del brand a ogni formato.", "Concepts, recurring series and visual language, adapting the brand identity to every format.")],
+          ["Content Production", L("Caroselli, grafica, hook, caption e CTA, video e reel, meme e stories interattive.", "Carousels, design, hooks, captions and CTAs, videos and reels, memes and interactive stories.")],
+          ["Community Management", L("Commenti, conversazioni e meccaniche interattive, con keyword e DM per distribuire risorse.", "Comments, conversations and interactive mechanics, using keywords and DMs to share resources.")],
+          ["Performance & Optimization", L("Lettura di reach, visualizzazioni e interazioni per capire cosa funziona e migliorare hook, struttura e CTA.", "Reading reach, views and interactions to see what works and refine hooks, structure and CTAs.")]
         ] },
-        { type: "highlight", html: L("Ogni contenuto ha un ruolo. <em>Anche quando non finisce nel feed.</em>", "Every piece of content has a role. <em>Even when it never makes the feed.</em>") },
-        { type: "list", kicker: L("Cosa raccontiamo", "What we talk about"), items: [
-          [L("Informare", "Inform"), L("Dati, trend e dinamiche del lavoro.", "Data, trends and workplace dynamics.")],
-          [L("Approfondire", "Go deeper"), L("Carriera, coaching e situazioni professionali.", "Careers, coaching and professional situations.")],
-          [L("Intercettare", "Intercept"), L("News, conversazioni e social listening.", "News, conversations and social listening.")],
-          [L("Creare relazione", "Build connection"), L("Meme, community e contenuti riconoscibili.", "Memes, community and recognizable content.")],
-          [L("Sperimentare", "Experiment"), L("Format e nuovi linguaggi visuali.", "Formats and new visual languages.")]
-        ] },
-        { type: "list", kicker: L("Come organizziamo il profilo", "How we organize the profile"), items: [
-          ["Feed", L("Contenuti editoriali, format e contenuti pianificati.", "Editorial content, formats and scheduled posts.")],
-          ["Stories", L("Attualità, interazione, approfondimento e contenuti di servizio.", "Current events, interaction, deep dives and service content.")],
-          ["Highlights", L("Contenuti evergreen pensati per orientare chi arriva sul profilo, spiegare BuddyJob, i servizi e gli strumenti disponibili.",
-            "Evergreen content designed to orient people landing on the profile, explaining BuddyJob, its services and the tools available.")]
-        ] },
-        { type: "stats", kicker: L("I numeri · Instagram · 1 giugno — 12 ottobre 2026", "The numbers · Instagram · June 1 — October 12, 2026"), items: [
-          [4.1, "M", L("visualizzazioni organiche", "organic views"), "+104%"],
-          [2.7, "M", L("persone raggiunte", "people reached"), "+104,9%"],
-          [302.8, "K", L("interazioni con i contenuti", "content interactions"), "+155,2%"],
-          [11270, "", L("nuovi follow", "new follows"), "+224,7%"]
+
+        /* --- I numeri --- */
+        { type: "stats", kicker: L("I numeri", "The numbers"), items: [
+          [36703, "", L("follower attuali", "current followers")],
+          [3.7, "M", L("visualizzazioni", "views")],
+          [2.6, "M", L("account raggiunti", "accounts reached")],
+          [289, "K", L("interazioni", "interactions")],
+          // in evidenza: la reach del carosello red flags (Case 05)
+          [1.5, "M", L("reach di un singolo carosello", "reach of a single carousel"), "", true],
+          [722, "", L("clic al link in bio", "link-in-bio clicks")]
         ],
-          note: L("Oggi il profilo ha 36.509 follower. 5,6M visualizzazioni totali (+20,4%), di cui 1,5M da inserzioni; copertura e interazioni includono i contenuti sponsorizzati.",
-            "Today the profile has 36,509 followers. 5.6M total views (+20.4%), 1.5M of them from ads; reach and interactions include sponsored content.") },
+          note: L("Follower aggiornati al 5 novembre 2026. Visualizzazioni, account raggiunti e interazioni vengono da rilevazioni precedenti; i clic al link in bio si riferiscono agli ultimi 90 giorni del periodo misurato.",
+            "Followers as of November 5, 2026. Views, accounts reached and interactions come from earlier measurements; link-in-bio clicks refer to the last 90 days of the measured period.") },
 
-        /* --- 1. Red flags --- */
-        { type: "text", kicker: L("Parte del sistema: Intercettare", "Part of the system: Intercept"), title: L("Leggere i commenti prima di scrivere il post.", "Reading the comments before writing the post."), paras: [
-          L("Una notizia molto discussa aveva acceso online una conversazione sui comportamenti normalizzati sul posto di lavoro.",
-            "A widely-discussed news story had sparked an online conversation about normalized workplace behaviors."),
-          L("Invece di fermarmi alla notizia, sono andata a vedere come ne stavano parlando le persone. Nei commenti ricorrevano continuamente le stesse frasi.",
-            "Instead of stopping at the headline, I went to see how people were actually talking about it. The same phrases kept coming up in the comments, over and over.")
+        /* --- Ecosistema --- */
+        { type: "list", kicker: L("Formati diversi, obiettivi diversi, una sola voce", "Different formats, different goals, one voice"), items: [
+          [L("Dati e attualità", "Data & news"), L("Ricerche e notizie sul lavoro trasformate in caroselli chiari e condivisibili.", "Research and work news turned into clear, shareable carousels.")],
+          [L("Intrattenimento", "Entertainment"), L("Meme e situazioni d'ufficio in cui riconoscersi e da mandare a un collega.", "Memes and office moments to recognize yourself in and send to a colleague.")],
+          [L("Consigli di carriera", "Career advice"), L("Colloqui, aumenti, red flag e nuovi fenomeni: contenuti utili da salvare.", "Interviews, raises, red flags and new trends: useful content worth saving.")],
+          [L("Servizi", "Services"), L("Problemi reali del pubblico come punto di partenza per raccontare la consulenza.", "People's real problems as the starting point for explaining coaching.")],
+          [L("Stories e community", "Stories & community"), L("Domande e situazioni di lavoro, con l'articolo del blog inviato in DM a chi lo chiede.", "Questions and work situations, with the blog article sent by DM to whoever asks.")]
         ] },
-        { type: "highlight", html: L("Da lì è nato: <em>“10 frasi che in un ambiente di lavoro sono red flags”</em>.", "That's where <em>“10 phrases that are red flags in a workplace”</em> came from.") },
-        { type: "gallery", dir: "assets/buddyjob/redflags/", items: ["cover", "tutti-devono-saper-fare-tutto", "siamo-una-grande-famiglia", "io-non-faccio-pausa-pranzo", "ringrazia-di-avere-un-lavoro", "deve-essere-pronto-per-ieri", "puoi-rimanere-tanto", "ora-si-ricomincia", "faccio-questo-lavoro-da-20-anni", "sei-pagato-per-lavorare", "impegno-e-passione"] },
-        { type: "stats", small: true, items: [
-          [1.5, "M", L("persone raggiunte", "people reached")], [113, "K", L("interazioni", "interactions")], [29.4, "K", L("condivisioni", "shares")],
-          [19.8, "K", L("salvataggi", "saves")], [5069, "", L("follow generati", "follows generated")]
-        ] },
-        // 5.069 su 11.270 nuovi follower del periodo = 45%
-        { type: "highlight", html: L("Un solo post, nessuna sponsorizzazione: <em>quasi metà dei nuovi follower del periodo è arrivata da qui.</em>",
-          "One post, no paid promotion: <em>almost half of the period's new followers came from here.</em>") },
-        { type: "text", paras: [L("Il contenuto non nasceva dal trend in sé, ma da quello che le persone stavano dicendo intorno al trend.",
-          "The content didn't come from the trend itself, but from what people were actually saying around it.")] },
 
-        /* --- 2. Soft-on day --- */
-        { type: "text", kicker: L("Parte del sistema: Informare + Sperimentare", "Part of the system: Inform + Experiment"), title: L("Un trend nuovo ha bisogno anche di una forma nuova.", "A new trend also needs a new format."), paras: [
-          L("Quando soft-on day e soft-off day hanno iniziato a entrare nella conversazione online sul lavoro, ho approfondito il fenomeno e costruito un contenuto che ne spiegasse significato e contesto.",
-            "When soft-on days and soft-off days started entering the online conversation about work, I dug into the phenomenon and built a piece that explained its meaning and context."),
-          L("Fotografia, tipografia, collage, riferimenti digitali e movimento cambiano lungo il carosello seguendo il contenuto, invece di costringerlo dentro un unico template.",
-            "Photography, typography, collage, digital references and motion shift throughout the carousel following the content, instead of forcing it into a single template.")
+        /* --- Case 01 · Data Storytelling ---
+           TODO: segnaposto in attesa del carosello sui dati (es. salari o AI e lavoro):
+           aggiornare titolo e testo quando arriva il materiale e caricare BJ-01..BJ-03 in assets/buddyjob/data/ */
+        { type: "text", kicker: "Case 01 · Data Storytelling", title: L("Rendere leggibile un dato complesso.", "Making complex data readable."), paras: [
+          L("Salari e potere d'acquisto, trasparenza salariale, AI e occupazione, contratti scaduti: temi densi, che sui social rischiano di passare inosservati. Il lavoro parte dalle fonti, seleziona i dati che contano, trova l'angolo narrativo e lo traduce in testi e grafica facili da leggere e da condividere.",
+            "Salaries and purchasing power, pay transparency, AI and jobs, expired contracts: dense topics that can easily go unnoticed on social. The work starts from the sources, picks the data that matters, finds the narrative angle and turns it into copy and design that are easy to read and share.")
         ] },
-        { type: "gallery", dir: "assets/buddyjob/softdays/", items: ["cover", "switch", "pink", "equity", "animation-01.mp4", "soft-off-day", "fast-company", "non-sappiamo-ancora", "animation-02.mp4", "preferiresti"] },
+        { type: "images", ratio: "4/5", items: [
+          { code: "BJ-01", desc: L("Carosello dati · cover", "Data carousel · cover"), src: "assets/buddyjob/data/BJ-01.webp" },
+          { code: "BJ-02", desc: L("Carosello dati · slide interna", "Data carousel · inside slide"), src: "assets/buddyjob/data/BJ-02.webp" },
+          { code: "BJ-03", desc: L("Carosello dati · slide interna", "Data carousel · inside slide"), src: "assets/buddyjob/data/BJ-03.webp" }
+        ] },
 
-        /* --- 3. Meme --- */
-        { type: "text", kicker: L("Parte del sistema: Creare relazione", "Part of the system: Build connection"), title: L("Non tutti i contenuti devono spiegare qualcosa.", "Not every piece of content has to explain something."), paras: [
-          L("Dopo una settimana di temi più densi, il feed ha anche bisogno di respirare.", "After a week of denser topics, the feed also needs to breathe."),
-          L("I meme fanno parte del content mix di BuddyJob proprio per questo: intercettano situazioni quotidiane, creano riconoscimento e danno alla community qualcosa da mandare immediatamente a un collega.",
-            "Memes are part of BuddyJob's content mix for exactly this reason: they tap into everyday situations, build recognition and give the community something to send straight to a colleague.")
+        /* --- Case 02 · Entertainment & Engagement --- */
+        { type: "text", kicker: "Case 02 · Entertainment & Engagement", title: L("Non tutti i contenuti devono spiegare qualcosa.", "Not every piece of content has to explain something."), paras: [
+          L("Dopo una settimana di temi densi il feed ha bisogno di respirare. I meme partono da situazioni quotidiane, colloqui, manager, colleghi, e danno alla community qualcosa da mandare subito a qualcuno.",
+            "After a week of dense topics, the feed needs to breathe. The memes start from everyday situations, interviews, managers, colleagues, and give the community something to send to someone straight away.")
         ] },
         { type: "gallery", dir: "assets/buddyjob/meme/", items: ["drama", "work", "september"] },
         { type: "stats", small: true, items: [
           [223, "K", L("persone raggiunte", "people reached")], [29.6, "K", L("interazioni", "interactions")],
           // in evidenza: è il dato che conferma il testo (le condivisioni superano i like)
           [14.6, "K", L("condivisioni", "shares"), "", true],
-          [13.1, "K", L("like/reazioni", "likes/reactions")], [1390, "", L("salvataggi", "saves")], [113, "", L("nuovi follow", "new follows")]
-        ] },
-        { type: "text", paras: [L("In questo caso le condivisioni hanno superato i like: il contenuto non è stato soltanto apprezzato, è diventato qualcosa da mandare a qualcun altro.",
-          "Here shares outpaced likes: the content wasn't just appreciated, it became something worth sending to someone else.")] },
+          [13.1, "K", L("like/reazioni", "likes/reactions")], [1390, "", L("salvataggi", "saves")]
+        ], note: L("Dati di un singolo meme.", "Figures for a single meme.") },
+        { type: "text", small: true, paras: [L("Le condivisioni hanno superato i like: il contenuto non è stato solo apprezzato, è diventato qualcosa da mandare a un collega.",
+          "Shares outpaced likes: the content wasn't just liked, it became something to send to a colleague.")] },
 
-        /* --- Video --- */
-        { type: "text", kicker: L("Parte del sistema: Sperimentare", "Part of the system: Experiment"), title: L("Alcune idee hanno bisogno di muoversi.", "Some ideas need to move."), paras: [
-          L("Per i video seguo tutto il processo: scrivo lo script, giro, monto e a volte ci metto la faccia. Il formato cambia, ma il criterio è lo stesso dei caroselli: partire da quello che le persone vivono davvero al lavoro.",
-            "For video I handle the whole process: I write the script, shoot, edit and sometimes appear on camera. The format changes, but the approach is the same as the carousels: start from what people actually go through at work.")
+        /* --- Case 03 · Creative Campaign --- */
+        { type: "text", kicker: "Case 03 · Creative Campaign", title: L("Un horror d'ufficio.", "An office horror."), paras: [
+          L("Per Halloween le situazioni più temute della vita d'ufficio sono diventate locandine di film horror, con titolo, tagline e la stessa CTA: prenotare la prima call gratuita. Un format a struttura fissa, a cui si aggiungono nuovi titoli senza riprogettare nulla.",
+            "For Halloween, the most dreaded moments of office life became horror movie posters, each with a title, a tagline and the same CTA: book your first free call. A fixed-structure format, where new titles can be added without redesigning anything."),
+          '<a class="cb-link" href="#" data-next="horror" data-cursor="apri">' + L("Guarda la campagna completa", "See the full campaign") + " →</a>"
         ] },
-        // reel verticali 9:16: partono muti quando entrano nello schermo, al clic si aprono con l'audio
+        { type: "images", layout: "trio", ratio: "4/5", items: [
+          { code: "The Ping", desc: L("L'hai letto. Ora non puoi più ignorarlo.", "You've read it. Now you can't ignore it."), src: "assets/buddyjob/halloween/the-ping.webp",
+            alt: L("Locandina The Ping", "The Ping poster") },
+          { code: "Smile", desc: L("Sorridi. Il manager ti sta guardando.", "Smile. Your manager is watching."), src: "assets/buddyjob/halloween/smile.webp",
+            alt: L("Locandina Smile", "Smile poster") },
+          { code: "Deadline", desc: L("Vuoi finire in tempo?", "Do you want to finish in time?"), src: "assets/buddyjob/halloween/deadline.webp",
+            alt: L("Locandina Deadline", "Deadline poster") }
+        ] },
+
+        /* --- Case 04 · Product Communication ---
+           TODO: segnaposto BJ-04..BJ-06 in attesa della case history o del carosello sulle consulenze (assets/buddyjob/servizi/) */
+        { type: "text", kicker: "Case 04 · Product Communication", title: L("Partire dal problema, non dal servizio.", "Start from the problem, not the service."), paras: [
+          L("I contenuti sulle consulenze partono da difficoltà reali: una crescita che si blocca, un rapporto complicato con il manager, un cambio di carriera. Solo dopo arriva il ruolo della consulenza, con una narrazione autentica e coerente con il resto del profilo.",
+            "The coaching content starts from real struggles: growth that stalls, a difficult relationship with a manager, a career change. Only then comes the role of coaching, told in a way that feels genuine and consistent with the rest of the profile.")
+        ] },
         { type: "gallery", vertical: true, items: [
-          { src: "assets/buddyjob/video/risposta-ai-commenti.mp4", poster: "assets/buddyjob/video/risposta-ai-commenti.webp" },
-          { src: "assets/buddyjob/video/tutti-ci-lamentiamo.mp4", poster: "assets/buddyjob/video/tutti-ci-lamentiamo.webp" },
           { src: "assets/buddyjob/video/consulenza-di-carriera.mp4", poster: "assets/buddyjob/video/consulenza-di-carriera.webp" }
         ] },
+        { type: "images", ratio: "4/5", items: [
+          { code: "BJ-04", desc: L("Case history o carosello sulle consulenze · cover", "Case history or coaching carousel · cover"), src: "assets/buddyjob/servizi/BJ-04.webp" },
+          { code: "BJ-05", desc: L("Slide interna", "Inside slide"), src: "assets/buddyjob/servizi/BJ-05.webp" },
+          { code: "BJ-06", desc: L("Slide interna", "Inside slide"), src: "assets/buddyjob/servizi/BJ-06.webp" }
+        ] },
 
-        /* --- Oltre il feed --- */
-        { type: "text", kicker: L("Ogni contenuto ha un ruolo", "Every piece of content has a role"), title: L("Oltre il feed.", "Beyond the feed."), paras: [
-          L("Contenuti per LinkedIn pensati per un pubblico più professionale, campagne ADV per acquisire lead e, ogni giorno, le risposte nei commenti: la parte meno visibile del lavoro, ma quella che trasforma un pubblico in una community.",
-            "LinkedIn content made for a more professional audience, ad campaigns to generate leads and, every day, the replies in the comments: the least visible part of the work, but the one that turns an audience into a community.")
+        /* --- Case 05 · Educational Storytelling --- */
+        { type: "text", kicker: "Case 05 · Educational Storytelling", title: L("Leggere i commenti prima di scrivere il post.", "Reading the comments before writing the post."), paras: [
+          L("Una notizia molto discussa aveva acceso una conversazione sui comportamenti normalizzati al lavoro. Invece di fermarmi alla notizia sono andata a leggere come ne parlavano le persone: nei commenti tornavano sempre le stesse frasi.",
+            "A widely discussed news story had sparked a conversation about normalized behavior at work. Instead of stopping at the headline, I read how people were talking about it: the same phrases kept coming back in the comments.")
+        ] },
+        { type: "highlight", html: L("Da lì è nato: <em>“10 frasi che in un ambiente di lavoro sono red flags”</em>.", "That's where <em>“10 phrases that are red flags in a workplace”</em> came from.") },
+        { type: "gallery", dir: "assets/buddyjob/redflags/", items: ["cover", "tutti-devono-saper-fare-tutto", "siamo-una-grande-famiglia", "io-non-faccio-pausa-pranzo", "ringrazia-di-avere-un-lavoro", "deve-essere-pronto-per-ieri", "puoi-rimanere-tanto", "ora-si-ricomincia", "faccio-questo-lavoro-da-20-anni", "sei-pagato-per-lavorare", "impegno-e-passione"] },
+        { type: "stats", small: true, items: [
+          [1.5, "M", L("persone raggiunte", "people reached"), "", true], [113, "K", L("interazioni", "interactions")], [29.4, "K", L("condivisioni", "shares")],
+          [19.8, "K", L("salvataggi", "saves")]
+        ], note: L("Un solo carosello, nessuna sponsorizzazione.", "One carousel, no paid promotion.") },
+        { type: "text", title: L("Un fenomeno nuovo chiede una forma nuova.", "A new trend needs a new form."), paras: [
+          L("Quando soft-on day e soft-off day sono entrati nella conversazione sul lavoro, ho approfondito il fenomeno e costruito un carosello che ne spiegasse significato e contesto. Fotografia, tipografia, collage e movimento cambiano lungo le slide seguendo il contenuto, invece di chiuderlo in un unico template.",
+            "When soft-on days and soft-off days entered the conversation about work, I dug into the trend and built a carousel explaining what it means and where it comes from. Photography, type, collage and motion shift across the slides to follow the content, instead of locking it into a single template.")
+        ] },
+        { type: "gallery", dir: "assets/buddyjob/softdays/", items: ["cover", "switch", "pink", "equity", "animation-01.mp4", "soft-off-day", "fast-company", "non-sappiamo-ancora", "animation-02.mp4", "preferiresti"] },
+
+        /* --- Video e community --- */
+        { type: "text", kicker: L("Video e community", "Video & community"), title: L("Alcune idee hanno bisogno di muoversi.", "Some ideas need to move."), paras: [
+          L("Per i video scrivo lo script, giro e monto. Il criterio è lo stesso dei caroselli: partire da quello che le persone vivono davvero al lavoro, a volte proprio dai loro commenti.",
+            "For video I write the script, shoot and edit. The approach is the same as the carousels: start from what people actually go through at work, sometimes straight from their comments.")
+        ] },
+        { type: "gallery", vertical: true, items: [
+          { src: "assets/buddyjob/video/risposta-ai-commenti.mp4", poster: "assets/buddyjob/video/risposta-ai-commenti.webp" },
+          { src: "assets/buddyjob/video/tutti-ci-lamentiamo.mp4", poster: "assets/buddyjob/video/tutti-ci-lamentiamo.webp" }
+        ] },
+
+        /* --- Processo --- */
+        { type: "steps", kicker: L("Il processo", "The process"), items: [L("Ricerca", "Research"), "Insight", "Concept", "Design", L("Distribuzione", "Distribution"), L("Analisi", "Analysis")] },
+        { type: "text", small: true, paras: [
+          L("Ogni contenuto parte da un tema rilevante e da un insight trovato tra dati, notizie e conversazioni; poi angolo narrativo, format e direzione visiva, fino alla pubblicazione. I risultati decidono cosa migliorare nel contenuto successivo.",
+            "Every piece starts from a relevant topic and an insight found in data, news and conversations; then the narrative angle, format and visual direction, all the way to publishing. The results decide what to improve in the next one."),
+          L("Uso l'AI come supporto a ricerca, brainstorming e alcune fasi di produzione, mantenendo il controllo creativo e verificando ogni informazione. Strumenti: Illustrator, Photoshop, Premiere Pro, ChatGPT, Claude, Perplexity.",
+            "I use AI to support research, brainstorming and some production steps, while keeping creative control and checking every piece of information. Tools: Illustrator, Photoshop, Premiere Pro, ChatGPT, Claude, Perplexity.")
         ] }
       ],
       closing: {
-        title: L("Trasformare quello che succede nel mondo del lavoro in contenuti che valga la pena fermarsi a leggere.",
-          "Turning what happens in the world of work into content worth stopping to read."),
-        text: L("Per BuddyJob costruisco contenuti partendo da conversazioni, trend, dati e situazioni quotidiane. Il formato cambia ogni volta; l'obiettivo resta costruire una voce riconoscibile e una community che abbia voglia di partecipare.",
-          "For BuddyJob I build content starting from conversations, trends, data and everyday situations. The format changes every time; the goal stays the same: a recognizable voice and a community that wants to take part.")
+        title: L("Strategia e creatività,<br>nello stesso processo.", "Strategy and creativity,<br>in the same process."),
+        text: L("Per BuddyJob ho lavorato sulla crescita della community e sulla comunicazione dei servizi, con contenuti pensati per obiettivi diversi. Dalla ricerca alla scrittura, dalla direzione creativa alla grafica e al video, fino alla lettura dei risultati: è questo il modo in cui mi piace lavorare.",
+          "For BuddyJob I worked on both growing the community and communicating the services, with content built for different goals. From research to writing, from creative direction to design and video, all the way to reading the results: that's how I like to work.")
       }
     },
     {
